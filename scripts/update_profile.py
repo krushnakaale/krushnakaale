@@ -13,7 +13,7 @@ if __package__ in (None, ""):
 
 from scripts.activity import public_activity
 from scripts.github_api import GitHubAPI, GitHubError
-from scripts.markdown_renderer import project_cards, render_regions, text
+from scripts.markdown_renderer import featured_cards, project_cards, render_regions, text
 from scripts.profile_config import load_config
 from scripts.repository_manager import fetch_repositories, select_featured, select_repositories
 from scripts.statistics import render_stats
@@ -59,7 +59,7 @@ def update(root, api):
     summary = ", ".join(f"{label} {value}" for label, value in metrics)
     sections = {
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
-        "FEATURED": project_cards(username, featured),
+        "FEATURED": featured_cards(username, featured),
         "REPOSITORIES": project_cards(username, eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
