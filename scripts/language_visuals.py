@@ -1,4 +1,4 @@
-"""Centered, live GitHub primary-language pie chart in a cyber dashboard style."""
+"""Generate a compact, professional GitHub-language pie chart without unused space."""
 from html import escape
 from math import cos, sin, pi
 
@@ -6,53 +6,57 @@ COLORS = ("#39FF88", "#22D3EE", "#A78BFA", "#FBBF24", "#FB7185", "#60A5FA", "#2D
 
 
 def render_language_pie(languages):
-    items = [(str(k), max(0, int(v))) for k, v in languages.most_common() if int(v) > 0]
-    total = sum(v for _, v in items)
-    # Show at most seven named slices; aggregate the rest to preserve exact totals.
-    if len(items) > 7:
-        items = items[:7] + [("Other", sum(v for _, v in items[7:]))]
-    cx, cy, r = 360, 214, 137
-    slices, legend = [], []
+    raw = [(str(name), int(count)) for name, count in languages.most_common() if int(count) > 0]
+    total = sum(count for _, count in raw)
+    items = raw[:7]
+    if len(raw) > 7:
+        items.append(("Other", sum(count for _, count in raw[7:])))
+    # Responsive SVG height: room only for rows that actually exist.
+    height = max(276, 82 + 38 * max(1, len(items)))
+    cx, cy, radius = 238, height // 2 + 5, 103
+    legends, slices = [], []
     angle = -pi / 2
-    for i, (name, value) in enumerate(items):
-        portion = value / total
-        color = COLORS[i % len(COLORS)]
-        next_angle = angle + 2 * pi * portion
-        if portion >= .999999:
-            shape = f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{color}"/>'
+    for index, (name, amount) in enumerate(items):
+        share = amount / total
+        color = COLORS[index % len(COLORS)]
+        next_angle = angle + 2 * pi * share
+        if share >= 0.99999:
+            svg_path = f'<circle cx="{cx}" cy="{cy}" r="{radius}" fill="{color}"/>'
         else:
-            x1, y1 = cx + r * cos(angle), cy + r * sin(angle)
-            x2, y2 = cx + r * cos(next_angle), cy + r * sin(next_angle)
-            large = 1 if portion > .5 else 0
-            shape = f'<path d="M{cx},{cy} L{x1:.3f},{y1:.3f} A{r},{r} 0 {large} 1 {x2:.3f},{y2:.3f} Z" fill="{color}" stroke="#07121A" stroke-width="3"/>'
-        slices.append(shape)
-        ly = 101 + i * 43
-        pct = 100 * portion
-        legend.append(f'<circle cx="630" cy="{ly}" r="7" fill="{color}"/>'
-                      f'<text x="650" y="{ly+5}" fill="#D9F7EA" font-size="17" font-weight="600">{escape(name[:19])}</text>'
-                      f'<text x="1018" y="{ly+5}" text-anchor="end" fill="{color}" font-size="17" font-weight="700">{pct:.1f}%</text>'
-                      f'<text x="1038" y="{ly+5}" fill="#85B9AA" font-size="12">({value})</text>')
+            x1, y1 = cx + radius * cos(angle), cy + radius * sin(angle)
+            x2, y2 = cx + radius * cos(next_angle), cy + radius * sin(next_angle)
+            svg_path = (f'<path d="M{cx},{cy} L{x1:.2f},{y1:.2f} '
+                        f'A{radius},{radius} 0 {int(share > .5)} 1 {x2:.2f},{y2:.2f} Z" '
+                        f'fill="{color}" stroke="#07151C" stroke-width="2.5"/>')
+        slices.append(svg_path)
+        y = 88 + index * 38
+        legends.append(
+            f'<circle cx="473" cy="{y}" r="6" fill="{color}"/>'
+            f'<text x="489" y="{y+5}" font-size="16" font-weight="600" fill="#E2F5F0">{escape(name[:23])}</text>'
+            f'<text x="1020" y="{y+5}" text-anchor="end" font-size="16" font-weight="700" fill="{color}">{share*100:.1f}%</text>'
+            f'<rect x="780" y="{y-7}" width="140" height="8" rx="4" fill="#19332D"/>'
+            f'<rect x="780" y="{y-7}" width="{140*share:.1f}" height="8" rx="4" fill="{color}" opacity=".9"/>'
+        )
         angle = next_angle
     if not items:
-        slices.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#15362E"/>')
-        legend.append('<text x="635" y="185" fill="#B5D4C8" font-size="18">No public language data yet</text>')
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430" role="img" aria-labelledby="title desc">
-<title id="title">Live language breakdown pie chart</title>
-<desc id="desc">GitHub primary language distribution across {total} public repositories, updated automatically</desc>
+        slices.append(f'<circle cx="{cx}" cy="{cy}" r="{radius}" fill="#13362B"/>')
+        legends.append('<text x="480" y="148" font-size="17" fill="#A8C7BA">No primary-language data available</text>')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="{height}" viewBox="0 0 1100 {height}" role="img" aria-labelledby="title desc">
+<title id="title">Live primary language breakdown</title>
+<desc id="desc">Distribution of {total} public repositories by GitHub-reported primary language.</desc>
 <defs>
-<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#061018"/><stop offset="1" stop-color="#09251D"/></linearGradient>
-<radialGradient id="shine" cx=".32" cy=".22" r=".9"><stop stop-color="#FFFFFF" stop-opacity=".22"/><stop offset=".52" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
-<pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" stroke="#39FF88" stroke-opacity=".055" fill="none"/></pattern>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07131B"/><stop offset="1" stop-color="#0A2019"/></linearGradient>
+<radialGradient id="shine" cx=".28" cy=".18" r=".9"><stop stop-color="#FFFFFF" stop-opacity=".23"/><stop offset=".65" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#39FF88" stroke-opacity=".045"/></pattern>
 </defs>
-<rect width="1100" height="430" rx="20" fill="url(#bg)"/>
-<rect width="1100" height="430" rx="20" fill="url(#grid)"/>
-<rect x="2" y="2" width="1096" height="426" rx="18" stroke="#22684D" fill="none"/>
-<text x="550" y="38" text-anchor="middle" font-family="monospace" font-size="20" font-weight="700" fill="#39FF88">LANGUAGE // DISTRIBUTION</text>
-<text x="550" y="60" text-anchor="middle" font-family="monospace" font-size="12" fill="#9ABFAF">LIVE GITHUB PRIMARY LANGUAGE DATA</text>
-<ellipse cx="370" cy="226" rx="145" ry="137" fill="#000" opacity=".45"/>
+<rect width="1100" height="{height}" rx="16" fill="url(#bg)"/>
+<rect width="1100" height="{height}" rx="16" fill="url(#grid)"/>
+<rect x="1" y="1" width="1098" height="{height-2}" rx="15" fill="none" stroke="#246D4E"/>
+<text x="23" y="32" font-family="monospace" font-size="16" font-weight="700" fill="#39FF88">LANGUAGE // BREAKDOWN</text>
+<text x="1076" y="32" text-anchor="end" font-family="monospace" font-size="12" fill="#8FC5A7">{total} REPOS · AUTO-SYNC</text>
+<ellipse cx="{cx+7}" cy="{cy+10}" rx="{radius+2}" ry="{radius}" fill="#000" opacity=".28"/>
 <g>{''.join(slices)}</g>
-<circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#shine)" pointer-events="none"/>
-<circle cx="{cx}" cy="{cy}" r="{r+5}" fill="none" stroke="#39FF88" stroke-opacity=".35" stroke-width="1"/>
-<g font-family="Arial,sans-serif">{''.join(legend)}</g>
-<text x="550" y="403" text-anchor="middle" font-family="monospace" font-size="12" fill="#87AFA1">{total} REPOSITORIES WITH REPORTED PRIMARY LANGUAGE · AUTO-SYNC</text>
+<circle cx="{cx}" cy="{cy}" r="{radius}" fill="url(#shine)"/>
+<circle cx="{cx}" cy="{cy}" r="{radius+4}" fill="none" stroke="#39FF88" stroke-opacity=".27"/>
+<g font-family="Arial,sans-serif">{''.join(legends)}</g>
 </svg>"""
