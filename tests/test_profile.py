@@ -72,6 +72,10 @@ class UpdateTests(unittest.TestCase):
         self.addCleanup(temp.cleanup)
         self.root = Path(temp.name)
         (self.root / "assets").mkdir()
+        # The live dashboard renders project cards over checked-in background photos.
+        # Give the isolated test workspace the same required source assets.
+        for background in ("developer-background.png", "hacker-background.png.png"):
+            shutil.copy2(ROOT / "assets" / background, self.root / "assets" / background)
         shutil.copytree(ROOT / "config", self.root / "config")
         self.readme = self.root / "README.md"
         self.template = (ROOT / "README.template.md").read_text(encoding="utf-8")
@@ -92,6 +96,10 @@ class UpdateTests(unittest.TestCase):
         self.assertTrue(update(self.root, self.api))
         before = self.readme.read_bytes()
         ElementTree.parse(self.root / "assets/github-stats.svg")
+        ElementTree.parse(self.root / "assets/language-breakdown.svg")
+        self.assertIn(b"Python", (self.root / "assets/language-breakdown.svg").read_bytes())
+        self.assertTrue((self.root / "assets/featured-projects-developer.png").is_file())
+        self.assertTrue((self.root / "assets/latest-repositories-hacker.png").is_file())
         self.assertIn(b"Pushed to", before)
         self.assertIn(b"Manual note.", before)
         self.assertFalse(update(self.root, self.api))
