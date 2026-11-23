@@ -26,7 +26,7 @@ I build Python tools and automation scripts, develop practical web applications,
 <!-- FOCUS:START -->
 ```text
 ┌─[ KRUSHNA@CYBER-LAB ]──[ MISSION STATUS: ACTIVE ]
-│  EXPLORING  Python automation, Cybersecurity fundamentals, Open-source development
+│  EXPLORING
 └─> learn • build • secure • repeat
 ```
 <!-- FOCUS:END -->
