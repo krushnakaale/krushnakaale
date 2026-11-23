@@ -6,7 +6,7 @@ EVENTS = {
     "PushEvent": "Pushed to",
     "PullRequestEvent": "Updated a pull request in",
     "ReleaseEvent": "Published a release in",
-    "CreateEvent": "Created a Git ref in",
+    "CreateEvent": "Created a Git ref in",\n    "IssuesEvent": "Updated an issue in",\n    "IssueCommentEvent": "Commented on an issue in",\n    "PullRequestReviewEvent": "Reviewed a pull request in",\n    "ForkEvent": "Forked a repository from",\n    "WatchEvent": "Starred a repository in",
 }
 
 
