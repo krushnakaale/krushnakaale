@@ -50,7 +50,7 @@ def project_cards(username, repositories):
         if len(pair) == 1:
             pair.append('<td width="50%" valign="top"></td>')
         rows.append("<tr>" + "".join(pair) + "</tr>")
-    return "<table>\\n" + "\\n".join(rows) + "\\n</table>"
+    return "<table>\n" + "\n".join(rows) + "\n</table>"
 
 
 def featured_cards(username, repositories):
