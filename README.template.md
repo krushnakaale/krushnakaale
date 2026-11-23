@@ -6,10 +6,10 @@
 
 **`> Think like a hacker. Build like an engineer.`**
 
-[![Portfolio](https://img.shields.io/badge/PORTFOLIO-050A08?style=for-the-badge&logo=vercel&logoColor=00FF41)](https://krushnakaale.vercel.app)
-[![GitHub](https://img.shields.io/badge/GITHUB-050A08?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/krushnakaale)
-[![LinkedIn](https://img.shields.io/badge/LINKEDIN-050A08?style=for-the-badge&logo=linkedin&logoColor=00FF41)](https://www.linkedin.com/in/krushnakaale)
-[![Instagram](https://img.shields.io/badge/INSTAGRAM-050A08?style=for-the-badge&logo=instagram&logoColor=00FF41)](https://www.instagram.com/krushnakaale)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-0B1020?style=for-the-badge&logo=vercel&logoColor=22D3EE)](https://krushnakaale.vercel.app)
+[![GitHub](https://img.shields.io/badge/GITHUB-0B1020?style=for-the-badge&logo=github&logoColor=22D3EE)](https://github.com/krushnakaale)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-0B1020?style=for-the-badge&logo=linkedin&logoColor=22D3EE)](https://www.linkedin.com/in/krushnakaale)
+[![Instagram](https://img.shields.io/badge/INSTAGRAM-0B1020?style=for-the-badge&logo=instagram&logoColor=22D3EE)](https://www.instagram.com/krushnakaale)
 
 </div>
 
@@ -30,7 +30,7 @@ I build practical applications, security-focused learning projects and automatio
 </td>
 <td width="34%" valign="top">
 
-### 🟢 Currently Working On
+### 🟣 Currently Working On
 
 <!-- FOCUS:START -->
 Available after the first profile refresh.
@@ -44,20 +44,20 @@ Available after the first profile refresh.
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-0D1712?style=for-the-badge&logo=python&logoColor=39FF88)
-![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=for-the-badge&logo=javascript&logoColor=39FF88)
-![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=for-the-badge&logo=typescript&logoColor=39FF88)
-![HTML5](https://img.shields.io/badge/HTML5-0D1712?style=for-the-badge&logo=html5&logoColor=39FF88)
-![CSS3](https://img.shields.io/badge/CSS3-0D1712?style=for-the-badge&logo=css&logoColor=39FF88)
-![Git](https://img.shields.io/badge/Git-0D1712?style=for-the-badge&logo=git&logoColor=39FF88)
-![Linux](https://img.shields.io/badge/Linux-0D1712?style=for-the-badge&logo=linux&logoColor=39FF88)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1712?style=for-the-badge&logo=githubactions&logoColor=39FF88)
+![Python](https://img.shields.io/badge/Python-101426?style=for-the-badge&logo=python&logoColor=A78BFA)
+![JavaScript](https://img.shields.io/badge/JavaScript-101426?style=for-the-badge&logo=javascript&logoColor=A78BFA)
+![TypeScript](https://img.shields.io/badge/TypeScript-101426?style=for-the-badge&logo=typescript&logoColor=A78BFA)
+![HTML5](https://img.shields.io/badge/HTML5-101426?style=for-the-badge&logo=html5&logoColor=A78BFA)
+![CSS3](https://img.shields.io/badge/CSS3-101426?style=for-the-badge&logo=css&logoColor=A78BFA)
+![Git](https://img.shields.io/badge/Git-101426?style=for-the-badge&logo=git&logoColor=A78BFA)
+![Linux](https://img.shields.io/badge/Linux-101426?style=for-the-badge&logo=linux&logoColor=A78BFA)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-101426?style=for-the-badge&logo=githubactions&logoColor=A78BFA)
 
 </div>
 
 ---
 
-### 📊 GitHub Dashboard
+### 🌌 Cyberpunk GitHub Dashboard
 
 <!-- STATS:START -->
 ![GitHub repository and language statistics](assets/github-stats.svg)
