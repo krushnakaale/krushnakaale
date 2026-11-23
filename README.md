@@ -66,7 +66,7 @@ I build Python tools and automation scripts, develop practical web applications,
 *Selected builds worth exploring · Purple spotlight cards · Live stars, forks and project details.*
 
 <!-- FEATURED:START -->
-![Featured projects, automatically updated from GitHub](assets/featured-projects.svg)
+![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)
 
 [Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [Python-Projects](https://github.com/krushnakaale/Python-Projects) · [yt-manager](https://github.com/krushnakaale/yt-manager)
 <!-- FEATURED:END -->
