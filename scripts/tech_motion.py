@@ -30,7 +30,7 @@ ICON_PATHS = {
 BASE = "https://raw.githubusercontent.com/devicons/devicon/master/icons/"
 
 
-def icon_for(item, size=70):
+def icon_for(item, size=56):
     name = str(item["name"]).upper()
     icon_path = item.get("icon") or ICON_PATHS.get(name)
     if not icon_path or ".." in icon_path or not icon_path.endswith(".svg"):
@@ -84,13 +84,13 @@ def main():
             x = round(cx + ax * math.sin(fx * t + offset))
             y = round(cy + ay * math.cos(fy * t + offset * .7))
             # Transparent neon halo behind the real, full-color logo.
-            halo = Image.new("RGBA", (112, 112), (0, 0, 0, 0))
+            halo = Image.new("RGBA", (92, 92), (0, 0, 0, 0))
             hd = ImageDraw.Draw(halo, "RGBA")
-            hd.ellipse((13, 13, 99, 99), fill=(9, 36, 36, 145), outline=(45, 255, 169, 125), width=2)
+            hd.ellipse((11, 11, 81, 81), fill=(9, 36, 36, 145), outline=(45, 255, 169, 125), width=2)
             glow = halo.filter(ImageFilter.GaussianBlur(9))
-            im.alpha_composite(glow, (x - 56, y - 56))
-            im.alpha_composite(halo, (x - 56, y - 56))
-            im.alpha_composite(logo, (x - 35, y - 35))
+            im.alpha_composite(glow, (x - 46, y - 46))
+            im.alpha_composite(halo, (x - 46, y - 46))
+            im.alpha_composite(logo, (x - 28, y - 28))
         frames.append(im.convert("RGB"))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     frames[0].save(OUT, save_all=True, append_images=frames[1:],
