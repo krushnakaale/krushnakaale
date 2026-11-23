@@ -2,7 +2,7 @@
   "width": 1000,
   "height": 320,
   "frames": 32,
-  "frame_ms": 180,
+  "frame_ms": 260,
   "technologies": [
     {
       "name": "PYTHON",
