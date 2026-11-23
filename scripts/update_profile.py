@@ -76,17 +76,22 @@ def update(root, api):
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": '<div align="center">\n\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
-        "FOCUS": "\n".join(
-            ["**`[ SYSTEM ONLINE ]  //  CURRENT MISSION`**", ""]
-            + [
-                f"**{heading}**\n" + "\n".join(f"- `> ` {text(item)}" for item in config[key]) + "\n"
-                for key, heading in (
-                    ("currently_working_on", "⚡ BUILDING"),
-                    ("learning_interests", "◈ EXPLORING"),
-                )
-                if config[key]
-            ]
-            + ["`> learn • build • secure • repeat_`"]
+        "FOCUS": (
+            "**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**\\n\\n"
+            "| 01 // FOCUS | 02 // FOCUS | 03 // FOCUS |\\n"
+            "|:---:|:---:|:---:|\\n"
+            + "\\n".join(
+                "| " + " | ".join(
+                    f"**`{text(item)}`**" if item else "—"
+                    for item in (items[i:i + 3] + [""] * 3)[:3]
+                ) + " |"
+                for items in [[
+                    *config["currently_working_on"],
+                    *config["learning_interests"],
+                ]]
+                for i in range(0, len(items), 3)
+            )
+            + "\\n\\n`> learn • build • secure • repeat_`"
         ),
     }
     refreshed = render_regions(original, sections)
