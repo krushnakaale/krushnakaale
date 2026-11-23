@@ -1,140 +1,117 @@
-# Krushna Kale
+<div align="center">
 
-![Krushna Kale. Python developer, cybersecurity enthusiast and automation builder. Think like a hacker. Build like an engineer.](assets/profile-terminal.svg)
+<img src="assets/profile-terminal.svg" alt="Krushna Kale — Cyber Hacker developer banner" width="100%" />
 
-![Python development · Cybersecurity learning · Automation](assets/typing.svg)
+<img src="assets/typing.svg" alt="Python development, cybersecurity and automation" width="80%" />
 
-## About me
+**`> Think like a hacker. Build like an engineer.`**
 
-I build Python tools and automation scripts, develop practical web applications, and learn secure development and cybersecurity through hands-on projects. I use Linux and Git to build and document my work while learning how to contribute to open source.
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-050A08?style=for-the-badge&logo=vercel&logoColor=00FF41)](https://krushnakaale.vercel.app)
+[![GitHub](https://img.shields.io/badge/GITHUB-050A08?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/krushnakaale)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-050A08?style=for-the-badge&logo=linkedin&logoColor=00FF41)](https://www.linkedin.com/in/krushnakaale)
+[![Instagram](https://img.shields.io/badge/INSTAGRAM-050A08?style=for-the-badge&logo=instagram&logoColor=00FF41)](https://www.instagram.com/krushnakaale)
 
-[Explore my portfolio ↗](https://krushnakaale.vercel.app/)
+</div>
 
-## Current focus
+---
+
+<table>
+<tr>
+<td width="66%" valign="top">
+
+### 🚀 About Me
+
+I'm **Krushna Kale**, a developer exploring **Python, automation, cybersecurity and open source**.
+
+I build practical applications, security-focused learning projects and automation tools to turn ideas into useful software.
+
+`> building · securing · automating · learning`
+
+</td>
+<td width="34%" valign="top">
+
+### 🟢 Currently Working On
 
 <!-- FOCUS:START -->
-> **Learning interests**
-> - Python automation
-> - Cybersecurity fundamentals
-> - Open-source development
+Learning Python automation
 <!-- FOCUS:END -->
 
-## Technology stack
+</td>
+</tr>
+</table>
 
-**Programming**
+### ⚡ Technology Stack
 
-![Python](https://img.shields.io/badge/Python-0D1712?style=flat-square&logo=python&logoColor=39FF88) ![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=flat-square&logo=javascript&logoColor=39FF88) ![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=flat-square&logo=typescript&logoColor=39FF88) ![HTML](https://img.shields.io/badge/HTML-0D1712?style=flat-square&logo=html5&logoColor=39FF88) ![CSS](https://img.shields.io/badge/CSS-0D1712?style=flat-square&logo=css&logoColor=39FF88)
+<div align="center">
 
-**Tools**
+![Python](https://img.shields.io/badge/Python-0D1712?style=for-the-badge&logo=python&logoColor=39FF88)
+![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=for-the-badge&logo=javascript&logoColor=39FF88)
+![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=for-the-badge&logo=typescript&logoColor=39FF88)
+![HTML5](https://img.shields.io/badge/HTML5-0D1712?style=for-the-badge&logo=html5&logoColor=39FF88)
+![CSS3](https://img.shields.io/badge/CSS3-0D1712?style=for-the-badge&logo=css&logoColor=39FF88)
+![Git](https://img.shields.io/badge/Git-0D1712?style=for-the-badge&logo=git&logoColor=39FF88)
+![Linux](https://img.shields.io/badge/Linux-0D1712?style=for-the-badge&logo=linux&logoColor=39FF88)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1712?style=for-the-badge&logo=githubactions&logoColor=39FF88)
 
-![Git](https://img.shields.io/badge/Git-0D1712?style=flat-square&logo=git&logoColor=39FF88) ![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88) ![Linux](https://img.shields.io/badge/Linux-0D1712?style=flat-square&logo=linux&logoColor=39FF88) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-0D1712?style=flat-square&logo=githubactions&logoColor=39FF88)
+</div>
 
-## GitHub dashboard
+---
+
+### 📊 GitHub Dashboard
 
 <!-- STATS:START -->
-![Public projects 11, Project stars 3, Project forks 1, Followers 2. Includes a chart of top primary languages.](assets/github-stats.svg)
+undefined
 <!-- STATS:END -->
 
-## Featured projects
+> Stats are generated from public GitHub repository data. Counts may differ from GitHub's contribution totals.
+
+### 📌 Featured Projects
 
 <!-- FEATURED:START -->
-#### [Python-Basic-Projects ↗](https://github.com/krushnakaale/Python-Basic-Projects)
-
-> A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.
-
-<sub>Python · ★ 1 · Pushed 2026-11-23 UTC</sub>
-
-#### [Myraa-Voice-Assistant ↗](https://github.com/krushnakaale/Myraa-Voice-Assistant)
-
-<sub>TypeScript · ★ 1 · Pushed 2026-09-13 UTC</sub>
-
-#### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
-
-> Organized Python projects from beginner to advanced levels for hands-on learning and practice.
-
-<sub>Python · ★ 0 · Pushed 2026-11-23 UTC</sub>
+Available after the first profile refresh.
 <!-- FEATURED:END -->
 
-## Recent repositories
+### 🗂️ Latest Repositories
 
 <!-- REPOSITORIES:START -->
-#### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
-
-> Organized Python projects from beginner to advanced levels for hands-on learning and practice.
-
-<sub>Python · ★ 0 · Pushed 2026-11-23 UTC</sub>
-
-#### [Python-Basic-Projects ↗](https://github.com/krushnakaale/Python-Basic-Projects)
-
-> A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.
-
-<sub>Python · ★ 1 · Pushed 2026-11-23 UTC</sub>
-
-#### [yt-manager ↗](https://github.com/krushnakaale/yt-manager)
-
-> A desktop app for organizing YouTube videos and playlists, previewing saved videos, and managing authorized file downloads.
-
-<sub>JavaScript · ★ 0 · Pushed 2026-11-22 UTC</sub>
-
-#### [Myraa-Voice-Assistant ↗](https://github.com/krushnakaale/Myraa-Voice-Assistant)
-
-<sub>TypeScript · ★ 1 · Pushed 2026-09-13 UTC</sub>
-
-#### [resume ↗](https://github.com/krushnakaale/resume)
-
-> My latest professional resume in PDF format. This repository hosts the most up-to-date version of my resume, accessible for recruiters, collaborators, and professional connections.
-
-<sub>★ 1 · Pushed 2026-08-23 UTC</sub>
-
-#### [fresher-party-management-system ↗](https://github.com/krushnakaale/fresher-party-management-system)
-
-> Full-stack event management system for college fresher's parties — student registration, Razorpay payments, secure QR entry passes, and an admin dashboard with live QR scanning. Built with React, Node.js, Express, and MongoDB.
-
-<sub>JavaScript · ★ 0 · Pushed 2026-08-03 UTC</sub>
-
-#### [TA0023 ↗](https://github.com/krushnakaale/TA0023)
-
-> During medical emergencies, patients struggle to find hospitals with available beds and active OPD services. This project provides a centralized digital platform to monitor hospital bed availability and OPD status in real time.
-
-<sub>JavaScript · ★ 0 · Pushed 2026-02-21 UTC</sub>
-
-#### [SevaSetu ↗](https://github.com/krushnakaale/SevaSetu)
-
-> Full-stack healthcare platform with user authentication, doctor appointments, pharmacy services, and emergency support.
-
-<sub>JavaScript · ★ 0 · Pushed 2026-02-20 UTC</sub>
-
-[View all repositories ↗](https://github.com/krushnakaale?tab=repositories)
+Available after the first profile refresh.
 <!-- REPOSITORIES:END -->
 
-## Primary languages
+<details>
+<summary><b>🧠 Primary Languages — expand</b></summary>
 
 <!-- LANGUAGES:START -->
-**JavaScript** 5 · **Python** 2 · **HTML** 2 · **TypeScript** 1
+Available after the first profile refresh.
 <!-- LANGUAGES:END -->
 
-Counts reflect each eligible repository’s primary language as reported by GitHub.
+<sub>Counts represent the primary language of eligible public repositories.</sub>
+</details>
 
-## Recent public activity
+<details>
+<summary><b>📡 Recent Public Activity — expand</b></summary>
 
 <!-- ACTIVITY:START -->
-- **2026-11-23 UTC** · Pushed to [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
-- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
-- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/yt-manager](https://github.com/krushnakaale/yt-manager)
+Available after the first profile refresh.
 <!-- ACTIVITY:END -->
 
-## Contribution snake
+</details>
+
+---
+
+### 🐍 Contribution Snake
+
+<div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake.svg">
-  <img alt="Animated GitHub contribution calendar" src="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake.svg">
+<img alt="GitHub contribution snake animation" src="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg" width="100%">
 </picture>
 
-[View contribution activity on GitHub ↗](https://github.com/krushnakaale#js-contribution-activity)
+[View my contribution activity](https://github.com/krushnakaale#js-contribution-activity)
 
-## Connect
+---
 
-[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=flat-square&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=flat-square)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=flat-square&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushnakaale)
+<sub>⚡ Powered by Python · GitHub API · GitHub Actions | Public data refreshes on scheduled workflow runs.</sub>
 
-<sub>GitHub Actions refreshes the public dashboard automatically.</sub>
+</div>
