@@ -18,6 +18,7 @@ from scripts.markdown_renderer import featured_cards, project_cards, render_regi
 from scripts.profile_config import load_config
 from scripts.repository_manager import fetch_repositories, select_featured, select_repositories
 from scripts.statistics import render_stats
+from scripts.language_visuals import render_language_pie
 from scripts.project_visuals import render_projects, render_latest_png
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,8 +74,7 @@ def update(root, api):
         "FEATURED": "![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)\n\n" + repo_links(featured),
         "REPOSITORIES": "![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
-        "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
-        or "No primary languages reported yet.",
+        "LANGUAGES": '<div align="center">\\n\\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\\n\\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
         "FOCUS": "\n\n".join(
             f"> {heading}\n" + "\n".join(f"> - {text(item)}" for item in config[key])
@@ -85,13 +85,14 @@ def update(root, api):
     refreshed = render_regions(original, sections)
     svg = render_stats(metrics, languages)
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
+    language_changed = replace_if_changed(root / "assets/language-breakdown.svg", render_language_pie(languages))
     featured_changed = replace_if_changed(root / "assets/featured-projects.svg", render_projects(featured, featured=True))
     render_latest_png(featured, root / "assets/developer-background.png", root / "assets/featured-projects-developer.png", featured=True)
     repositories_changed = replace_if_changed(root / "assets/latest-repositories-v2.svg", render_projects(eligible[:config["repository_limit"]]))
     render_latest_png(eligible[:config["repository_limit"]], root / "assets/hacker-background.png.png", root / "assets/latest-repositories-hacker.png")
     activity_changed = replace_if_changed(root / "assets/activity-feed.svg", render_activity(activity))
     readme_changed = replace_if_changed(readme, refreshed)
-    return stats_changed or featured_changed or repositories_changed or activity_changed or readme_changed
+    return language_changed or stats_changed or featured_changed or repositories_changed or activity_changed or readme_changed
 
 
 def main():
