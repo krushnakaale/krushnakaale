@@ -74,7 +74,7 @@ def update(root, api):
         "FEATURED": "![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)\n\n" + repo_links(featured),
         "REPOSITORIES": "![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
-        "LANGUAGES": '<div align="center">\\n\\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\\n\\n</div>',
+        "LANGUAGES": '<div align="center">\n\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
         "FOCUS": "\n\n".join(
             f"> {heading}\n" + "\n".join(f"> - {text(item)}" for item in config[key])
