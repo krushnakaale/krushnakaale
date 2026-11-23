@@ -24,7 +24,13 @@ I build Python tools and automation scripts, develop practical web applications,
 ### > current_mission
 
 <!-- FOCUS:START -->
-**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**\n\n| 01 // FOCUS | 02 // FOCUS | 03 // FOCUS |\n|:---:|:---:|:---:|\n| **`Python automation`** | **`Cybersecurity fundamentals`** | **`Open-source development`** |\n\n`> learn • build • secure • repeat_`
+**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**
+
+| 01 // FOCUS | 02 // FOCUS | 03 // FOCUS |
+|:---:|:---:|:---:|
+| **`Python automation`** | **`Cybersecurity fundamentals`** | **`Open-source development`** |
+
+`> learn • build • secure • repeat_`
 <!-- FOCUS:END -->
 
 ## `03 // TECH STACK`
