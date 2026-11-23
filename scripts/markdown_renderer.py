@@ -11,30 +11,48 @@ def text(value):
     return re.sub(r"[!\\*_#\[\]~|\x60]", lambda match: f"&#{ord(match[0])};", value)
 
 
+def _badge(label, value, color):
+    """GitHub-compatible flat badge with a dark cyber background."""
+    from urllib.parse import quote as url_quote
+    left = url_quote(str(label), safe="")
+    right = url_quote(str(value), safe="")
+    return (
+        f'<img alt="{escape(str(label))}: {escape(str(value))}" '
+        f'src="https://img.shields.io/badge/{left}-{right}-{color}'
+        '?style=flat-square&amp;labelColor=0B1020" />'
+    )
+
+
 def _repo_card(username, repo, featured=False):
-    """A GitHub-safe cyber card with escaped live repository metadata."""
+    """Render readable, clickable project information with live API metrics."""
     name = text(repo["name"])
     url = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
-    description = text(repo.get("description") or "Explore source code and project documentation.")
-    language = text(repo.get("language") or "Other")
+    description = text(repo.get("description") or "Source code, documentation and project updates.")
+    if len(description) > 195:
+        description = description[:192].rsplit(" ", 1)[0] + "…"
+    language = repo.get("language") or "Unspecified"
     stars = max(0, int(repo.get("stargazers_count") or 0))
     forks = max(0, int(repo.get("forks_count") or 0))
     pushed = text((repo.get("pushed_at") or "")[:10])
-    label = "FEATURED" if featured else "PUBLIC REPO"
     accent = "A78BFA" if featured else "22D3EE"
-    status = "DISABLED" if repo.get("disabled") else "ACTIVE"
-    status_color = "A78BFA" if repo.get("disabled") else "39FF88"
-    tag = f"https://img.shields.io/badge/{label.replace(' ', '_')}-0B1020?style=flat-square&amp;labelColor=0B1020&amp;color={accent}"
-    status_badge = f"https://img.shields.io/badge/{status}-0B1020?style=flat-square&amp;labelColor=0B1020&amp;color={status_color}"
-    date = f"LAST PUSH // {pushed} UTC" if pushed else "LAST PUSH // N/A"
+    label = "SPOTLIGHT" if featured else "RECENT"
+    status = "DISABLED" if repo.get("disabled") else "PUBLIC"
+    line = (
+        _badge(label, "PROJECT" if featured else "REPOSITORY", accent)
+        + " " + _badge(status, text(language), "39FF88")
+    )
+    stats = (
+        _badge("STARS", stars, "A78BFA")
+        + " " + _badge("FORKS", forks, "22D3EE")
+    )
+    date = f"LAST PUSH · {pushed} UTC" if pushed else "LAST PUSH · N/A"
     return (
         '<td width="50%" valign="top">'
-        f'<img src="{tag}" alt="{label}" />&nbsp;<img src="{status_badge}" alt="{status}" />'
-        f'<br/><br/><a href="{url}"><strong>▸ {name} ↗</strong></a>'
-        f'<br/><sub>⌘ {language}</sub>'
+        f'{line}<br/><br/>'
+        f'<a href="{url}"><strong>▸ {name} ↗</strong></a>'
         f'<p>{description}</p>'
-        f'<sub>★ {stars} &nbsp;·&nbsp; ⑂ {forks}</sub>'
-        f'<br/><sub><code>{date}</code></sub>'
+        f'{stats}<br/>'
+        f'<sub><code>{date}</code></sub>'
         '</td>'
     )
 
@@ -47,18 +65,18 @@ def _card_grid(username, repositories, featured=False):
     for index in range(0, len(cells), 2):
         pair = cells[index:index + 2]
         if len(pair) == 1:
-            pair.append('<td width="50%" valign="top"></td>')
+            pair.append('<td width="50%" valign="top">&nbsp;</td>')
         rows.append("<tr>" + "".join(pair) + "</tr>")
     return "<table>\n" + "\n".join(rows) + "\n</table>"
 
 
 def project_cards(username, repositories):
-    """Latest projects: automatically reordered and updated on refresh."""
+    """Recent projects sorted by push time upstream; refreshed by workflow."""
     return _card_grid(username, repositories)
 
 
 def featured_cards(username, repositories):
-    """Curated projects: dynamic cyan/purple cyber cards."""
+    """Curated projects in the purple spotlight style."""
     return _card_grid(username, repositories, featured=True)
 
 
