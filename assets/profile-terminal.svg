@@ -1,39 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="260" viewBox="0 0 1100 260" role="img" aria-labelledby="title">
-  <title id="title">Krushna Kale — Python developer, cybersecurity enthusiast, automation builder</title>
-  <defs>
-    <linearGradient id="background" x2="0" y2="1">
-      <stop stop-color="#0c1813"/>
-      <stop offset="1" stop-color="#040806"/>
-    </linearGradient>
-    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
-      <path d="M22 0H0V22" fill="none" stroke="#183125" stroke-width="1"/>
-    </pattern>
-    <style>
-      .pulse { animation: pulse 1s steps(2, start) infinite; }
-      .signal { animation: signal 3s linear infinite; }
-      @keyframes pulse { to { opacity: .15; } }
-      @keyframes signal { to { stroke-dashoffset: -65; } }
-      @media (prefers-reduced-motion: reduce) { .pulse, .signal { animation: none; } }
-    </style>
-  </defs>
-  <rect x="1" y="1" width="1098" height="258" rx="17" fill="url(#background)" stroke="#4df52b"/>
-  <rect x="14" y="14" width="1072" height="232" rx="10" fill="url(#grid)" opacity=".65"/>
-  <g fill="none" stroke="#2e7351" stroke-width="1.5">
-    <path d="M22 58H146L184 96H245 M22 181H119L151 149H236 M22 211H179L209 181H250 M1078 59H971L940 90H854 M1078 199H984L953 168H860 M1078 116H1024L994 146H871"/>
-    <circle cx="961" cy="129" r="73"/>
-    <ellipse cx="961" cy="129" rx="42" ry="73"/>
-    <ellipse cx="961" cy="129" rx="73" ry="24"/>
-    <path d="M961 56V202M888 129H1034"/>
-    <circle cx="134" cy="130" r="68"/>
-    <path d="M115 112l-20 18 20 18m38-36 20 18-20 18m-12-45-15 55" stroke="#62ff39" stroke-width="4"/>
-  </g>
-  <path class="signal" d="M22 58H146L184 96H245 M1078 199H984L953 168H860 M1078 116H1024L994 146H871" fill="none" stroke="#62ff39" stroke-width="2" stroke-dasharray="9 56"/>
-  <g text-anchor="middle" font-family="system-ui, sans-serif">
-    <text x="550" y="106" font-size="64" font-weight="800" letter-spacing="2" fill="#f4fff7">KRUSHNA <tspan fill="#62ff39">KALE</tspan></text>
-    <text x="550" y="136" font-size="19" fill="#d2e5d8">Python Developer · Cybersecurity Enthusiast · Automation Builder</text>
-    <text x="550" y="160" font-size="17" fill="#a7b8ae">Think like a hacker. Build like an engineer.</text>
-  </g>
-  <rect x="285" y="178" width="530" height="42" rx="8" fill="#040806" stroke="#3bb941"/>
-  <text x="307" y="205" font-family="monospace" font-size="18" fill="#dcfbe1"><tspan fill="#62ff39">&gt;</tspan> Building · Securing · Automating · Learning</text>
-  <rect class="pulse" x="785" y="189" width="10" height="19" rx="1" fill="#62ff39"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="270" viewBox="0 0 1100 270" role="img" aria-labelledby="title">
+<title id="title">Krushna Kale — Cyberpunk developer portfolio</title>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#070B18"/><stop offset=".55" stop-color="#10112A"/><stop offset="1" stop-color="#061D22"/></linearGradient>
+<linearGradient id="neon"><stop stop-color="#22D3EE"/><stop offset=".5" stop-color="#A78BFA"/><stop offset="1" stop-color="#39FF88"/></linearGradient>
+<pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#26304B" stroke-width=".8"/></pattern>
+<style>
+.glow{animation:glow 4s ease-in-out infinite alternate}.dash{animation:dash 6s linear infinite}.orb{transform-origin:950px 133px;animation:spin 28s linear infinite}.cursor{animation:blink 1s steps(2,end) infinite}
+@keyframes glow{from{opacity:.45}to{opacity:1}}@keyframes dash{to{stroke-dashoffset:-120}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.glow,.dash,.orb,.cursor{animation:none}}
+</style>
+</defs>
+<rect width="1100" height="270" rx="20" fill="url(#bg)"/><rect x="1.5" y="1.5" width="1097" height="267" rx="19" fill="none" stroke="url(#neon)" stroke-width="2"/>
+<rect x="15" y="15" width="1070" height="240" rx="12" fill="url(#grid)" opacity=".6"/>
+<g stroke="url(#neon)" fill="none" opacity=".7"><path d="M15 67H130L165 102H245M15 206H135L169 172H260M1085 55H995L967 83H858M1085 218H990L953 183H852" stroke-width="2"/><path class="dash" d="M15 67H130L165 102H245M1085 218H990L953 183H852" stroke-width="3" stroke-dasharray="12 108"/></g>
+<g class="orb" transform="translate(950 133)" stroke="#22D3EE" fill="none" opacity=".7"><circle r="77"/><ellipse rx="36" ry="77"/><ellipse rx="77" ry="27"/><path d="M-77 0H77M0-77V77"/></g>
+<g transform="translate(143 135)" stroke="#A78BFA" fill="none"><circle r="75" opacity=".55"/><circle r="60" stroke-dasharray="7 9" class="glow"/><path d="M-27 -14L-48 0L-27 14M27 -14L48 0L27 14M13 -31L-13 31" stroke-width="6" stroke-linecap="round"/></g>
+<g text-anchor="middle" font-family="Arial,sans-serif">
+<text x="548" y="101" font-size="62" font-weight="800" letter-spacing="1" fill="#F8FAFC">KRUSHNA <tspan fill="#22D3EE">KALE</tspan></text>
+<text x="548" y="138" font-size="19" fill="#C4B5FD">PYTHON DEVELOPER  /  CYBERSECURITY  /  AUTOMATION</text>
+<text x="548" y="169" font-size="16" fill="#C9D5E7">Think like a hacker. Build like an engineer.</text></g>
+<rect x="305" y="190" width="487" height="42" rx="10" fill="#080E1B" stroke="#A78BFA"/>
+<text x="326" y="217" font-family="monospace" font-size="18" fill="#E2E8F0"><tspan fill="#39FF88">&gt;</tspan> building • securing • automating</text><rect class="cursor" x="755" y="201" width="10" height="20" fill="#22D3EE"/>
 </svg>
