@@ -24,19 +24,19 @@ def render_projects(repositories, featured=False):
         f'<title>{"Featured projects" if featured else "Latest repositories"} — live GitHub data</title>',
         '<rect width="1100" height="100%" fill="#0D1117"/>',
     ]
-    # Subtle hooded-coder watermark only for latest repositories; keep text readable.
+    # Larger visible hooded hacker silhouettes, positioned to the right of each column.
     if not featured:
         for row in range(rows):
             for column in range(2):
-                cx = 437 + column * 550
-                cy = 88 + row * row_height
+                cx = 448 + column * 550
+                cy = 97 + row * row_height
                 elements.extend([
-                    f'<g transform="translate({cx} {cy})" opacity="0.48">',
-                    '<path d="M-62 57Q-63 11-37-28Q-18-58 0-61Q18-58 37-28Q63 11 62 57Z" fill="#185D48" stroke="#39FF88" stroke-width="3"/>',
-                    '<path d="M-35-9Q-22-38 0-42Q22-38 35-9L25 24Q0 37-25 24Z" fill="#071713"/>',
-                    '<path d="M-23-5L-7-1M23-5L7-1" stroke="#22D3EE" stroke-width="4"/>',
-                    '<path d="M-51 38H51L61 70H-61Z" fill="#0C332B" stroke="#39FF88" stroke-width="3"/>',
-                    '<path d="M-12 51H12M0 45V57" stroke="#39FF88" stroke-width="3"/>',
+                    f'<g transform="translate({cx} {cy})" opacity="0.72">',
+                    '<path d="M-83 65Q-88 13-58-40Q-29-84 0-85Q29-84 58-40Q88 13 83 65Z" fill="#124936" stroke="#39FF88" stroke-width="3"/>',
+                    '<path d="M-55-18Q-31-61 0-62Q31-61 55-18L37 39Q0 56-37 39Z" fill="#061714" stroke="#21BD83" stroke-width="2"/>',
+                    '<path d="M-34-10L-8-2L-30 4M34-10L8-2L30 4" stroke="#22D3EE" stroke-width="4" fill="none"/>',
+                    '<path d="M-68 42H68L79 72H-79Z" fill="#10513D" stroke="#39FF88" stroke-width="3"/>',
+                    '<path d="M-15 55H15M0 48V62" stroke="#22D3EE" stroke-width="3"/>',
                     '</g>',
                 ])
     if not repos:
