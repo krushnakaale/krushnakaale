@@ -13,6 +13,7 @@ from pathlib import Path
 USERNAME = os.getenv("PROFILE_USERNAME", "krushnakaale")
 TOKEN = os.getenv("GH_TOKEN", "")
 README = Path(__file__).resolve().parents[1] / "README.md"
+STATS = README.parent / "assets" / "github-stats.svg"
 START, END = "<!-- DYNAMIC:START -->", "<!-- DYNAMIC:END -->"
 
 
@@ -45,14 +46,48 @@ def fetch_repos():
     return sorted(repos, key=lambda r: r.get("pushed_at") or "", reverse=True)
 
 
-def generate(user, repos):
-    stars = sum(int(r.get("stargazers_count") or 0) for r in repos)
-    forks = sum(int(r.get("forks_count") or 0) for r in repos)
-    languages = Counter(r.get("language") for r in repos if r.get("language"))
+def render_stats(metrics, languages):
+    labels = [
+        f'<text x="24" y="{y}">{escape(label)}</text>'
+        f'<text x="333" y="{y}" text-anchor="end" fill="#69ff45">{value}</text>'
+        for y, (label, value) in zip(range(74, 187, 35), metrics)
+    ]
+    bars = []
+    if languages:
+        maximum = max(languages.values())
+        for index, (language, count) in enumerate(languages.most_common(4)):
+            y = 74 + index * 35
+            bars.append(
+                f'<text x="400" y="{y}">{escape(language)}</text>'
+                f'<rect x="530" y="{y - 10}" width="142" height="8" rx="4" fill="#24422d"/>'
+                f'<rect x="530" y="{y - 10}" width="{round(142 * count / maximum)}" height="8" rx="4" fill="#57ef38"/>'
+                f'<text x="704" y="{y}" text-anchor="end">{count}</text>'
+            )
+    else:
+        bars.append('<text x="400" y="74">No language data yet</text>')
+    rows = "\n    ".join(labels + bars)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="728" height="204" viewBox="0 0 728 204">
+  <rect x="1" y="1" width="355" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
+  <rect x="376" y="1" width="351" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
+  <g font-family="system-ui, sans-serif" font-size="17" fill="#e6f8e9">
+    <text x="24" y="36" font-weight="700" fill="#69ff45">GitHub stats</text>
+    <text x="400" y="36" font-weight="700" fill="#69ff45">Top languages by repository</text>
+    {rows}
+  </g>
+</svg>
+"""
+
+
+def generate(metrics, languages, repos):
+    stats = ", ".join(f"{label} {value}" for label, value in metrics)
+    language_counts = ", ".join(
+        f"{esc(language)} {count}" for language, count in languages.most_common(4)
+    )
+    alt = f"{stats}. Top languages by repository: {language_counts or 'no data'}."
     lines = [
-        f"**Public projects:** {len(repos)} &nbsp;·&nbsp; **Stars on projects:** {stars} &nbsp;·&nbsp; **Forks of projects:** {forks} &nbsp;·&nbsp; **Followers:** {user.get('followers', 0)}",
+        f"![{alt}](assets/github-stats.svg)",
         "",
-        "### Recent projects",
+        "### Project showcase",
         "",
     ]
     for r in repos[:8]:
@@ -73,12 +108,7 @@ def generate(user, repos):
             lines.extend([f"<sub>{' · '.join(metadata)}</sub>", ""])
     if not repos:
         lines.extend(["No public project repositories yet.", ""])
-    lines += ["### Primary languages by repository", ""]
-    if languages:
-        lines.append(" · ".join(f"**{esc(k)}**: {v}" for k, v in languages.most_common(7)))
-    else:
-        lines.append("No language data yet.")
-    return "\n".join(lines)
+    return "\n".join(lines).rstrip()
 
 
 def main():
@@ -87,10 +117,22 @@ def main():
     old = README.read_text(encoding="utf-8")
     if old.count(START) != 1 or old.count(END) != 1 or old.index(START) >= old.index(END):
         raise ValueError("README dynamic section markers are missing or duplicated")
-    content = generate(user, repos)
+    metrics = [
+        ("Public projects", len(repos)),
+        ("Project stars", sum(int(r.get("stargazers_count") or 0) for r in repos)),
+        ("Project forks", sum(int(r.get("forks_count") or 0) for r in repos)),
+        ("Followers", user.get("followers", 0)),
+    ]
+    languages = Counter(r["language"] for r in repos if r.get("language"))
+    content = generate(metrics, languages, repos)
     new = old.split(START)[0] + START + "\n" + content + "\n" + END + old.split(END, 1)[1]
+    svg = render_stats(metrics, languages)
+    stats_changed = not STATS.exists() or STATS.read_text(encoding="utf-8") != svg
+    if stats_changed:
+        STATS.write_text(svg, encoding="utf-8")
     if new != old:
         README.write_text(new, encoding="utf-8")
+    if new != old or stats_changed:
         print(f"Updated dashboard: {len(repos)} repositories")
     else:
         print("No changes")

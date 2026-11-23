@@ -1,23 +1,21 @@
 # Krushna Kale
 
-![Animated terminal cycling through Python, automation, web development, and Linux commands](assets/profile-terminal.svg)
+![Krushna Kale, Python developer, cybersecurity enthusiast, and automation builder. Neon circuit banner with a blinking terminal cursor.](assets/profile-terminal.svg)
 
-**Python · Automation · Web Development**
+## About me
 
 I build Python tools and scripts to automate repetitive tasks. I also build web projects with JavaScript and TypeScript, and explore Linux and cybersecurity through hands-on practice.
 
 [Portfolio](https://krushnakaale.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/krushnakaale/) · [Instagram](https://www.instagram.com/krushnakaale/)
 
-## Tech stack
+**Python** · **Cybersecurity** · **Automation** · **JavaScript & TypeScript** · **Linux** · **GitHub Actions**
 
-**Python** / **JavaScript** / **TypeScript** / **HTML & CSS** / **Linux** / **Git** / **GitHub Actions**
-
-## Projects and activity
+## GitHub dashboard
 
 <!-- DYNAMIC:START -->
-**Public projects:** 11 &nbsp;·&nbsp; **Stars on projects:** 3 &nbsp;·&nbsp; **Forks of projects:** 1 &nbsp;·&nbsp; **Followers:** 2
+![Public projects 11, Project stars 3, Project forks 1, Followers 2. Top languages by repository: JavaScript 5, Python 2, HTML 2, TypeScript 1.](assets/github-stats.svg)
 
-### Recent projects
+### Project showcase
 
 #### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
 
@@ -64,13 +62,9 @@ I build Python tools and scripts to automate repetitive tasks. I also build web 
 > Full-stack healthcare platform with user authentication, doctor appointments, pharmacy services, and emergency support.
 
 <sub>JavaScript · Pushed 2026-02-20 UTC</sub>
-
-### Primary languages by repository
-
-**JavaScript**: 5 · **Python**: 2 · **HTML**: 2 · **TypeScript**: 1
 <!-- DYNAMIC:END -->
 
-## Contributions
+## Contribution snake
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
