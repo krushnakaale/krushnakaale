@@ -43,7 +43,10 @@ def update(root, api):
     if type(user.get("followers")) is not int or user["followers"] < 0:
         raise ValueError("GitHub returned an invalid follower count")
     eligible = select_repositories(fetch_repositories(api, username), config)
-    featured = select_featured(eligible, config["featured_repositories"])\n    # Keep curated projects first; fill remaining spotlight slots dynamically.\n    featured_ids = {repo["name"].casefold() for repo in featured}\n    featured += [repo for repo in eligible if repo["name"].casefold() not in featured_ids][:max(0, 4 - len(featured))]
+    featured = select_featured(eligible, config["featured_repositories"])
+    # Keep curated projects first; fill remaining spotlight slots dynamically.
+    featured_ids = {repo["name"].casefold() for repo in featured}
+    featured += [repo for repo in eligible if repo["name"].casefold() not in featured_ids][:max(0, 4 - len(featured))]
     featured_names = {repo["name"].casefold() for repo in eligible}
     for name in config["featured_repositories"]:
         if name.casefold() not in featured_names:
@@ -61,13 +64,20 @@ def update(root, api):
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
         "FEATURED": featured_cards(username, featured),
         "REPOSITORIES": project_cards(username, eligible[:config["repository_limit"]])
-        + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
+        + f"
+
+[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
         or "No primary languages reported yet.",
-        "ACTIVITY": "\n".join(f"- **{date} UTC** · {label} [{text(name)}]({url})" for label, name, url, date in activity)
+        "ACTIVITY": "
+".join(f"- **{date} UTC** · {label} [{text(name)}]({url})" for label, name, url, date in activity)
         or "No recent development events in GitHub's public feed.",
-        "FOCUS": "\n\n".join(
-            f"> {heading}\n" + "\n".join(f"> - {text(item)}" for item in config[key])
+        "FOCUS": "
+
+".join(
+            f"> {heading}
+" + "
+".join(f"> - {text(item)}" for item in config[key])
             for key, heading in (("currently_working_on", "**Currently working on**"), ("learning_interests", "**Learning interests**"))
             if config[key]
         ) or "Focus areas will appear here when configured.",
