@@ -75,9 +75,7 @@ def update(root, api):
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
         or "No primary languages reported yet.",
-        "ACTIVITY": "![Public activity stream refreshed from GitHub](assets/activity-feed.svg)\n\n"
-        + ("\n".join(f"**{date} UTC** · {label} [{text(name)}]({url})" for label, name, url, date in activity)
-        or "No recent public development events."),
+        "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
         "FOCUS": "\n\n".join(
             f"> {heading}\n" + "\n".join(f"> - {text(item)}" for item in config[key])
             for key, heading in (("currently_working_on", "**Currently working on**"), ("learning_interests", "**Learning interests**"))
