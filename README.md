@@ -76,7 +76,7 @@ I build Python tools and automation scripts, develop practical web applications,
 *Freshest public builds first · Cyan repository cards · Automatically refreshed from GitHub.*
 
 <!-- REPOSITORIES:START -->
-![Latest repositories, automatically updated from GitHub](assets/latest-repositories-v2.svg)
+![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)
 
 [Python-Projects](https://github.com/krushnakaale/Python-Projects) · [Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [yt-manager](https://github.com/krushnakaale/yt-manager) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [resume](https://github.com/krushnakaale/resume) · [fresher-party-management-system](https://github.com/krushnakaale/fresher-party-management-system) · [TA0023](https://github.com/krushnakaale/TA0023) · [SevaSetu](https://github.com/krushnakaale/SevaSetu)
 
