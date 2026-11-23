@@ -34,9 +34,9 @@ I build Python tools and automation scripts, develop practical web applications,
 
 <div align="center">
 
-<img src="assets/tech-snake.svg" alt="Cyber cobra with neon fangs and glowing eyes" width="475" />
+<img src="assets/tech-snake.svg" alt="Cyber cobra with neon fangs and glowing eyes" width="510" />
 
-<img src="assets/tech-motion.gif" alt="Animated tech stack with independently drifting technology badges" width="760" />
+<img src="assets/tech-motion.gif" alt="Animated tech stack with independently drifting technology badges, generated from editable config" width="900" />
 
 <img src="assets/tech-signal.svg" alt="Neon cyber signal" width="550" />
 
