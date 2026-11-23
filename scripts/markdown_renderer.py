@@ -28,6 +28,35 @@ def project_cards(username, repositories):
     return "\n\n".join(cards) or "No public projects to display."
 
 
+def featured_cards(username, repositories):
+    """Display GitHub-compatible two-column cyber project cards."""
+    if not repositories:
+        return "No featured public projects to display."
+    cards = []
+    for repo in repositories:
+        name = text(repo["name"])
+        link = f"https://github.com/{username}/{quote(repo['name'], safe='')}"
+        description = text(repo.get("description") or "Explore source code and project details.")
+        language = text(repo.get("language") or "Repository")
+        stars = int(repo.get("stargazers_count") or 0)
+        pushed = text((repo.get("pushed_at") or "")[:10])
+        updated = f" · Updated {pushed}" if pushed else ""
+        cards.append(
+            '<td width="50%" valign="top">'
+            '<a href="' + link + '"><strong>▸ ' + name + '</strong></a>'
+            '<br/><br/>' + description
+            '<br/><br/><sub>⌘ ' + language + ' · ★ ' + str(stars) + updated + '</sub>'
+            '</td>'
+        )
+    rows = []
+    for i in range(0, len(cards), 2):
+        pair = cards[i:i + 2]
+        if len(pair) == 1:
+            pair.append('<td width="50%"></td>')
+        rows.append("<tr>" + "".join(pair) + "</tr>")
+    return '<table>\n' + '\n'.join(rows) + '\n</table>'
+
+
 def render_regions(original, sections=None):
     positions = {}
     for key in REGIONS:
