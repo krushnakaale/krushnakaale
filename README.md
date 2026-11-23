@@ -42,7 +42,7 @@ I build Python tools and automation scripts, develop practical web applications,
 ![Public projects 11, Project stars 3, Project forks 1, Followers 2. Includes a chart of top primary languages.](assets/github-stats.svg)
 <!-- STATS:END -->
 
-## `05 // FEATURED PROJECTS`\n\n![Featured project collection](assets/section-projects.svg)
+<img src="assets/section-projects.svg" alt="05 // FEATURED PROJECTS" width="100%" />
 
 *Handpicked repositories. Project stars and metadata update automatically.*
 
@@ -53,7 +53,7 @@ I build Python tools and automation scripts, develop practical web applications,
 </table>
 <!-- FEATURED:END -->
 
-## `06 // LATEST REPOSITORIES`\n\n![Live repository feed](assets/section-repositories.svg)
+<img src="assets/section-repositories.svg" alt="06 // LATEST REPOSITORIES" width="100%" />
 
 *Automatically sorted by most recently pushed.*
 
