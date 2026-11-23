@@ -11,73 +11,55 @@ def text(value):
     return re.sub(r"[!\\*_#\[\]~|\x60]", lambda match: f"&#{ord(match[0])};", value)
 
 
-def project_cards(username, repositories):
-    """Render theme-matched repository cards from fresh GitHub API metadata."""
-    if not repositories:
-        return "No public repositories to display yet."
+def _repo_card(username, repo, featured=False):
+    """A GitHub-safe cyber card with escaped live repository metadata."""
+    name = text(repo["name"])
+    url = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
+    description = text(repo.get("description") or "Explore source code and project documentation.")
+    language = text(repo.get("language") or "Other")
+    stars = max(0, int(repo.get("stargazers_count") or 0))
+    forks = max(0, int(repo.get("forks_count") or 0))
+    pushed = text((repo.get("pushed_at") or "")[:10])
+    label = "FEATURED" if featured else "PUBLIC REPO"
+    accent = "A78BFA" if featured else "22D3EE"
+    status = "DISABLED" if repo.get("disabled") else "ACTIVE"
+    status_color = "A78BFA" if repo.get("disabled") else "39FF88"
+    tag = f"https://img.shields.io/badge/{label.replace(' ', '_')}-0B1020?style=flat-square&amp;labelColor=0B1020&amp;color={accent}"
+    status_badge = f"https://img.shields.io/badge/{status}-0B1020?style=flat-square&amp;labelColor=0B1020&amp;color={status_color}"
+    date = f"LAST PUSH // {pushed} UTC" if pushed else "LAST PUSH // N/A"
+    return (
+        '<td width="50%" valign="top">'
+        f'<img src="{tag}" alt="{label}" />&nbsp;<img src="{status_badge}" alt="{status}" />'
+        f'<br/><br/><a href="{url}"><strong>▸ {name} ↗</strong></a>'
+        f'<br/><sub>⌘ {language}</sub>'
+        f'<p>{description}</p>'
+        f'<sub>★ {stars} &nbsp;·&nbsp; ⑂ {forks}</sub>'
+        f'<br/><sub><code>{date}</code></sub>'
+        '</td>'
+    )
 
-    cards = []
-    for repo in repositories:
-        name = text(repo["name"])
-        link = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
-        description = text(repo.get("description") or "Explore the project source code and documentation.")
-        language = text(repo.get("language") or "Other")
-        stars = max(0, int(repo.get("stargazers_count") or 0))
-        forks = max(0, int(repo.get("forks_count") or 0))
-        pushed = text((repo.get("pushed_at") or "")[:10])
-        date = f"LAST PUSH // {pushed} UTC" if pushed else "LAST PUSH // unavailable"
-        badge = (
-            "https://img.shields.io/badge/STATUS-"
-            + ("UNAVAILABLE-142017?style=flat-square%26labelColor=0D1712%26color=A78BFA"
-               if repo.get("disabled") else
-               "ACTIVE-142017?style=flat-square%26labelColor=0D1712%26color=39FF88")
-        ).replace("%26", "&amp;")
-        cards.append(
-            '<td width="50%" valign="top">'
-            f'<a href="{link}"><strong>▸ {name}</strong></a>'
-            f'<br/><img src="{badge}" alt="Repository status" />'
-            f'&nbsp;<sub>⌘ {language}</sub>'
-            f'<p>{description}</p>'
-            f'<sub>★ {stars} &nbsp;·&nbsp; ⑂ {forks}</sub>'
-            f'<br/><sub><code>{date}</code></sub>'
-            '</td>'
-        )
+
+def _card_grid(username, repositories, featured=False):
+    if not repositories:
+        return "No public projects to display yet."
+    cells = [_repo_card(username, repo, featured) for repo in repositories]
     rows = []
-    for i in range(0, len(cards), 2):
-        pair = cards[i:i + 2]
+    for index in range(0, len(cells), 2):
+        pair = cells[index:index + 2]
         if len(pair) == 1:
             pair.append('<td width="50%" valign="top"></td>')
         rows.append("<tr>" + "".join(pair) + "</tr>")
     return "<table>\n" + "\n".join(rows) + "\n</table>"
 
 
+def project_cards(username, repositories):
+    """Latest projects: automatically reordered and updated on refresh."""
+    return _card_grid(username, repositories)
+
+
 def featured_cards(username, repositories):
-    """Display GitHub-compatible two-column cyber project cards."""
-    if not repositories:
-        return "No featured public projects to display."
-    cards = []
-    for repo in repositories:
-        name = text(repo["name"])
-        link = f"https://github.com/{username}/{quote(repo['name'], safe='')}"
-        description = text(repo.get("description") or "Explore source code and project details.")
-        language = text(repo.get("language") or "Repository")
-        stars = int(repo.get("stargazers_count") or 0)
-        pushed = text((repo.get("pushed_at") or "")[:10])
-        updated = f" · Updated {pushed}" if pushed else ""
-        cards.append(
-            f'<td width="50%" valign="top">'
-            f'<a href="{link}"><strong>▸ {name}</strong></a>'
-            f'<br/><br/>{description}'
-            f'<br/><br/><sub>⌘ {language} · ★ {stars}{updated}</sub>'
-            f'</td>'
-        )
-    rows = []
-    for i in range(0, len(cards), 2):
-        pair = cards[i:i + 2]
-        if len(pair) == 1:
-            pair.append('<td width="50%"></td>')
-        rows.append("<tr>" + "".join(pair) + "</tr>")
-    return '<table>\n' + '\n'.join(rows) + '\n</table>'
+    """Curated projects: dynamic cyan/purple cyber cards."""
+    return _card_grid(username, repositories, featured=True)
 
 
 def render_regions(original, sections=None):
