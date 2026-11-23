@@ -65,7 +65,7 @@ def update(root, api):
     languages = Counter(repo["language"] for repo in eligible if repo.get("language"))
     summary = ", ".join(f"{label} {value}" for label, value in metrics)
     def repo_links(repos):
-        return " · ".join(f"[{text(repo[\'name\'])}](https://github.com/{username}/{repo[\'name\']})" for repo in repos)
+        return " · ".join(f"[{text(repo['name'])}](https://github.com/{username}/{repo['name']})" for repo in repos)
 
     sections = {
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
