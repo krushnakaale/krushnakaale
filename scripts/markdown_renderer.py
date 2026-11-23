@@ -24,35 +24,28 @@ def _badge(label, value, color):
 
 
 def _repo_card(username, repo, featured=False):
-    """Render readable, clickable project information with live API metrics."""
+    """Clean, compact cards with live GitHub metadata and readable spacing."""
     name = text(repo["name"])
     url = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
-    description = text(repo.get("description") or "Source code, documentation and project updates.")
-    if len(description) > 195:
-        description = description[:192].rsplit(" ", 1)[0] + "…"
-    language = repo.get("language") or "Unspecified"
+    description = text(repo.get("description") or "Explore the source code and project details.")
+    if len(description) > 145:
+        description = description[:142].rsplit(" ", 1)[0] + "…"
+    language = text(repo.get("language") or "Other")
     stars = max(0, int(repo.get("stargazers_count") or 0))
     forks = max(0, int(repo.get("forks_count") or 0))
     pushed = text((repo.get("pushed_at") or "")[:10])
     accent = "A78BFA" if featured else "22D3EE"
-    label = "SPOTLIGHT" if featured else "RECENT"
-    status = "DISABLED" if repo.get("disabled") else "PUBLIC"
-    line = (
-        _badge(label, "PROJECT" if featured else "REPOSITORY", accent)
-        + " " + _badge(status, text(language), "39FF88")
-    )
-    stats = (
-        _badge("STARS", stars, "A78BFA")
-        + " " + _badge("FORKS", forks, "22D3EE")
-    )
-    date = f"LAST PUSH · {pushed} UTC" if pushed else "LAST PUSH · N/A"
+    label = "FEATURED" if featured else "LATEST"
+    date = f"Updated {pushed}" if pushed else "Recently updated"
     return (
-        '<td width="50%" valign="top">'
-        f'{line}<br/><br/>'
-        f'<a href="{url}"><strong>▸ {name} ↗</strong></a>'
-        f'<p>{description}</p>'
-        f'{stats}<br/>'
-        f'<sub><code>{date}</code></sub>'
+        '<td width="50%" valign="top" align="left">'
+        f'<sub><strong>{label}</strong> &nbsp;·&nbsp; {language}</sub>'
+        '<br/><br/>'
+        f'<a href="{url}"><strong>{name}</strong></a>'
+        '<br/>'
+        f'<sub>{description}</sub>'
+        '<br/><br/>'
+        f'<sub>★ {stars} &nbsp;&nbsp; ⑂ {forks} &nbsp;&nbsp; · &nbsp;&nbsp; {date}</sub>'
         '</td>'
     )
 
@@ -67,7 +60,7 @@ def _card_grid(username, repositories, featured=False):
         if len(pair) == 1:
             pair.append('<td width="50%" valign="top">&nbsp;</td>')
         rows.append("<tr>" + "".join(pair) + "</tr>")
-    return "<table>\n" + "\n".join(rows) + "\n</table>"
+    return '<table width="100%" cellpadding="12">\n' + "\n".join(rows) + "\n</table>"
 
 
 def project_cards(username, repositories):
