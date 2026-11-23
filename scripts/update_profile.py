@@ -76,11 +76,16 @@ def update(root, api):
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": '<div align="center">\n\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
-        "FOCUS": "\n\n".join(
-            f"> {heading}\n" + "\n".join(f"> - {text(item)}" for item in config[key])
-            for key, heading in (("currently_working_on", "**Currently working on**"), ("learning_interests", "**Learning interests**"))
-            if config[key]
-        ) or "Focus areas will appear here when configured.",
+        "FOCUS": "\n".join(
+            ["```text", "┌─[ KRUSHNA@CYBER-LAB ]──[ MISSION STATUS: ACTIVE ]"]
+            + [
+                f"│  {heading}"
+                for key, heading in (("currently_working_on", "BUILDING"), ("learning_interests", "EXPLORING"))
+                if config[key]
+                for item in [", ".join(str(value) for value in config[key])]
+            ]
+            + ["└─> learn • build • secure • repeat", "```"]
+        ),
     }
     refreshed = render_regions(original, sections)
     svg = render_stats(metrics, languages)
