@@ -37,7 +37,10 @@ I build **automation tools, Python projects and web applications**, while explor
 ### 🟢 Currently Working On
 
 <!-- FOCUS:START -->
-Learning Python automation
+> **Learning interests**
+> - Python automation
+> - Cybersecurity fundamentals
+> - Open-source development
 <!-- FOCUS:END -->
 
 </td>
@@ -64,7 +67,7 @@ Learning Python automation
 ### 📊 GitHub Dashboard
 
 <!-- STATS:START -->
-undefined
+![Public projects 11, Project stars 3, Project forks 1, Followers 2. Includes a chart of top primary languages.](assets/github-stats.svg)
 <!-- STATS:END -->
 
 > Stats are generated from public GitHub repository data. Counts may differ from GitHub's contribution totals.
@@ -72,20 +75,80 @@ undefined
 ### 📌 Featured Projects
 
 <!-- FEATURED:START -->
-Available after the first profile refresh.
+#### [Python-Basic-Projects ↗](https://github.com/krushnakaale/Python-Basic-Projects)
+
+> A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.
+
+<sub>Python · ★ 1 · Pushed 2026-11-23 UTC</sub>
+
+#### [Myraa-Voice-Assistant ↗](https://github.com/krushnakaale/Myraa-Voice-Assistant)
+
+<sub>TypeScript · ★ 1 · Pushed 2026-09-13 UTC</sub>
+
+#### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
+
+> Organized Python projects from beginner to advanced levels for hands-on learning and practice.
+
+<sub>Python · ★ 0 · Pushed 2026-11-23 UTC</sub>
 <!-- FEATURED:END -->
 
 ### 🗂️ Latest Repositories
 
 <!-- REPOSITORIES:START -->
-Available after the first profile refresh.
+#### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
+
+> Organized Python projects from beginner to advanced levels for hands-on learning and practice.
+
+<sub>Python · ★ 0 · Pushed 2026-11-23 UTC</sub>
+
+#### [Python-Basic-Projects ↗](https://github.com/krushnakaale/Python-Basic-Projects)
+
+> A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.
+
+<sub>Python · ★ 1 · Pushed 2026-11-23 UTC</sub>
+
+#### [yt-manager ↗](https://github.com/krushnakaale/yt-manager)
+
+> A desktop app for organizing YouTube videos and playlists, previewing saved videos, and managing authorized file downloads.
+
+<sub>JavaScript · ★ 0 · Pushed 2026-11-22 UTC</sub>
+
+#### [Myraa-Voice-Assistant ↗](https://github.com/krushnakaale/Myraa-Voice-Assistant)
+
+<sub>TypeScript · ★ 1 · Pushed 2026-09-13 UTC</sub>
+
+#### [resume ↗](https://github.com/krushnakaale/resume)
+
+> My latest professional resume in PDF format. This repository hosts the most up-to-date version of my resume, accessible for recruiters, collaborators, and professional connections.
+
+<sub>★ 1 · Pushed 2026-08-23 UTC</sub>
+
+#### [fresher-party-management-system ↗](https://github.com/krushnakaale/fresher-party-management-system)
+
+> Full-stack event management system for college fresher's parties — student registration, Razorpay payments, secure QR entry passes, and an admin dashboard with live QR scanning. Built with React, Node.js, Express, and MongoDB.
+
+<sub>JavaScript · ★ 0 · Pushed 2026-08-03 UTC</sub>
+
+#### [TA0023 ↗](https://github.com/krushnakaale/TA0023)
+
+> During medical emergencies, patients struggle to find hospitals with available beds and active OPD services. This project provides a centralized digital platform to monitor hospital bed availability and OPD status in real time.
+
+<sub>JavaScript · ★ 0 · Pushed 2026-02-21 UTC</sub>
+
+#### [SevaSetu ↗](https://github.com/krushnakaale/SevaSetu)
+
+> Full-stack healthcare platform with user authentication, doctor appointments, pharmacy services, and emergency support.
+
+<sub>JavaScript · ★ 0 · Pushed 2026-02-20 UTC</sub>
+
+[View all repositories ↗](https://github.com/krushnakaale?tab=repositories)
 <!-- REPOSITORIES:END -->
 
 <details>
 <summary><b>🧠 Primary Languages — expand</b></summary>
 
 <!-- LANGUAGES:START -->
-Available after the first profile refresh.
+**JavaScript** 5 · **Python** 2 · **HTML** 2 · **TypeScript** 1
 <!-- LANGUAGES:END -->
 
 <sub>Counts represent the primary language of eligible public repositories.</sub>
@@ -95,7 +158,9 @@ Available after the first profile refresh.
 <summary><b>📡 Recent Public Activity — expand</b></summary>
 
 <!-- ACTIVITY:START -->
-Available after the first profile refresh.
+- **2026-11-23 UTC** · Pushed to [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
+- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
+- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/yt-manager](https://github.com/krushnakaale/yt-manager)
 <!-- ACTIVITY:END -->
 
 </details>
