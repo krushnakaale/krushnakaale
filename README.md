@@ -55,9 +55,9 @@ I build Python tools and automation scripts, develop practical web applications,
 *Handpicked repositories. Project stars and metadata update automatically.*
 
 <!-- FEATURED:START -->
-<table width="100%">
-<tr><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Python-Basic-Projects"><strong>◈ Python-Basic-Projects</strong></a><p>A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.</p><sub>⌘ Python &nbsp;·&nbsp; ★ 1</sub></td><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Myraa-Voice-Assistant"><strong>◈ Myraa-Voice-Assistant</strong></a><p>Explore the source code and project documentation.</p><sub>⌘ TypeScript &nbsp;·&nbsp; ★ 1</sub></td></tr>
-<tr><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Python-Projects"><strong>◈ Python-Projects</strong></a><p>Organized Python projects from beginner to advanced levels for hands-on learning and practice.</p><sub>⌘ Python &nbsp;·&nbsp; ★ 0</sub></td><td width="50%" valign="top">&nbsp;</td></tr>
+<table>
+<tr><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Python-Basic-Projects"><strong>▸ Python-Basic-Projects</strong></a><br/><br/>A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.<br/><br/><sub>⌘ Python · ★ 1 · Updated 2026-11-23</sub></td><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Myraa-Voice-Assistant"><strong>▸ Myraa-Voice-Assistant</strong></a><br/><br/>Explore source code and project details.<br/><br/><sub>⌘ TypeScript · ★ 1 · Updated 2026-09-13</sub></td></tr>
+<tr><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Python-Projects"><strong>▸ Python-Projects</strong></a><br/><br/>Organized Python projects from beginner to advanced levels for hands-on learning and practice.<br/><br/><sub>⌘ Python · ★ 0 · Updated 2026-11-23</sub></td><td width="50%"></td></tr>
 </table>
 <!-- FEATURED:END -->
 
