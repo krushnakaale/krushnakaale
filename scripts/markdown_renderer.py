@@ -42,11 +42,11 @@ def featured_cards(username, repositories):
         pushed = text((repo.get("pushed_at") or "")[:10])
         updated = f" · Updated {pushed}" if pushed else ""
         cards.append(
-            '<td width="50%" valign="top">'
-            '<a href="' + link + '"><strong>▸ ' + name + '</strong></a>'
-            '<br/><br/>' + description
-            '<br/><br/><sub>⌘ ' + language + ' · ★ ' + str(stars) + updated + '</sub>'
-            '</td>'
+            f'<td width="50%" valign="top">'
+            f'<a href="{link}"><strong>▸ {name}</strong></a>'
+            f'<br/><br/>{description}'
+            f'<br/><br/><sub>⌘ {language} · ★ {stars}{updated}</sub>'
+            f'</td>'
         )
     rows = []
     for i in range(0, len(cards), 2):
