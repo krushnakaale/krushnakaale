@@ -54,3 +54,35 @@ def render_regions(original, sections=None):
             begin, finish = positions[key]
             original = original[:begin] + "\n" + sections[key] + "\n" + original[finish:]
     return original
+
+
+
+def featured_cards(username, repositories):
+    """Responsive two-column cards using GitHub-supported table markup."""
+    if not repositories:
+        return "No public featured projects to display."
+    cards = []
+    for repo in repositories:
+        name = text(repo["name"])
+        url = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
+        description = text(repo.get("description") or "Explore the source code and project documentation.")
+        language = text(repo.get("language") or "Repository")
+        stars = int(repo.get("stargazers_count") or 0)
+        cards.append(
+            f'<a href="{url}"><strong>◈ {name}</strong></a>'
+            f'<p>{description}</p>'
+            f'<sub>⌘ {language} &nbsp;·&nbsp; ★ {stars}</sub>'
+        )
+    rows = []
+    for index in range(0, len(cards), 2):
+        pair = cards[index:index + 2]
+        if len(pair) == 1:
+            pair.append("&nbsp;")
+        rows.append("<tr>" + "".join(
+            f'<td width="50%" valign="top">{card}</td>' for card in pair
+        ) + "</tr>")
+    return (
+        '<table width="100%">\n'
+        + "\n".join(rows)
+        + "\n</table>"
+    )
