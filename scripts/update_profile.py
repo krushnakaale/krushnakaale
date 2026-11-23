@@ -71,7 +71,7 @@ def update(root, api):
     sections = {
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
         "FEATURED": "![Featured projects, automatically updated from GitHub](assets/featured-projects.svg)\n\n" + repo_links(featured),
-        "REPOSITORIES": "![Latest repositories, automatically updated from GitHub](assets/latest-repositories.svg)\n\n" + repo_links(eligible[:config["repository_limit"]])
+        "REPOSITORIES": "![Latest repositories, automatically updated from GitHub](assets/latest-repositories-v2.svg)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
         or "No primary languages reported yet.",
@@ -86,7 +86,7 @@ def update(root, api):
     svg = render_stats(metrics, languages)
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
     featured_changed = replace_if_changed(root / "assets/featured-projects.svg", render_projects(featured, featured=True))
-    repositories_changed = replace_if_changed(root / "assets/latest-repositories.svg", render_projects(eligible[:config["repository_limit"]]))
+    repositories_changed = replace_if_changed(root / "assets/latest-repositories-v2.svg", render_projects(eligible[:config["repository_limit"]]))
     activity_changed = replace_if_changed(root / "assets/activity-feed.svg", render_activity(activity))
     readme_changed = replace_if_changed(readme, refreshed)
     return stats_changed or featured_changed or repositories_changed or activity_changed or readme_changed
