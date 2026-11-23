@@ -63,8 +63,8 @@ def main():
         cx = 90 + (i // 2 + .5) * (w - 180) / math.ceil(len(tech) / 2)
         cy = 100 if band == 0 else h - 95
         motion.append((cx, cy, rng.uniform(27, 48), rng.uniform(19, 34),
-                       rng.uniform(0, math.tau), rng.choice([1, 2, 3]),
-                       rng.choice([1, 2, 3])))
+                       rng.uniform(0, math.tau), 1,
+                       1))
     frames = []
     for frame in range(n):
         t = frame / n * math.tau
@@ -75,7 +75,6 @@ def main():
             d.line((x, 0, x, h), fill=(29, 125, 99, 23))
         for y in range(0, h, 44):
             d.line((0, y, w, y), fill=(29, 125, 99, 23))
-        d.rounded_rectangle((3, 3, w - 4, h - 4), radius=20, outline=(55, 255, 150, 110), width=2)
         for j in range(9):
             px = (j * 163 + 71) % w
             py = (j * 97 + 43) % h
