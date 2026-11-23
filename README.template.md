@@ -29,7 +29,13 @@ Available after the first profile refresh.
 
 ## `03 // TECH STACK`
 
-<img src="assets/tech-stack.svg" alt="Full-width animated technology stack: Python, JavaScript, TypeScript, HTML, CSS, Git, GitHub, Linux, GitHub Actions and automation" width="100%" />
+<div align="center">
+
+<img src="assets/tech-snake.svg" alt="Neon green cyber cobra" width="560" />
+
+<img src="https://skillicons.dev/icons?i=python,js,ts,html,css,git,github,linux,githubactions,vscode&perline=10&theme=dark" alt="Python, JavaScript, TypeScript, HTML, CSS, Git, GitHub, Linux, GitHub Actions and VS Code logos" />
+
+</div>
 
 ## `04 // LIVE GITHUB DASHBOARD`
 
