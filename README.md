@@ -82,8 +82,6 @@ I build Python tools and automation scripts, develop practical web applications,
 </div>
 <!-- LANGUAGES:END -->
 
-<div align="center">\n\n<sub>Percentages reflect each eligible repository’s primary language as reported by GitHub.</sub>\n\n</div>
-
 ## `08 // PUBLIC ACTIVITY FEED`
 
 <!-- ACTIVITY:START -->
