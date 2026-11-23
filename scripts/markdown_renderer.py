@@ -24,43 +24,31 @@ def _badge(label, value, color):
 
 
 def _repo_card(username, repo, featured=False):
-    """Clean, compact cards with live GitHub metadata and readable spacing."""
+    """Borderless repository entry with highlighted project and live metadata."""
     name = text(repo["name"])
     url = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
-    description = text(repo.get("description") or "Explore the source code and project details.")
-    if len(description) > 145:
-        description = description[:142].rsplit(" ", 1)[0] + "…"
+    description = text(repo.get("description") or "Explore source code and project details.")
+    if len(description) > 150:
+        description = description[:147].rsplit(" ", 1)[0] + "…"
     language = text(repo.get("language") or "Other")
     stars = max(0, int(repo.get("stargazers_count") or 0))
     forks = max(0, int(repo.get("forks_count") or 0))
     pushed = text((repo.get("pushed_at") or "")[:10])
-    accent = "A78BFA" if featured else "22D3EE"
-    label = "FEATURED" if featured else "LATEST"
     date = f"Updated {pushed}" if pushed else "Recently updated"
     return (
-        '<td width="50%" valign="top" align="left">'
-        f'<sub><strong>{label}</strong> &nbsp;·&nbsp; {language}</sub>'
-        '<br/><br/>'
-        f'<a href="{url}"><strong>{name}</strong></a>'
-        '<br/>'
-        f'<sub>{description}</sub>'
-        '<br/><br/>'
-        f'<sub>★ {stars} &nbsp;&nbsp; ⑂ {forks} &nbsp;&nbsp; · &nbsp;&nbsp; {date}</sub>'
-        '</td>'
+        f'<p><a href="{url}"><strong>▸ {name}</strong></a>'
+        f' &nbsp; <sub><code>{language}</code></sub><br/>'
+        f'{description}<br/>'
+        f'<sub><strong>★ {stars} stars</strong> &nbsp;·&nbsp; '
+        f'<strong>⑂ {forks} forks</strong> &nbsp;·&nbsp; {date}</sub></p>'
     )
 
 
 def _card_grid(username, repositories, featured=False):
+    """GitHub renders table borders by default, so use borderless paragraphs."""
     if not repositories:
         return "No public projects to display yet."
-    cells = [_repo_card(username, repo, featured) for repo in repositories]
-    rows = []
-    for index in range(0, len(cells), 2):
-        pair = cells[index:index + 2]
-        if len(pair) == 1:
-            pair.append('<td width="50%" valign="top">&nbsp;</td>')
-        rows.append("<tr>" + "".join(pair) + "</tr>")
-    return '<table width="100%" cellpadding="12">\n' + "\n".join(rows) + "\n</table>"
+    return "\n".join(_repo_card(username, repo, featured) for repo in repositories)
 
 
 def project_cards(username, repositories):
