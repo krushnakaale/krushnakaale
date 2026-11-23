@@ -75,10 +75,10 @@ I build Python tools and automation scripts, develop practical web applications,
 ## `07 // LANGUAGE BREAKDOWN`
 
 <!-- LANGUAGES:START -->
-**JavaScript** 5 · **Python** 2 · **HTML** 2 · **TypeScript** 1
+<div align="center">\n\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\n\n</div>
 <!-- LANGUAGES:END -->
 
-Counts reflect each eligible repository’s primary language as reported by GitHub.
+<div align="center">\n\n<sub>Percentages reflect each eligible repository’s primary language as reported by GitHub.</sub>\n\n</div>
 
 ## `08 // PUBLIC ACTIVITY FEED`
 
