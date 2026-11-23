@@ -99,9 +99,9 @@ class UpdateTests(unittest.TestCase):
         self.repos = [{"name": "renamed"}, {"name": "added"}]
         self.assertTrue(update(self.root, self.api))
         current = self.readme.read_text(encoding="utf-8")
-        self.assertIn("/renamed)", current)
-        self.assertIn("/added)", current)
-        self.assertNotIn("/first)", current)
+        self.assertIn("https://github.com/krushnakaale/renamed", current)
+        self.assertIn("https://github.com/krushnakaale/added", current)
+        self.assertNotIn("https://github.com/krushnakaale/first", current)
 
     def test_failed_api_preserves_existing_outputs(self):
         update(self.root, self.api)
