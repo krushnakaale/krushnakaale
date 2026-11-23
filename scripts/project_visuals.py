@@ -24,6 +24,21 @@ def render_projects(repositories, featured=False):
         f'<title>{"Featured projects" if featured else "Latest repositories"} — live GitHub data</title>',
         '<rect width="1100" height="100%" fill="#0D1117"/>',
     ]
+    # Subtle hooded-coder watermark only for latest repositories; keep text readable.
+    if not featured:
+        for row in range(rows):
+            for column in range(2):
+                cx = 437 + column * 550
+                cy = 88 + row * row_height
+                elements.extend([
+                    f'<g transform="translate({cx} {cy})" opacity="0.105">',
+                    '<path d="M-62 57Q-63 11-37-28Q-18-58 0-61Q18-58 37-28Q63 11 62 57Z" fill="#123F32" stroke="#39FF88" stroke-width="2"/>',
+                    '<path d="M-35-9Q-22-38 0-42Q22-38 35-9L25 24Q0 37-25 24Z" fill="#071713"/>',
+                    '<path d="M-23-5L-7-1M23-5L7-1" stroke="#22D3EE" stroke-width="3"/>',
+                    '<path d="M-51 38H51L61 70H-61Z" fill="#0C332B" stroke="#39FF88" stroke-width="2"/>',
+                    '<path d="M-12 51H12M0 45V57" stroke="#39FF88" stroke-width="2"/>',
+                    '</g>',
+                ])
     if not repos:
         elements.append('<text x="20" y="70" fill="#9BAAB9" font-size="20">No public repositories yet</text>')
     for i, repo in enumerate(repos):
