@@ -33,7 +33,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md assets/github-stats.svg
+          git add README.md assets/github-stats.svg assets/featured-projects.svg assets/latest-repositories.svg
           if git diff --cached --quiet; then
             echo 'Dashboard already matches the latest GitHub API data.'
             exit 0
