@@ -64,10 +64,13 @@ def update(root, api):
     ]
     languages = Counter(repo["language"] for repo in eligible if repo.get("language"))
     summary = ", ".join(f"{label} {value}" for label, value in metrics)
+    def repo_links(repos):
+        return " · ".join(f"[{text(repo[\'name\'])}](https://github.com/{username}/{repo[\'name\']})" for repo in repos)
+
     sections = {
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
-        "FEATURED": "![Featured projects, automatically updated from GitHub](assets/featured-projects.svg)\n\n" + " · ".join(f"[{text(repo[\'name\'])}](https://github.com/{username}/{repo[\'name\']})" for repo in featured),
-        "REPOSITORIES": "![Latest repositories, automatically updated from GitHub](assets/latest-repositories.svg)\n\n" + " · ".join(f"[{text(repo[\'name\'])}](https://github.com/{username}/{repo[\'name\']})" for repo in eligible[:config["repository_limit"]])
+        "FEATURED": "![Featured projects, automatically updated from GitHub](assets/featured-projects.svg)\n\n" + repo_links(featured),
+        "REPOSITORIES": "![Latest repositories, automatically updated from GitHub](assets/latest-repositories.svg)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
         or "No primary languages reported yet.",
