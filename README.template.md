@@ -29,15 +29,7 @@ Available after the first profile refresh.
 
 ## `03 // TECH STACK`
 
-> **BUILDING • SECURING • AUTOMATING • LEARNING**
-
-**Programming**
-
-![Python](https://img.shields.io/badge/Python-0D1712?style=flat-square&logo=python&logoColor=39FF88) ![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=flat-square&logo=javascript&logoColor=39FF88) ![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=flat-square&logo=typescript&logoColor=39FF88) ![HTML](https://img.shields.io/badge/HTML-0D1712?style=flat-square&logo=html5&logoColor=39FF88) ![CSS](https://img.shields.io/badge/CSS-0D1712?style=flat-square&logo=css&logoColor=39FF88)
-
-**Tools**
-
-![Git](https://img.shields.io/badge/Git-0D1712?style=flat-square&logo=git&logoColor=39FF88) ![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88) ![Linux](https://img.shields.io/badge/Linux-0D1712?style=flat-square&logo=linux&logoColor=39FF88) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-0D1712?style=flat-square&logo=githubactions&logoColor=39FF88)
+<img src="assets/tech-stack.svg" alt="Full-width animated technology stack: Python, JavaScript, TypeScript, HTML, CSS, Git, GitHub, Linux, GitHub Actions and automation" width="100%" />
 
 ## `04 // LIVE GITHUB DASHBOARD`
 
