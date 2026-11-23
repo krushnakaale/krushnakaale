@@ -1,26 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="220" viewBox="0 0 820 220" role="img" aria-labelledby="title desc">
-<title id="title">Cyber serpent</title><desc id="desc">A stylized neon-green cobra with glowing eyes and circuit-like scales, centered on a dark background.</desc>
-<defs><radialGradient id="aura"><stop stop-color="#12FF85" stop-opacity=".22"/><stop offset=".6" stop-color="#0BCB71" stop-opacity=".05"/><stop offset="1" stop-color="#0BCB71" stop-opacity="0"/></radialGradient><style>@keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}@keyframes scan{0%{transform:translateX(-120px);opacity:0}40%{opacity:.8}100%{transform:translateX(120px);opacity:0}}.pulse{animation:breathe 2.8s ease-in-out infinite}.scan{animation:scan 5s linear infinite}@media(prefers-reduced-motion:reduce){.pulse,.scan{animation:none}}</style>
-<linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B442A"/><stop offset=".48" stop-color="#1DB86D"/><stop offset="1" stop-color="#052E21"/></linearGradient>
-<linearGradient id="hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B1C22"/><stop offset=".5" stop-color="#185B46"/><stop offset="1" stop-color="#08191C"/></linearGradient>
-<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs><ellipse cx="410" cy="115" rx="185" ry="115" fill="url(#aura)"/><g opacity=".75" fill="none" stroke="#1D8E62" stroke-width="1"><path d="M270 57H328M492 57H550M245 110H318M502 110H575M285 179H334M486 179H535"/><path d="M270 57l-12 12h-45M550 57l12 12h45M245 110l-13 13h-35M575 110l13 13h35"/></g><g class="pulse" fill="#39FF88"><circle cx="213" cy="69" r="3"/><circle cx="607" cy="69" r="3"/><circle cx="197" cy="123" r="2"/><circle cx="623" cy="123" r="2"/></g><g font-family="monospace" font-size="13" letter-spacing="2" fill="#3FDFA0"><text x="180" y="91" text-anchor="end">SYSTEM</text><text x="180" y="109" text-anchor="end" fill="#98A9A7">ONLINE</text><text x="640" y="91">CYBER</text><text x="640" y="109" fill="#98A9A7">MODE</text></g>
-<path d="M38 190H244M576 190H782" stroke="#174334" stroke-width="1" stroke-dasharray="7 10"/>
-<path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#073A2A" stroke-width="35" stroke-linecap="round"/>
-<path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#24B777" stroke-width="25" stroke-linecap="round"/>
-<path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#72FFAC" stroke-width="2" stroke-dasharray="3 13" opacity=".75"/>
-<path d="M402 175C355 137 338 99 350 63C362 31 382 22 410 25C438 22 458 31 470 63C482 99 465 137 418 175Z" fill="url(#hood)" stroke="#39FF88" stroke-width="3"/>
-<path d="M410 157C383 128 378 93 389 66C397 51 423 51 431 66C442 93 437 128 410 157Z" fill="#0B3025" stroke="#1B7B51" stroke-width="2"/>
-<path d="M371 62L392 84M449 62L428 84M362 92L388 104M458 92L432 104M370 124L393 122M450 124L427 122" stroke="#39FF88" stroke-width="2" opacity=".6"/>
-<path d="M380 72Q410 48 440 72L446 110Q410 143 374 110Z" fill="url(#skin)" stroke="#72FFAC" stroke-width="2"/>
-<path d="M385 84L401 88L394 95L380 93Z" fill="#050E12"/><path d="M435 84L419 88L426 95L440 93Z" fill="#050E12"/>
-<path d="M390 89L395 90M430 89L425 90" stroke="#FF425E" stroke-width="3" filter="url(#glow)"/>
-<path d="M404 107L410 112L416 107M410 112V125" fill="none" stroke="#071711" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M410 125L401 141M410 125L419 141" stroke="#FF425E" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="410" cy="27" r="2" fill="#72FFAC" filter="url(#glow)"/>
-<path d="M180 160H242M578 160H640M205 176H251M569 176H615" stroke="#22D3EE" stroke-width="1.5" opacity=".6"/>
-<path d="M370 75L348 45L375 54L362 22L396 43M450 75L472 45L445 54L458 22L424 43" fill="#0B3025" stroke="#39FF88" stroke-width="2.8" stroke-linejoin="round"/>
-<path d="M380 112L390 137L398 115M440 112L430 137L422 115" fill="#E9FFF2" stroke="#39FF88" stroke-width="1.5"/>
-<path d="M354 48L328 35M466 48L492 35M338 105L315 106M482 105L505 106" fill="none" stroke="#22D3EE" stroke-width="2" opacity=".8"/>
-<path d="M392 91L398 92M428 91L422 92" stroke="#FF274E" stroke-width="5" filter="url(#glow)"/>
-<path class="scan" d="M330 164H490" stroke="#39FF88" stroke-width="2" opacity=".7"/><g class="pulse" fill="#FF274E" filter="url(#glow)"><circle cx="394" cy="91" r="2.5"/><circle cx="426" cy="91" r="2.5"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="230" viewBox="0 0 820 230" role="img" aria-labelledby="t d">
+<title id="t">Neon cyber viper</title><desc id="d">Futuristic angular cobra with a wide armored hood, glowing red eyes, exposed fangs and neon circuit accents.</desc>
+<defs>
+<radialGradient id="a"><stop stop-color="#00FF8A" stop-opacity=".24"/><stop offset="1" stop-color="#00FF8A" stop-opacity="0"/></radialGradient>
+<linearGradient id="armor" x2=".9" y2="1"><stop stop-color="#1F7856"/><stop offset=".5" stop-color="#071E1B"/><stop offset="1" stop-color="#0B523B"/></linearGradient>
+<linearGradient id="face" x2="1" y2="1"><stop stop-color="#1D9E69"/><stop offset=".45" stop-color="#104B3B"/><stop offset="1" stop-color="#03140F"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<style>@keyframes flicker{0%,100%{opacity:1}50%{opacity:.55}}@keyframes flow{to{stroke-dashoffset:-40}}.eye{animation:flicker 2.3s ease-in-out infinite}.circuit{animation:flow 5s linear infinite}@media(prefers-reduced-motion:reduce){.eye,.circuit{animation:none}}</style>
+</defs>
+<ellipse cx="410" cy="119" rx="210" ry="111" fill="url(#a)"/>
+<g stroke="#1C6D51" stroke-width="1.5" fill="none" opacity=".7"><path d="M155 77H275L304 105M665 77H545L516 105M155 161H275L305 144M665 161H545L515 144"/><path d="M206 112H272M614 112H548" stroke-dasharray="5 8" class="circuit"/></g>
+<g fill="#39FF88" filter="url(#glow)"><circle cx="155" cy="77" r="3"/><circle cx="665" cy="77" r="3"/><circle cx="155" cy="161" r="2"/><circle cx="665" cy="161" r="2"/></g>
+<path d="M410 215C361 208 344 183 354 154C361 135 377 130 389 144C399 158 406 174 410 181C414 174 421 158 431 144C443 130 459 135 466 154C476 183 459 208 410 215Z" fill="url(#armor)" stroke="#39FF88" stroke-width="3"/>
+<path d="M410 184C339 158 307 108 326 56L300 33L347 39L354 14L389 40L410 32L431 40L466 14L473 39L520 33L494 56C513 108 481 158 410 184Z" fill="url(#armor)" stroke="#35E996" stroke-width="3" stroke-linejoin="round"/>
+<path d="M333 61L367 82L346 110L378 130M487 61L453 82L474 110L442 130" fill="none" stroke="#62FFB2" stroke-width="3" opacity=".9"/>
+<path d="M353 45L375 65M467 45L445 65M336 90L364 103M484 90L456 103" stroke="#22D3EE" stroke-width="2" opacity=".8"/>
+<path d="M410 61L378 69L363 103L373 141L410 163L447 141L457 103L442 69Z" fill="url(#face)" stroke="#7BFFBC" stroke-width="2.5"/>
+<path d="M369 95L398 100L388 113L371 108Z M451 95L422 100L432 113L449 108Z" fill="#020E0B" stroke="#40FF9A" stroke-width="1.5"/>
+<path class="eye" d="M378 102L393 105M442 102L427 105" stroke="#FF254C" stroke-width="4.5" filter="url(#glow)"/>
+<path d="M395 126L410 132L425 126L410 144Z" fill="#071511" stroke="#39FF88" stroke-width="1.5"/>
+<path d="M378 136L389 162L398 140M442 136L431 162L422 140" fill="#E7FFF4" stroke="#50FFAA" stroke-width="1.3"/>
+<path d="M410 143V159L400 172M410 159L420 172" stroke="#FF3655" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+<path d="M385 188Q410 201 435 188" stroke="#1FD18B" stroke-width="2" fill="none"/>
+<g font-family="monospace" font-size="11" letter-spacing="2" fill="#36A77C"><text x="167" y="65">VIPER_01</text><text x="560" y="65">SYSTEM:LIVE</text></g>
+</svg>
