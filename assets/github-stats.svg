@@ -1,16 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="728" height="204" viewBox="0 0 728 204">
-  <rect x="1" y="1" width="355" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
-  <rect x="376" y="1" width="351" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
-  <g font-family="system-ui, sans-serif" font-size="17" fill="#e6f8e9">
-    <text x="24" y="36" font-weight="700" fill="#69ff45">GitHub stats</text>
-    <text x="400" y="36" font-weight="700" fill="#69ff45">Top languages by repository</text>
-    <text x="24" y="74">Public projects</text><text x="333" y="74" text-anchor="end" fill="#69ff45">11</text>
-    <text x="24" y="109">Project stars</text><text x="333" y="109" text-anchor="end" fill="#69ff45">3</text>
-    <text x="24" y="144">Project forks</text><text x="333" y="144" text-anchor="end" fill="#69ff45">1</text>
-    <text x="24" y="179">Followers</text><text x="333" y="179" text-anchor="end" fill="#69ff45">2</text>
-    <text x="400" y="74">JavaScript</text><rect x="530" y="64" width="142" height="8" rx="4" fill="#24422d"/><rect x="530" y="64" width="142" height="8" rx="4" fill="#57ef38"/><text x="704" y="74" text-anchor="end">5</text>
-    <text x="400" y="109">Python</text><rect x="530" y="99" width="142" height="8" rx="4" fill="#24422d"/><rect x="530" y="99" width="57" height="8" rx="4" fill="#57ef38"/><text x="704" y="109" text-anchor="end">2</text>
-    <text x="400" y="144">HTML</text><rect x="530" y="134" width="142" height="8" rx="4" fill="#24422d"/><rect x="530" y="134" width="57" height="8" rx="4" fill="#57ef38"/><text x="704" y="144" text-anchor="end">2</text>
-    <text x="400" y="179">TypeScript</text><rect x="530" y="169" width="142" height="8" rx="4" fill="#24422d"/><rect x="530" y="169" width="28" height="8" rx="4" fill="#57ef38"/><text x="704" y="179" text-anchor="end">1</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="280" viewBox="0 0 1100 280" role="img" aria-label="Public GitHub repository statistics">
+<defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#08130D"/><stop offset="1" stop-color="#030907"/></linearGradient>
+</defs>
+<rect width="1100" height="280" rx="20" fill="url(#bg)"/>
+<rect x="1" y="1" width="1098" height="278" rx="19" fill="none" stroke="#1F5732"/>
+<g font-family="Arial, sans-serif">
+<rect x="14" y="16" width="257" height="104" rx="15" fill="#0B1510" stroke="#267D3D"/><rect x="29" y="30" width="4" height="18" rx="2" fill="#39FF88"/><text x="42" y="45" fill="#B7D5C1" font-size="15">Public projects</text><text x="33" y="97" fill="#69FF55" font-size="39" font-weight="800">11</text><rect x="289" y="16" width="257" height="104" rx="15" fill="#0B1510" stroke="#267D3D"/><rect x="304" y="30" width="4" height="18" rx="2" fill="#39FF88"/><text x="317" y="45" fill="#B7D5C1" font-size="15">Project stars</text><text x="308" y="97" fill="#69FF55" font-size="39" font-weight="800">3</text><rect x="564" y="16" width="257" height="104" rx="15" fill="#0B1510" stroke="#267D3D"/><rect x="579" y="30" width="4" height="18" rx="2" fill="#39FF88"/><text x="592" y="45" fill="#B7D5C1" font-size="15">Project forks</text><text x="583" y="97" fill="#69FF55" font-size="39" font-weight="800">1</text><rect x="839" y="16" width="257" height="104" rx="15" fill="#0B1510" stroke="#267D3D"/><rect x="854" y="30" width="4" height="18" rx="2" fill="#39FF88"/><text x="867" y="45" fill="#B7D5C1" font-size="15">Followers</text><text x="858" y="97" fill="#69FF55" font-size="39" font-weight="800">2</text>
+<text x="27" y="155" fill="#69FF55" font-size="19" font-weight="700">TOP LANGUAGES</text>
+<text x="1065" y="153" text-anchor="end" fill="#789D86" font-size="12">By public repository primary language</text>
+<text x="35" y="185" fill="#E3F5E9" font-size="14">JavaScript</text><rect x="155" y="173" width="150" height="11" rx="5" fill="#193328"/><rect x="155" y="173" width="150" height="11" rx="5" fill="#42F65E"/><text x="318" y="185" fill="#A5D9B2" font-size="13">5</text><text x="390" y="185" fill="#E3F5E9" font-size="14">Python</text><rect x="510" y="173" width="150" height="11" rx="5" fill="#193328"/><rect x="510" y="173" width="60" height="11" rx="5" fill="#42F65E"/><text x="673" y="185" fill="#A5D9B2" font-size="13">2</text><text x="745" y="185" fill="#E3F5E9" font-size="14">HTML</text><rect x="865" y="173" width="150" height="11" rx="5" fill="#193328"/><rect x="865" y="173" width="60" height="11" rx="5" fill="#42F65E"/><text x="1028" y="185" fill="#A5D9B2" font-size="13">2</text><text x="35" y="225" fill="#E3F5E9" font-size="14">TypeScript</text><rect x="155" y="213" width="150" height="11" rx="5" fill="#193328"/><rect x="155" y="213" width="30" height="11" rx="5" fill="#42F65E"/><text x="318" y="225" fill="#A5D9B2" font-size="13">1</text>
+</g>
 </svg>
