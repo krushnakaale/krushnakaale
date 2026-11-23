@@ -3,6 +3,11 @@ from html import escape
 from textwrap import wrap
 
 
+def _truncate(value, limit):
+    value = str(value or '')
+    return value if len(value) <= limit else value[:limit - 1].rstrip() + '…'
+
+
 def _safe(value):
     return escape(str(value or ""), quote=True)
 
@@ -27,15 +32,15 @@ def render_projects(repositories, featured=False):
         name = str(repo.get("name") or "Repository")
         language = str(repo.get("language") or "Other")
         description = str(repo.get("description") or "Explore source code and project details.")
-        lines = wrap(description, width=49, break_long_words=False, break_on_hyphens=False)
+        lines = wrap(description, width=49, break_long_words=True, break_on_hyphens=False)
         if len(lines) > 2:
-            lines = [lines[0], lines[1][:46].rstrip() + "…"]
+            lines = [lines[0], _truncate(lines[1], 46)]
         stars = max(0, int(repo.get("stargazers_count") or 0))
         forks = max(0, int(repo.get("forks_count") or 0))
         pushed = str(repo.get("pushed_at") or "")[:10] or "N/A"
         elements.extend([
-            f'<text x="{x}" y="{y+14}" font-size="13" font-family="monospace" fill="{accent}">{"// FEATURED" if featured else "// RECENT"}  ·  {_safe(language[:22])}</text>',
-            f'<text x="{x}" y="{y+49}" font-size="24" font-weight="700" font-family="Arial,sans-serif" fill="#39FF88">{_safe("› " + name[:28])}</text>',
+            f'<text x="{x}" y="{y+14}" font-size="13" font-family="monospace" fill="{accent}">{"// FEATURED" if featured else "// RECENT"}  ·  {_safe(_truncate(language, 22))}</text>',
+            f'<text x="{x}" y="{y+49}" font-size="24" font-weight="700" font-family="Arial,sans-serif" fill="#39FF88">{_safe("› " + _truncate(name, 28))}</text>',
         ])
         for j, line in enumerate(lines[:2]):
             elements.append(f'<text x="{x}" y="{y+84+j*21}" font-size="16" font-family="Arial,sans-serif" fill="#C5D1DD">{_safe(line)}</text>')
