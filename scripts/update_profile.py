@@ -44,7 +44,7 @@ def update(root, api):
         raise ValueError("GitHub returned an invalid follower count")
     eligible = select_repositories(fetch_repositories(api, username), config)
     featured = select_featured(eligible, config["featured_repositories"])\n    # Keep curated projects first; fill remaining spotlight slots dynamically.\n    featured_ids = {repo["name"].casefold() for repo in featured}\n    featured += [repo for repo in eligible if repo["name"].casefold() not in featured_ids][:max(0, 4 - len(featured))]
-    featured_names = {repo["name"].casefold() for repo in featured}
+    featured_names = {repo["name"].casefold() for repo in eligible}
     for name in config["featured_repositories"]:
         if name.casefold() not in featured_names:
             print(f"Featured repository unavailable: {name}", file=sys.stderr)
