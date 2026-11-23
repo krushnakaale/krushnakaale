@@ -12,41 +12,39 @@ def text(value):
 
 
 def project_cards(username, repositories):
-    """Render live GitHub repository metadata as a compact two-column grid.
-
-    Repository descriptions and names are escaped before embedding in HTML.
-    The next scheduled updater run regenerates these cards from the GitHub API.
-    """
+    """Render theme-matched repository cards from fresh GitHub API metadata."""
     if not repositories:
         return "No public repositories to display yet."
 
-    cells = []
+    cards = []
     for repo in repositories:
         name = text(repo["name"])
         link = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
-        description = text(repo.get("description") or "Explore the source code and README for more details.")
-        language = text(repo.get("language") or "Not specified")
+        description = text(repo.get("description") or "Explore the project source code and documentation.")
+        language = text(repo.get("language") or "Other")
         stars = max(0, int(repo.get("stargazers_count") or 0))
         forks = max(0, int(repo.get("forks_count") or 0))
         pushed = text((repo.get("pushed_at") or "")[:10])
-        updated = text((repo.get("updated_at") or "")[:10])
-        status = "Active" if not repo.get("disabled") else "Unavailable"
-        date_line = f"Last push: {pushed} UTC" if pushed else "No push date reported"
-        if updated and updated != pushed:
-            date_line += f" · Metadata: {updated}"
-        cells.append(
+        date = f"LAST PUSH // {pushed} UTC" if pushed else "LAST PUSH // unavailable"
+        badge = (
+            "https://img.shields.io/badge/STATUS-"
+            + ("UNAVAILABLE-142017?style=flat-square%26labelColor=0D1712%26color=A78BFA"
+               if repo.get("disabled") else
+               "ACTIVE-142017?style=flat-square%26labelColor=0D1712%26color=39FF88")
+        ).replace("%26", "&amp;")
+        cards.append(
             '<td width="50%" valign="top">'
-            f'<a href="{link}"><strong>◈ {name}</strong></a>'
-            f'<br/><sub>● {status} &nbsp;·&nbsp; {language}</sub>'
+            f'<a href="{link}"><strong>▸ {name}</strong></a>'
+            f'<br/><img src="{badge}" alt="Repository status" />'
+            f'&nbsp;<sub>⌘ {language}</sub>'
             f'<p>{description}</p>'
             f'<sub>★ {stars} &nbsp;·&nbsp; ⑂ {forks}</sub>'
-            f'<br/><sub>{date_line}</sub>'
+            f'<br/><sub><code>{date}</code></sub>'
             '</td>'
         )
-
     rows = []
-    for i in range(0, len(cells), 2):
-        pair = cells[i:i + 2]
+    for i in range(0, len(cards), 2):
+        pair = cards[i:i + 2]
         if len(pair) == 1:
             pair.append('<td width="50%" valign="top"></td>')
         rows.append("<tr>" + "".join(pair) + "</tr>")
