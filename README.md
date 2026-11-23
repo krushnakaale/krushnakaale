@@ -34,20 +34,22 @@ I build Python tools and automation scripts, develop practical web applications,
 
 <div align="center">
 
-<img src="assets/tech-snake.svg" alt="Cyber cobra with neon fangs and glowing eyes" width="390" />
+<img src="assets/tech-snake.svg" alt="Cyber cobra with neon fangs and glowing eyes" width="440" />
 
 <p>
-<img src="https://cdn.simpleicons.org/python/3776AB" width="34" height="34" alt="python logo" />
-<img src="https://cdn.simpleicons.org/javascript/F7DF1E" width="34" height="34" alt="javascript logo" />
-<img src="https://cdn.simpleicons.org/typescript/3178C6" width="34" height="34" alt="typescript logo" />
-<img src="https://cdn.simpleicons.org/html5/E34F26" width="34" height="34" alt="html5 logo" />
-<img src="https://cdn.simpleicons.org/css/663399" width="34" height="34" alt="css logo" />
-<img src="https://cdn.simpleicons.org/git/F05032" width="34" height="34" alt="git logo" />
-<img src="https://cdn.simpleicons.org/github/FFFFFF" width="34" height="34" alt="github logo" />
-<img src="https://cdn.simpleicons.org/linux/FCC624" width="34" height="34" alt="linux logo" />
-<img src="https://cdn.simpleicons.org/githubactions/2088FF" width="34" height="34" alt="githubactions logo" />
-<img src="https://cdn.simpleicons.org/visualstudiocode/24A9E6" width="34" height="34" alt="visualstudiocode logo" />
+<img src="https://cdn.simpleicons.org/python/3776AB" width="38" height="38" alt="python logo" />
+<img src="https://cdn.simpleicons.org/javascript/F7DF1E" width="38" height="38" alt="javascript logo" />
+<img src="https://cdn.simpleicons.org/typescript/3178C6" width="38" height="38" alt="typescript logo" />
+<img src="https://cdn.simpleicons.org/html5/E34F26" width="38" height="38" alt="html5 logo" />
+<img src="https://cdn.simpleicons.org/css/663399" width="38" height="38" alt="css logo" />
+<img src="https://cdn.simpleicons.org/git/F05032" width="38" height="38" alt="git logo" />
+<img src="https://cdn.simpleicons.org/github/FFFFFF" width="38" height="38" alt="github logo" />
+<img src="https://cdn.simpleicons.org/linux/FCC624" width="38" height="38" alt="linux logo" />
+<img src="https://cdn.simpleicons.org/githubactions/2088FF" width="38" height="38" alt="githubactions logo" />
+<img src="https://cdn.simpleicons.org/visualstudiocode/24A9E6" width="38" height="38" alt="visualstudiocode logo" />
 </p>
+
+<img src="assets/tech-signal.svg" alt="Neon cyber signal" width="550" />
 
 </div>
 
