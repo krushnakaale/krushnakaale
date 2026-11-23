@@ -12,20 +12,45 @@ def text(value):
 
 
 def project_cards(username, repositories):
-    cards = []
+    """Render live GitHub repository metadata as a compact two-column grid.
+
+    Repository descriptions and names are escaped before embedding in HTML.
+    The next scheduled updater run regenerates these cards from the GitHub API.
+    """
+    if not repositories:
+        return "No public repositories to display yet."
+
+    cells = []
     for repo in repositories:
-        name = repo["name"]
-        link = f"https://github.com/{username}/{quote(name, safe='')}"
-        metadata = [text(repo["language"])] if repo.get("language") else []
-        metadata.append(f"★ {int(repo.get('stargazers_count') or 0)}")
-        if repo.get("pushed_at"):
-            metadata.append(f"Pushed {text(repo['pushed_at'][:10])} UTC")
-        card = [f"#### [{text(name)} ↗]({link})"]
-        if repo.get("description"):
-            card.append(f"> {text(repo['description'])}")
-        card.append(f"<sub>{' · '.join(metadata)}</sub>")
-        cards.append("\n\n".join(card))
-    return "\n\n".join(cards) or "No public projects to display."
+        name = text(repo["name"])
+        link = f"https://github.com/{quote(username, safe='')}/{quote(repo['name'], safe='')}"
+        description = text(repo.get("description") or "Explore the source code and README for more details.")
+        language = text(repo.get("language") or "Not specified")
+        stars = max(0, int(repo.get("stargazers_count") or 0))
+        forks = max(0, int(repo.get("forks_count") or 0))
+        pushed = text((repo.get("pushed_at") or "")[:10])
+        updated = text((repo.get("updated_at") or "")[:10])
+        status = "Active" if not repo.get("disabled") else "Unavailable"
+        date_line = f"Last push: {pushed} UTC" if pushed else "No push date reported"
+        if updated and updated != pushed:
+            date_line += f" · Metadata: {updated}"
+        cells.append(
+            '<td width="50%" valign="top">'
+            f'<a href="{link}"><strong>◈ {name}</strong></a>'
+            f'<br/><sub>● {status} &nbsp;·&nbsp; {language}</sub>'
+            f'<p>{description}</p>'
+            f'<sub>★ {stars} &nbsp;·&nbsp; ⑂ {forks}</sub>'
+            f'<br/><sub>{date_line}</sub>'
+            '</td>'
+        )
+
+    rows = []
+    for i in range(0, len(cells), 2):
+        pair = cells[i:i + 2]
+        if len(pair) == 1:
+            pair.append('<td width="50%" valign="top"></td>')
+        rows.append("<tr>" + "".join(pair) + "</tr>")
+    return "<table>\\n" + "\\n".join(rows) + "\\n</table>"
 
 
 def featured_cards(username, repositories):
