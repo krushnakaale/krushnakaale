@@ -75,7 +75,11 @@ I build Python tools and automation scripts, develop practical web applications,
 ## `07 // LANGUAGE BREAKDOWN`
 
 <!-- LANGUAGES:START -->
-<div align="center">\n\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\n\n</div>
+<div align="center">
+
+![Live primary language distribution pie chart](assets/language-breakdown.svg)
+
+</div>
 <!-- LANGUAGES:END -->
 
 <div align="center">\n\n<sub>Percentages reflect each eligible repository’s primary language as reported by GitHub.</sub>\n\n</div>
