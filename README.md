@@ -24,11 +24,14 @@ I build Python tools and automation scripts, develop practical web applications,
 ### > current_mission
 
 <!-- FOCUS:START -->
-```text
-┌─[ KRUSHNA@CYBER-LAB ]──[ MISSION STATUS: ACTIVE ]
-│  EXPLORING
-└─> learn • build • secure • repeat
-```
+**`[ SYSTEM ONLINE ]  //  CURRENT MISSION`**
+
+**◈ EXPLORING**
+- `> ` Python automation
+- `> ` Cybersecurity fundamentals
+- `> ` Open-source development
+
+`> learn • build • secure • repeat_`
 <!-- FOCUS:END -->
 
 ## `03 // TECH STACK`
