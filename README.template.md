@@ -69,7 +69,6 @@ Available after the first profile refresh.
 Available after the first profile refresh.
 <!-- LANGUAGES:END -->
 
-Counts reflect each eligible repository’s primary language as reported by GitHub.
 
 ## `08 // PUBLIC ACTIVITY FEED`
 
