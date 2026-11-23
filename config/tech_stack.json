@@ -1,0 +1,48 @@
+{
+  "width": 1000,
+  "height": 238,
+  "frames": 24,
+  "frame_ms": 110,
+  "technologies": [
+    {
+      "name": "PYTHON",
+      "color": "#3776AB"
+    },
+    {
+      "name": "JAVASCRIPT",
+      "color": "#F7DF1E"
+    },
+    {
+      "name": "TYPESCRIPT",
+      "color": "#3178C6"
+    },
+    {
+      "name": "HTML5",
+      "color": "#E34F26"
+    },
+    {
+      "name": "CSS3",
+      "color": "#9A66FF"
+    },
+    {
+      "name": "GIT",
+      "color": "#F05032"
+    },
+    {
+      "name": "GITHUB",
+      "color": "#DCE8F4"
+    },
+    {
+      "name": "LINUX",
+      "color": "#FCC624"
+    },
+    {
+      "name": "ACTIONS",
+      "color": "#2088FF"
+    },
+    {
+      "name": "VS CODE",
+      "color": "#24A9E6"
+    }
+  ]
+}
