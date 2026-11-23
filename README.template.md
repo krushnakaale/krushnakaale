@@ -39,7 +39,7 @@ Available after the first profile refresh.
 ![GitHub repository and language statistics](assets/github-stats.svg)
 <!-- STATS:END -->
 
-<img src="assets/section-projects.svg" alt="05 // FEATURED PROJECTS" width="100%" />
+## `05 // FEATURED PROJECTS`
 
 *Handpicked repositories. Project stars and metadata update automatically.*
 
@@ -47,7 +47,7 @@ Available after the first profile refresh.
 Available after the first profile refresh.
 <!-- FEATURED:END -->
 
-<img src="assets/section-repositories.svg" alt="06 // LATEST REPOSITORIES" width="100%" />
+## `06 // LATEST REPOSITORIES`
 
 *Automatically sorted by most recently pushed.*
 
