@@ -21,11 +21,15 @@
 
 ### 🚀 About Me
 
-I'm **Krushna Kale**, a developer exploring **Python, automation, cybersecurity and open source**.
+Hi, I'm **Krushna Kale** — a Python-focused developer who enjoys turning ideas into practical, well-documented software.
 
-I build practical applications, security-focused learning projects and automation tools to turn ideas into useful software.
+I build **automation tools, Python projects and web applications**, while exploring **cybersecurity fundamentals, Linux and secure development practices**. I learn by building, testing, improving and sharing projects on GitHub.
 
-`> building · securing · automating · learning`
+**What drives my work:** clean code, useful features, continuous learning and solving real-world problems.
+
+[🌐 Portfolio](https://krushnakaale.vercel.app) · [💻 Explore my projects](https://github.com/krushnakaale?tab=repositories)
+
+`> think critically · build responsibly · keep learning`
 
 </td>
 <td width="34%" valign="top">
