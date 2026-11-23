@@ -17,6 +17,7 @@ from scripts.markdown_renderer import featured_cards, project_cards, render_regi
 from scripts.profile_config import load_config
 from scripts.repository_manager import fetch_repositories, select_featured, select_repositories
 from scripts.statistics import render_stats
+from scripts.project_visuals import render_projects
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -65,8 +66,8 @@ def update(root, api):
     summary = ", ".join(f"{label} {value}" for label, value in metrics)
     sections = {
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
-        "FEATURED": featured_cards(username, featured),
-        "REPOSITORIES": project_cards(username, eligible[:config["repository_limit"]])
+        "FEATURED": "![Featured projects, automatically updated from GitHub](assets/featured-projects.svg)\n\n" + " · ".join(f"[{text(repo[\'name\'])}](https://github.com/{username}/{repo[\'name\']})" for repo in featured),
+        "REPOSITORIES": "![Latest repositories, automatically updated from GitHub](assets/latest-repositories.svg)\n\n" + " · ".join(f"[{text(repo[\'name\'])}](https://github.com/{username}/{repo[\'name\']})" for repo in eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
         or "No primary languages reported yet.",
@@ -81,8 +82,10 @@ def update(root, api):
     refreshed = render_regions(original, sections)
     svg = render_stats(metrics, languages)
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
+    featured_changed = replace_if_changed(root / "assets/featured-projects.svg", render_projects(featured, featured=True))
+    repositories_changed = replace_if_changed(root / "assets/latest-repositories.svg", render_projects(eligible[:config["repository_limit"]]))
     readme_changed = replace_if_changed(readme, refreshed)
-    return stats_changed or readme_changed
+    return stats_changed or featured_changed or repositories_changed or readme_changed
 
 
 def main():
