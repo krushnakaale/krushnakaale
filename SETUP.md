@@ -4,7 +4,7 @@ This repository powers the [Krushna Kale GitHub profile](https://github.com/krus
 
 1. Add the profile files to the default branch of [krushnakaale/krushnakaale](https://github.com/krushnakaale/krushnakaale).
 2. In the repository's **Actions** tab, run **Refresh dynamic GitHub profile** and **Generate contribution snake** on the default branch.
-3. Confirm the project table appears in `README.md` and both contribution SVGs appear on the `output` branch.
+3. Confirm the project showcase appears in `README.md` and both contribution SVGs appear on the `output` branch.
 
 The workflows request `contents: write` and use the built-in GitHub Actions token. If a push fails, check repository or organization Actions policies and branch rules.
 

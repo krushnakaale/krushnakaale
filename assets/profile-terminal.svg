@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="176" viewBox="0 0 840 176" role="img" aria-labelledby="title">
+  <title id="title">Animated terminal showing Python, automation, web development, and Linux</title>
+  <defs>
+    <linearGradient id="border">
+      <stop stop-color="#34d399"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <clipPath id="typing">
+      <rect y="89" width="720" height="40">
+        <animate attributeName="width" values="720;0;0;720;720" keyTimes="0;0.001;0.04;0.23;1" dur="4s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+    <style>
+      .command { opacity: 0; animation: commands 16s infinite; }
+      .command:nth-child(1) { opacity: 1; }
+      .command:nth-child(2) { animation-delay: 4s; }
+      .command:nth-child(3) { animation-delay: 8s; }
+      .command:nth-child(4) { animation-delay: 12s; }
+      @keyframes commands {
+        0%, 24.9% { opacity: 1; }
+        25%, 100% { opacity: 0; }
+      }
+    </style>
+  </defs>
+  <rect x="2" y="2" width="836" height="172" rx="18" fill="#0b1220" stroke="url(#border)" stroke-width="3"/>
+  <path d="M3 49H837" stroke="#26364a"/>
+  <circle cx="26" cy="26" r="5" fill="#fb7185"/>
+  <circle cx="45" cy="26" r="5" fill="#fbbf24"/>
+  <circle cx="64" cy="26" r="5" fill="#34d399"/>
+  <g font-family="ui-monospace, Consolas, monospace">
+    <text x="420" y="31" text-anchor="middle" fill="#a9bbcf" font-size="15">krushnakaale / terminal</text>
+    <text x="30" y="118" fill="#34d399" font-size="26">$</text>
+    <g transform="translate(59)" clip-path="url(#typing)" fill="#e2f5ff" font-size="25">
+      <text class="command" y="118">python build_tools.py</text>
+      <text class="command" y="118">python automate_tasks.py</text>
+      <text class="command" y="118">npm run dev</text>
+      <text class="command" y="118">find ~/linux-labs -type f</text>
+    </g>
+    <rect x="30" y="139" width="10" height="3" fill="#38bdf8">
+      <animate attributeName="opacity" values="1;1;0;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

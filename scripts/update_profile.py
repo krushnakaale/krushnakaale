@@ -54,21 +54,26 @@ def generate(user, repos):
         "",
         "### Recent projects",
         "",
-        "| Repository | Description | Language | Stars | Last push (UTC) |",
-        "|:--|:--|:--|--:|:--|",
     ]
     for r in repos[:8]:
         name = esc(r.get("name"))
         description = " ".join((r.get("description") or "").split())
-        if len(description) > 100:
-            description = description[:99].rstrip() + "…"
-        desc = esc(description or "—")
-        lang = esc(r.get("language") or "—")
-        pushed = (r.get("pushed_at") or "")[:10] or "—"
-        lines.append(f"| [{name}]({r['html_url']}) | {desc} | {lang} | {r.get('stargazers_count', 0)} | {pushed} |")
+        pushed = (r.get("pushed_at") or "")[:10]
+        metadata = []
+        if r.get("language"):
+            metadata.append(esc(r["language"]))
+        if r.get("stargazers_count"):
+            metadata.append(f"★ {r['stargazers_count']}")
+        if pushed:
+            metadata.append(f"Pushed {pushed} UTC")
+        lines.extend([f"#### [{name} ↗]({r['html_url']})", ""])
+        if description:
+            lines.extend([f"> {esc(description)}", ""])
+        if metadata:
+            lines.extend([f"<sub>{' · '.join(metadata)}</sub>", ""])
     if not repos:
-        lines.append("| No public project repositories yet | — | — | — | — |")
-    lines += ["", "### Primary languages by repository", ""]
+        lines.extend(["No public project repositories yet.", ""])
+    lines += ["### Primary languages by repository", ""]
     if languages:
         lines.append(" · ".join(f"**{esc(k)}**: {v}" for k, v in languages.most_common(7)))
     else:
