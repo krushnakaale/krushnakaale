@@ -75,10 +75,12 @@ Counts reflect each eligible repository’s primary language as reported by GitH
 ## `08 // PUBLIC ACTIVITY FEED`
 
 <!-- ACTIVITY:START -->
-- **2026-11-23 UTC** · Pushed to [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
-- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
-- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/yt-manager](https://github.com/krushnakaale/yt-manager)
-- **2026-11-22 UTC** · Starred a repository in [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
+![Public activity stream refreshed from GitHub](assets/activity-feed.svg)
+
+**2026-11-23 UTC** · Pushed to [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
+**2026-11-22 UTC** · Created a Git ref in [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
+**2026-11-22 UTC** · Created a Git ref in [krushnakaale/yt-manager](https://github.com/krushnakaale/yt-manager)
+**2026-11-22 UTC** · Starred a repository in [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
 <!-- ACTIVITY:END -->
 
 ## `09 // CONTRIBUTION SNAKE`
