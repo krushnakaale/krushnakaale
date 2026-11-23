@@ -1,34 +1,49 @@
-"""Render the local GitHub statistics SVG."""
+"""Generate a responsive cyber-green statistics SVG from verified public metrics."""
 from html import escape
 
 
 def render_stats(metrics, languages):
-    labels = [
-        f'<text x="24" y="{y}">{escape(label)}</text>'
-        f'<text x="333" y="{y}" text-anchor="end" fill="#69ff45">{value}</text>'
-        for y, (label, value) in zip(range(74, 187, 35), metrics)
-    ]
+    safe_metrics = [(str(label), max(0, int(value))) for label, value in metrics]
+    items = list(languages.most_common(5))
+    total = sum(count for _, count in items)
+    width, height = 1100, 280
+    cards = []
+    for index, (label, value) in enumerate(safe_metrics[:4]):
+        x = 14 + index * 275
+        cards.append(
+            f'<rect x="{x}" y="16" width="257" height="104" rx="15" fill="#0B1510" stroke="#267D3D"/>'
+            f'<rect x="{x + 15}" y="30" width="4" height="18" rx="2" fill="#39FF88"/>'
+            f'<text x="{x + 28}" y="45" fill="#B7D5C1" font-size="15">{escape(label)}</text>'
+            f'<text x="{x + 19}" y="97" fill="#69FF55" font-size="39" font-weight="800">{value:,}</text>'
+        )
+    while len(cards) < 4:
+        index = len(cards)
+        x = 14 + index * 275
+        cards.append(f'<rect x="{x}" y="16" width="257" height="104" rx="15" fill="#0B1510" stroke="#267D3D"/>')
     bars = []
-    if languages:
-        maximum = max(languages.values())
-        for index, (language, count) in enumerate(languages.most_common(4)):
-            y = 74 + index * 35
-            bars.append(
-                f'<text x="400" y="{y}">{escape(language)}</text>'
-                f'<rect x="530" y="{y - 10}" width="142" height="8" rx="4" fill="#24422d"/>'
-                f'<rect x="530" y="{y - 10}" width="{round(142 * count / maximum)}" height="8" rx="4" fill="#57ef38"/>'
-                f'<text x="704" y="{y}" text-anchor="end">{count}</text>'
-            )
-    else:
-        bars.append('<text x="400" y="74">No language data yet</text>')
-    rows = "\n    ".join(labels + bars)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="728" height="204" viewBox="0 0 728 204">
-  <rect x="1" y="1" width="355" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
-  <rect x="376" y="1" width="351" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
-  <g font-family="system-ui, sans-serif" font-size="17" fill="#e6f8e9">
-    <text x="24" y="36" font-weight="700" fill="#69ff45">GitHub stats</text>
-    <text x="400" y="36" font-weight="700" fill="#69ff45">Top languages by repository</text>
-    {rows}
-  </g>
+    max_count = max((count for _, count in items), default=1)
+    for index, (language, count) in enumerate(items):
+        x = 35 + (index % 3) * 355
+        y = 185 + (index // 3) * 40
+        bars.append(
+            f'<text x="{x}" y="{y}" fill="#E3F5E9" font-size="14">{escape(str(language))}</text>'
+            f'<rect x="{x + 120}" y="{y - 12}" width="150" height="11" rx="5" fill="#193328"/>'
+            f'<rect x="{x + 120}" y="{y - 12}" width="{round(150 * count / max_count)}" height="11" rx="5" fill="#42F65E"/>'
+            f'<text x="{x + 283}" y="{y}" fill="#A5D9B2" font-size="13">{count}</text>'
+        )
+    if not items:
+        bars.append('<text x="35" y="187" fill="#A5D9B2">No language data available</text>')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Public GitHub repository statistics">
+<defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#08130D"/><stop offset="1" stop-color="#030907"/></linearGradient>
+</defs>
+<rect width="{width}" height="{height}" rx="20" fill="url(#bg)"/>
+<rect x="1" y="1" width="1098" height="278" rx="19" fill="none" stroke="#1F5732"/>
+<g font-family="Arial, sans-serif">
+{''.join(cards)}
+<text x="27" y="155" fill="#69FF55" font-size="19" font-weight="700">TOP LANGUAGES</text>
+<text x="1065" y="153" text-anchor="end" fill="#789D86" font-size="12">By public repository primary language</text>
+{''.join(bars)}
+</g>
 </svg>
 """
