@@ -1,50 +1,44 @@
-"""Generate animated multicolor cyberpunk statistics from verified public metrics."""
+"""Generate a GitHub-compatible live SVG dashboard from verified public counts."""
 from html import escape
 
 
 def render_stats(metrics, languages):
-    safe_metrics = [(str(label), max(0, int(value))) for label, value in metrics]
-    items = list(languages.most_common(5))
-    total = sum(count for _, count in items)
-    width, height = 1100, 280
-    cards = []
-    for index, (label, value) in enumerate(safe_metrics[:4]):
-        x = 14 + index * 275
-        cards.append(
-            f'<rect class="card" x="{x}" y="16" width="257" height="104" rx="15" fill="#101426" stroke="#334B74"/>'
-            f'<rect x="{x + 15}" y="30" width="4" height="18" rx="2" fill="#22D3EE"/>'
-            f'<text x="{x + 28}" y="45" fill="#CBD5E1" font-size="15">{escape(label)}</text>'
-            f'<text x="{x + 19}" y="97" fill="#22D3EE" font-size="39" font-weight="800">{value:,}</text>'
+    metrics = list(metrics)
+    # Values are GitHub API derived. Never display fabricated commits/streaks.
+    stats = []
+    for i, (label, value) in enumerate(metrics[:4]):
+        x = 24 + (i % 2) * 259
+        y = 108 + (i // 2) * 70
+        stats.append(
+            f'<text x="{x}" y="{y}" fill="#a8c4b2" font-size="15">{escape(str(label))}</text>'
+            f'<text x="{x}" y="{y + 32}" fill="#57ff83" font-weight="800" font-size="27">{int(value)}</text>'
         )
-    while len(cards) < 4:
-        index = len(cards)
-        x = 14 + index * 275
-        cards.append(f'<rect x="{x}" y="16" width="257" height="104" rx="15" fill="#101426" stroke="#334B74"/>')
     bars = []
-    max_count = max((count for _, count in items), default=1)
-    for index, (language, count) in enumerate(items):
-        x = 35 + (index % 3) * 355
-        y = 185 + (index // 3) * 40
+    items = languages.most_common(5) if languages else []
+    maximum = max((count for _, count in items), default=1)
+    for i, (language, count) in enumerate(items):
+        y = 102 + i * 34
+        width = round(290 * count / maximum)
         bars.append(
-            f'<text x="{x}" y="{y}" fill="#E2E8F0" font-size="14">{escape(str(language))}</text>'
-            f'<rect x="{x + 120}" y="{y - 12}" width="150" height="11" rx="5" fill="#29324C"/>'
-            f'<rect class="bar" x="{x + 120}" y="{y - 12}" width="{round(150 * count / max_count)}" height="11" rx="5" fill="#A78BFA"/>'
-            f'<text x="{x + 283}" y="{y}" fill="#B9C5DE" font-size="13">{count}</text>'
+            f'<text x="572" y="{y}" fill="#d9fce4" font-size="14">{escape(str(language))}</text>'
+            f'<rect x="724" y="{y - 12}" width="290" height="12" rx="6" fill="#173728"/>'
+            f'<rect x="724" y="{y - 12}" width="{width}" height="12" rx="6" fill="#2bfa68"/>'
+            f'<text x="1055" y="{y}" fill="#b8dfc3" text-anchor="end" font-size="14">{count}</text>'
         )
-    if not items:
-        bars.append('<text x="35" y="187" fill="#B9C5DE">No language data available</text>')
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Public GitHub repository statistics">
-<defs>
-  <style>.bar{{animation:grow 1.8s ease-out both;transform-box:fill-box;transform-origin:left center}}.card{{animation:appear 1.2s ease-out both}}@keyframes grow{{from{{transform:scaleX(0)}}to{{transform:scaleX(1)}}}}@keyframes appear{{from{{opacity:.3}}to{{opacity:1}}}}@media(prefers-reduced-motion:reduce){{.bar,.card{{animation:none}}}}</style>
-  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0A0D1D"/><stop offset="1" stop-color="#091B27"/></linearGradient>
-</defs>
-<rect width="{width}" height="{height}" rx="20" fill="url(#bg)"/>
-<rect x="1" y="1" width="1098" height="278" rx="19" fill="none" stroke="#334B74"/>
-<g font-family="Arial, sans-serif">
-{''.join(cards)}
-<text x="27" y="155" fill="#22D3EE" font-size="19" font-weight="700">TOP LANGUAGES</text>
-<text x="1065" y="153" text-anchor="end" fill="#94A3B8" font-size="12">By public repository primary language</text>
-{''.join(bars)}
-</g>
+    if not bars:
+        bars.append('<text x="572" y="110" font-size="17" fill="#a8c4b2">No public language data yet</text>')
+    body = "\n".join(stats + bars)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="265" viewBox="0 0 1100 265" role="img" aria-labelledby="title description">
+<title id="title">Live GitHub profile statistics</title>
+<desc id="description">Verified public project counts and primary programming languages for the developer</desc>
+<rect width="1100" height="265" rx="16" fill="#050c08"/>
+<rect x="2" y="2" width="532" height="261" rx="16" fill="#08160e" stroke="#2fe66b" stroke-width="2"/>
+<rect x="551" y="2" width="547" height="261" rx="16" fill="#08160e" stroke="#2fe66b" stroke-width="2"/>
+<rect x="18" y="16" width="8" height="34" rx="2" fill="#39ff88"/>
+<text x="40" y="40" font-family="monospace" font-size="21" font-weight="700" fill="#eaffee">LIVE GITHUB STATS</text>
+<rect x="564" y="16" width="8" height="34" rx="2" fill="#39ff88"/>
+<text x="586" y="40" font-family="monospace" font-size="21" font-weight="700" fill="#eaffee">TOP LANGUAGES</text>
+<g font-family="system-ui,sans-serif">{body}</g>
+<text x="570" y="246" font-family="monospace" font-size="12" fill="#729e7f">Primary languages by public repository count</text>
 </svg>
 """

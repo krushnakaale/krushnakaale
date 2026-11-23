@@ -1,117 +1,94 @@
 <div align="center">
 
-<img src="assets/profile-terminal.svg" alt="Krushna Kale — Cyber Hacker developer banner" width="100%" />
+![Krushna Kale — Cyber Hacker Portfolio](assets/banner-v3.svg)
 
-<img src="assets/typing.svg" alt="Python development, cybersecurity and automation" width="80%" />
+![Python, Cybersecurity and Automation](assets/typing.svg)
 
-**`> Think like a hacker. Build like an engineer.`**
-
-[![Portfolio](https://img.shields.io/badge/PORTFOLIO-0B1020?style=for-the-badge&logo=vercel&logoColor=22D3EE)](https://krushnakaale.vercel.app)
-[![GitHub](https://img.shields.io/badge/GITHUB-0B1020?style=for-the-badge&logo=github&logoColor=22D3EE)](https://github.com/krushnakaale)
-[![LinkedIn](https://img.shields.io/badge/LINKEDIN-0B1020?style=for-the-badge&logo=linkedin&logoColor=22D3EE)](https://www.linkedin.com/in/krushnakaale)
-[![Instagram](https://img.shields.io/badge/INSTAGRAM-0B1020?style=for-the-badge&logo=instagram&logoColor=22D3EE)](https://www.instagram.com/krushnakaale)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-00FF41?style=for-the-badge&logo=vercel&logoColor=050A08)](https://krushnakaale.vercel.app)
+[![GitHub](https://img.shields.io/badge/GITHUB-09120C?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/krushnakaale)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-09120C?style=for-the-badge&logo=linkedin&logoColor=00FF41)](https://www.linkedin.com/in/krushnakaale)
+[![Instagram](https://img.shields.io/badge/INSTAGRAM-09120C?style=for-the-badge&logo=instagram&logoColor=00FF41)](https://www.instagram.com/krushnakaale)
 
 </div>
 
----
+![01 About Me](assets/section-about.svg)
 
-<table>
-<tr>
-<td width="66%" valign="top">
+### > whoami
 
-### 🚀 About Me
+I build Python tools and automation scripts, develop practical web applications, and learn secure development and cybersecurity through hands-on projects. I use Linux and Git to build and document my work while learning how to contribute to open source.
 
-I'm **Krushna Kale**, a developer exploring **Python, automation, cybersecurity and open source**.
+[Explore my portfolio ↗](https://krushnakaale.vercel.app/)
 
-I build practical applications, security-focused learning projects and automation tools to turn ideas into useful software.
+![02 Current Focus](assets/section-focus.svg)
 
-`> building · securing · automating · learning`
-
-</td>
-<td width="34%" valign="top">
-
-### 🟣 Currently Working On
+### > current_mission
 
 <!-- FOCUS:START -->
 Available after the first profile refresh.
 <!-- FOCUS:END -->
 
-</td>
-</tr>
-</table>
+## `03 // TECH STACK`
 
-### ⚡ Technology Stack
+> **BUILDING • SECURING • AUTOMATING • LEARNING**
 
-<div align="center">
+**Programming**
 
-![Python](https://img.shields.io/badge/Python-101426?style=for-the-badge&logo=python&logoColor=A78BFA)
-![JavaScript](https://img.shields.io/badge/JavaScript-101426?style=for-the-badge&logo=javascript&logoColor=A78BFA)
-![TypeScript](https://img.shields.io/badge/TypeScript-101426?style=for-the-badge&logo=typescript&logoColor=A78BFA)
-![HTML5](https://img.shields.io/badge/HTML5-101426?style=for-the-badge&logo=html5&logoColor=A78BFA)
-![CSS3](https://img.shields.io/badge/CSS3-101426?style=for-the-badge&logo=css&logoColor=A78BFA)
-![Git](https://img.shields.io/badge/Git-101426?style=for-the-badge&logo=git&logoColor=A78BFA)
-![Linux](https://img.shields.io/badge/Linux-101426?style=for-the-badge&logo=linux&logoColor=A78BFA)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-101426?style=for-the-badge&logo=githubactions&logoColor=A78BFA)
+![Python](https://img.shields.io/badge/Python-0D1712?style=flat-square&logo=python&logoColor=39FF88) ![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=flat-square&logo=javascript&logoColor=39FF88) ![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=flat-square&logo=typescript&logoColor=39FF88) ![HTML](https://img.shields.io/badge/HTML-0D1712?style=flat-square&logo=html5&logoColor=39FF88) ![CSS](https://img.shields.io/badge/CSS-0D1712?style=flat-square&logo=css&logoColor=39FF88)
 
-</div>
+**Tools**
 
----
+![Git](https://img.shields.io/badge/Git-0D1712?style=flat-square&logo=git&logoColor=39FF88) ![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88) ![Linux](https://img.shields.io/badge/Linux-0D1712?style=flat-square&logo=linux&logoColor=39FF88) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-0D1712?style=flat-square&logo=githubactions&logoColor=39FF88)
 
-### 🌌 Cyberpunk GitHub Dashboard
+## `04 // LIVE GITHUB DASHBOARD`
+
+*Verified public metrics, refreshed automatically by GitHub Actions.*
 
 <!-- STATS:START -->
 ![GitHub repository and language statistics](assets/github-stats.svg)
 <!-- STATS:END -->
 
-> Stats are generated from public GitHub repository data. Counts may differ from GitHub's contribution totals.
+## `05 // FEATURED PROJECTS`
 
-### 📌 Featured Projects
+*Handpicked repositories. Project stars and metadata update automatically.*
 
 <!-- FEATURED:START -->
 Available after the first profile refresh.
 <!-- FEATURED:END -->
 
-### 🗂️ Latest Repositories
+## `06 // LATEST REPOSITORIES`
+
+*Automatically sorted by most recently pushed.*
 
 <!-- REPOSITORIES:START -->
 Available after the first profile refresh.
 <!-- REPOSITORIES:END -->
 
-<details>
-<summary><b>🧠 Primary Languages — expand</b></summary>
+## `07 // LANGUAGE BREAKDOWN`
 
 <!-- LANGUAGES:START -->
 Available after the first profile refresh.
 <!-- LANGUAGES:END -->
 
-<sub>Counts represent the primary language of eligible public repositories.</sub>
-</details>
+Counts reflect each eligible repository’s primary language as reported by GitHub.
 
-<details>
-<summary><b>📡 Recent Public Activity — expand</b></summary>
+## `08 // PUBLIC ACTIVITY FEED`
 
 <!-- ACTIVITY:START -->
 Available after the first profile refresh.
 <!-- ACTIVITY:END -->
 
-</details>
+## `09 // CONTRIBUTION SNAKE`
 
----
+[View contribution activity on GitHub ↗](https://github.com/krushnakaale#js-contribution-activity)
 
-### 🐍 Contribution Snake
+## `10 // CONNECT WITH ME`
+
+[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=flat-square&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=flat-square)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=flat-square&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushnakaale)
 
 <div align="center">
 
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
-<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake.svg">
-<img alt="GitHub contribution snake animation" src="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg" width="100%">
-</picture>
-
-[View my contribution activity](https://github.com/krushnakaale#js-contribution-activity)
-
 ---
 
-<sub>⚡ Powered by Python · GitHub API · GitHub Actions | Public data refreshes on scheduled workflow runs.</sub>
+<sub>PROFILE SYSTEM ONLINE · Powered by Python, GitHub API & GitHub Actions · Think like a hacker. Build like an engineer.</sub>
 
 </div>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="310" viewBox="0 0 1200 310" role="img" aria-labelledby="title desc">
+<title id="title">Krushna Kale — Cyber Hacker Developer Portfolio</title>
+<desc id="desc">Neon green cyber terminal banner with circuit paths, code terminal and digital globe</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#030806"/><stop offset=".52" stop-color="#0c1a12"/><stop offset="1" stop-color="#030806"/></linearGradient>
+<linearGradient id="green" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d8ffe6"/><stop offset=".56" stop-color="#63ff81"/><stop offset="1" stop-color="#00ff41"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<pattern id="grid" width="27" height="27" patternUnits="userSpaceOnUse"><path d="M27 0H0V27" fill="none" stroke="#17442a" stroke-width=".65"/></pattern>
+<style>
+@keyframes blink{50%{opacity:.15}} .cursor{animation:blink 1.3s steps(1) infinite}
+@media(prefers-reduced-motion:reduce){.cursor{animation:none}}
+</style></defs>
+<rect width="1200" height="310" rx="20" fill="url(#bg)"/>
+<rect x="1" y="1" width="1198" height="308" rx="19" fill="none" stroke="#24d958" stroke-width="2"/>
+<rect x="15" y="15" width="1170" height="280" rx="12" fill="url(#grid)" opacity=".5"/>
+<g fill="none" stroke="#0f7d38" stroke-width="2">
+<path d="M15 57H130L172 94H268M15 220H105L163 164H267M15 261H182L218 233H287M1185 56H1070L1032 92H966M1185 244H1078L1030 209H965M1185 143H1100L1065 167H979"/>
+<circle cx="1027" cy="155" r="102"/><ellipse cx="1027" cy="155" rx="54" ry="102"/><ellipse cx="1027" cy="155" rx="102" ry="35"/><path d="M925 155H1129M1027 53V257"/>
+</g>
+<g stroke="#25f96c" stroke-width="2" opacity=".8" filter="url(#glow)"><path d="M44 57H110M90 261H172M1111 56H1163M1080 244H1150"/></g>
+<g transform="translate(57 62)">
+<rect x="0" y="0" width="220" height="186" rx="14" fill="#06140d" stroke="#1fa449" stroke-width="2"/>
+<rect x="0" y="0" width="220" height="28" rx="12" fill="#10311b"/>
+<circle cx="17" cy="14" r="4" fill="#42e66c"/><circle cx="31" cy="14" r="4" fill="#2c9d53"/><circle cx="45" cy="14" r="4" fill="#20603b"/>
+<g font-family="monospace" font-size="16" fill="#75ff9d"><text x="17" y="61">$ whoami</text><text x="17" y="88" fill="#e2ffeb">krushnakaale</text><text x="17" y="121">$ stack</text><text x="17" y="148" fill="#e2ffeb">python / linux</text><text x="17" y="171">secure-by-design</text></g>
+</g>
+<g font-family="system-ui, sans-serif" text-anchor="middle">
+<text x="627" y="74" fill="#70ff94" font-family="monospace" font-size="15" letter-spacing="4">DEVELOPER PROFILE // 0xKRUSHNA</text>
+<text x="627" y="137" fill="url(#green)" font-size="62" font-weight="800" letter-spacing="2" filter="url(#glow)">KRUSHNA KALE</text>
+<text x="627" y="174" fill="#e6fff0" font-size="19" font-weight="500">Python Developer  |  Cybersecurity Enthusiast</text>
+<text x="627" y="200" fill="#a6c8b2" font-size="16">Think like a hacker. Build like an engineer.</text>
+</g>
+<rect x="350" y="225" width="555" height="43" rx="9" fill="#020a06" stroke="#26e664" stroke-width="2"/>
+<text x="367" y="252" font-family="monospace" font-size="18" fill="#e0ffea"><tspan fill="#00ff41">&gt;</tspan> Building · Securing · Automating · Learning</text><rect class="cursor" x="860" y="237" width="10" height="20" fill="#00ff41"/>
+</svg>
