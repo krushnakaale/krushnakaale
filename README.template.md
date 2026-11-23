@@ -24,12 +24,11 @@ I build Python tools and automation scripts, develop practical web applications,
 ### > current_mission
 
 <!-- FOCUS:START -->
-**`[ SYSTEM ONLINE ]  //  CURRENT MISSION`**
+**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**
 
-**◈ EXPLORING**
-- `> ` Python automation
-- `> ` Cybersecurity fundamentals
-- `> ` Open-source development
+| 01 // FOCUS | 02 // FOCUS | 03 // FOCUS |
+|:---:|:---:|:---:|
+| **`Python automation`** | **`Cybersecurity fundamentals`** | **`Open-source development`** |
 
 `> learn • build • secure • repeat_`
 <!-- FOCUS:END -->
