@@ -1,72 +1,102 @@
-"""Generate a looping, independently drifting tech-stack GIF from config/tech_stack.json.
+"""Render real technology logos drifting smoothly across a cyber-themed GIF.
 
-GitHub renders animated GIFs reliably. Edit the JSON and the existing profile
-workflow will rebuild the graphic while preserving all other dynamic sections.
+Edit config/tech_stack.json to change the stack; GitHub Actions regenerates GIF.
 """
+import io
 import json
 import math
+import random
+import urllib.request
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter
+import cairosvg
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets/tech-motion.gif"
 CONFIG = ROOT / "config/tech_stack.json"
-FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
+# Trusted icon IDs from devicon's public source repository.
+ICON_PATHS = {
+    "PYTHON": "python/python-original.svg",
+    "JAVASCRIPT": "javascript/javascript-original.svg",
+    "TYPESCRIPT": "typescript/typescript-original.svg",
+    "HTML5": "html5/html5-original.svg",
+    "CSS3": "css3/css3-original.svg",
+    "GIT": "git/git-original.svg",
+    "GITHUB": "github/github-original.svg",
+    "LINUX": "linux/linux-original.svg",
+    "ACTIONS": "githubactions/githubactions-original.svg",
+    "VS CODE": "vscode/vscode-original.svg",
+}
+BASE = "https://raw.githubusercontent.com/devicons/devicon/master/icons/"
 
 
-def font(size, bold=False):
-    path = FONT_DIR / ("DejaVuSansMono-Bold.ttf" if bold else "DejaVuSansMono.ttf")
-    return ImageFont.truetype(str(path), size) if path.exists() else ImageFont.load_default()
+def icon_for(item, size=70):
+    name = str(item["name"]).upper()
+    icon_path = item.get("icon") or ICON_PATHS.get(name)
+    if not icon_path or ".." in icon_path or not icon_path.endswith(".svg"):
+        raise ValueError(f"Missing safe SVG icon mapping for {name}; add an icon path in config")
+    url = BASE + icon_path
+    req = urllib.request.Request(url, headers={"User-Agent": "GitHub-profile-tech-motion"})
+    with urllib.request.urlopen(req, timeout=20) as response:
+        source = response.read(200_000)
+    png = cairosvg.svg2png(bytestring=source, output_width=size, output_height=size)
+    return Image.open(io.BytesIO(png)).convert("RGBA")
 
 
 def main():
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
     tech = cfg["technologies"]
     if not tech:
-        raise ValueError("Add at least one technology in config/tech_stack.json")
-    width = max(700, int(cfg.get("width", 1000)))
-    cols = min(5, len(tech))
-    rows = math.ceil(len(tech) / cols)
-    height = max(int(cfg.get("height", 238)), rows * 104 + 25)
-    count = int(cfg.get("frames", 24))
-    if not 2 <= count <= 48:
-        raise ValueError("frames must be between 2 and 48")
-    duration = max(70, int(cfg.get("frame_ms", 110)))
+        raise ValueError("Add at least one technology")
+    w = max(850, int(cfg.get("width", 1000)))
+    h = max(290, int(cfg.get("height", 320)))
+    n = int(cfg.get("frames", 32))
+    if not 12 <= n <= 48:
+        raise ValueError("frames must be between 12 and 48")
+    ms = max(70, int(cfg.get("frame_ms", 100)))
+    logos = [icon_for(item) for item in tech]
+    rng = random.Random(20261123)
+    # Independent, repeatable smooth paths; not fixed-position bobbing.
+    motion = []
+    for i in range(len(tech)):
+        band = i % 2
+        cx = 90 + (i // 2 + .5) * (w - 180) / math.ceil(len(tech) / 2)
+        cy = 100 if band == 0 else h - 95
+        motion.append((cx, cy, rng.uniform(27, 48), rng.uniform(19, 34),
+                       rng.uniform(0, math.tau), rng.choice([1, 2, 3]),
+                       rng.choice([1, 2, 3])))
     frames = []
-    for frame in range(count):
-        im = Image.new("RGB", (width, height), "#0D1117")
-        d = ImageDraw.Draw(im)
-        d.rounded_rectangle((2, 2, width - 3, height - 3), radius=18, outline="#155B45", width=2)
-        d.text((20, 12), "TECH // MOTION MATRIX", fill="#45EBA4", font=font(13))
-        d.text((width - 165, 12), "LIVE // SYSTEM", fill="#28BFA2", font=font(12))
-        phase = 2 * math.pi * frame / count
-        for i, item in enumerate(tech):
-            row, col = divmod(i, cols)
-            row_items = min(cols, len(tech) - row * cols)
-            slot_width = (width - 40) / row_items
-            center_x = 20 + (col + 0.5) * slot_width
-            center_y = 43 + (row + 0.5) * ((height - 54) / rows)
-            dx = 13 * math.sin(phase * (1 + i % 3) + i * 1.73)
-            dy = 11 * math.cos(phase * (1 + (i + 1) % 3) + i * 1.19)
-            x, y = round(center_x + dx), round(center_y + dy)
-            card_width = min(168, int(slot_width) - 22)
-            card_height = 63
-            left, top = x - card_width // 2, y - card_height // 2
-            color = str(item["color"])
-            name = str(item["name"]).upper()
-            d.rounded_rectangle((left, top, left + card_width, top + card_height), radius=14, fill="#10201F", outline=color, width=2)
-            d.ellipse((left + 12, top + 20, left + 35, top + 43), fill=color)
-            size = 15 if len(name) > 10 else 17
-            text_font = font(size, True)
-            while size > 10 and d.textbbox((0, 0), name, font=text_font)[2] > card_width - 49:
-                size -= 1
-                text_font = font(size, True)
-            d.text((left + 44, top + 22), name, fill="#ECFFF6", font=text_font)
-        frames.append(im)
+    for frame in range(n):
+        t = frame / n * math.tau
+        im = Image.new("RGBA", (w, h), (7, 14, 22, 255))
+        d = ImageDraw.Draw(im, "RGBA")
+        # Subtle cyber grid and scanner traces.
+        for x in range(0, w, 44):
+            d.line((x, 0, x, h), fill=(29, 125, 99, 23))
+        for y in range(0, h, 44):
+            d.line((0, y, w, y), fill=(29, 125, 99, 23))
+        d.rounded_rectangle((3, 3, w - 4, h - 4), radius=20, outline=(55, 255, 150, 110), width=2)
+        for j in range(9):
+            px = (j * 163 + 71) % w
+            py = (j * 97 + 43) % h
+            d.ellipse((px - 2, py - 2, px + 2, py + 2), fill=(33, 215, 192, 110))
+        for i, logo in enumerate(logos):
+            cx, cy, ax, ay, offset, fx, fy = motion[i]
+            x = round(cx + ax * math.sin(fx * t + offset))
+            y = round(cy + ay * math.cos(fy * t + offset * .7))
+            # Transparent neon halo behind the real, full-color logo.
+            halo = Image.new("RGBA", (112, 112), (0, 0, 0, 0))
+            hd = ImageDraw.Draw(halo, "RGBA")
+            hd.ellipse((13, 13, 99, 99), fill=(9, 36, 36, 145), outline=(45, 255, 169, 125), width=2)
+            glow = halo.filter(ImageFilter.GaussianBlur(9))
+            im.alpha_composite(glow, (x - 56, y - 56))
+            im.alpha_composite(halo, (x - 56, y - 56))
+            im.alpha_composite(logo, (x - 35, y - 35))
+        frames.append(im.convert("RGB"))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     frames[0].save(OUT, save_all=True, append_images=frames[1:],
-                   duration=duration, loop=0, optimize=True)
-    print(f"Generated {OUT} with {len(tech)} technologies")
+                   duration=ms, loop=0, optimize=True)
+    print(f"Generated {OUT} with {len(logos)} real drifting technology logos")
 
 
 if __name__ == "__main__":
