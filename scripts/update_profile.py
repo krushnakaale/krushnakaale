@@ -12,6 +12,7 @@ if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.activity import public_activity
+from scripts.activity_visuals import render_activity
 from scripts.github_api import GitHubAPI, GitHubError
 from scripts.markdown_renderer import featured_cards, project_cards, render_regions, text
 from scripts.profile_config import load_config
@@ -74,8 +75,9 @@ def update(root, api):
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
         or "No primary languages reported yet.",
-        "ACTIVITY": "\n".join(f"- **{date} UTC** · {label} [{text(name)}]({url})" for label, name, url, date in activity)
-        or "No recent development events in GitHub's public feed.",
+        "ACTIVITY": "![Public activity stream refreshed from GitHub](assets/activity-feed.svg)\n\n"
+        + ("\n".join(f"**{date} UTC** · {label} [{text(name)}]({url})" for label, name, url, date in activity)
+        or "No recent public development events."),
         "FOCUS": "\n\n".join(
             f"> {heading}\n" + "\n".join(f"> - {text(item)}" for item in config[key])
             for key, heading in (("currently_working_on", "**Currently working on**"), ("learning_interests", "**Learning interests**"))
@@ -87,8 +89,9 @@ def update(root, api):
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
     featured_changed = replace_if_changed(root / "assets/featured-projects.svg", render_projects(featured, featured=True))
     repositories_changed = replace_if_changed(root / "assets/latest-repositories.svg", render_projects(eligible[:config["repository_limit"]]))
+    activity_changed = replace_if_changed(root / "assets/activity-feed.svg", render_activity(activity))
     readme_changed = replace_if_changed(readme, refreshed)
-    return stats_changed or featured_changed or repositories_changed or readme_changed
+    return stats_changed or featured_changed or repositories_changed or activity_changed or readme_changed
 
 
 def main():
