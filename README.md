@@ -100,12 +100,14 @@ I build Python tools and automation scripts, develop practical web applications,
 
 ## `10 // CONNECT WITH ME`
 
-[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=flat-square&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=flat-square)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=flat-square&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushnakaale)
-
 <div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=flat-square&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=flat-square&logo=linkedin&logoColor=39FF88)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=flat-square&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushnakaale)
+
+**Turning curiosity into code. Building tools that make an impact.**
 
 ---
 
-<sub>PROFILE SYSTEM ONLINE · Powered by Python, GitHub API & GitHub Actions · Think like a hacker. Build like an engineer.</sub>
+<sub>PROFILE SYSTEM ONLINE · Powered by Python, GitHub API & GitHub Actions</sub>
 
 </div>
