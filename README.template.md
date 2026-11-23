@@ -41,7 +41,7 @@ Available after the first profile refresh.
 
 ## `05 // FEATURED PROJECTS`
 
-*Handpicked repositories. Project stars and metadata update automatically.*
+*Selected builds worth exploring · Purple spotlight cards · Live stars, forks and project details.*
 
 <!-- FEATURED:START -->
 Available after the first profile refresh.
@@ -49,7 +49,7 @@ Available after the first profile refresh.
 
 ## `06 // LATEST REPOSITORIES`
 
-*Automatically sorted by most recently pushed.*
+*Freshest public builds first · Cyan repository cards · Automatically refreshed from GitHub.*
 
 <!-- REPOSITORIES:START -->
 Available after the first profile refresh.
