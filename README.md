@@ -75,21 +75,10 @@ I build **automation tools, Python projects and web applications**, while explor
 ### 📌 Featured Projects
 
 <!-- FEATURED:START -->
-#### [Python-Basic-Projects ↗](https://github.com/krushnakaale/Python-Basic-Projects)
-
-> A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.
-
-<sub>Python · ★ 1 · Pushed 2026-11-23 UTC</sub>
-
-#### [Myraa-Voice-Assistant ↗](https://github.com/krushnakaale/Myraa-Voice-Assistant)
-
-<sub>TypeScript · ★ 1 · Pushed 2026-09-13 UTC</sub>
-
-#### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
-
-> Organized Python projects from beginner to advanced levels for hands-on learning and practice.
-
-<sub>Python · ★ 0 · Pushed 2026-11-23 UTC</sub>
+<table width="100%">
+<tr><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Python-Basic-Projects"><strong>◈ Python-Basic-Projects</strong></a><p>A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.</p><sub>⌘ Python &nbsp;·&nbsp; ★ 1</sub></td><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Myraa-Voice-Assistant"><strong>◈ Myraa-Voice-Assistant</strong></a><p>Explore the source code and project documentation.</p><sub>⌘ TypeScript &nbsp;·&nbsp; ★ 1</sub></td></tr>
+<tr><td width="50%" valign="top"><a href="https://github.com/krushnakaale/Python-Projects"><strong>◈ Python-Projects</strong></a><p>Organized Python projects from beginner to advanced levels for hands-on learning and practice.</p><sub>⌘ Python &nbsp;·&nbsp; ★ 0</sub></td><td width="50%" valign="top">&nbsp;</td></tr>
+</table>
 <!-- FEATURED:END -->
 
 ### 🗂️ Latest Repositories
