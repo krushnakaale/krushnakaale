@@ -43,7 +43,7 @@ Available after the first profile refresh.
 <img src="https://cdn.simpleicons.org/github/FFFFFF" width="38" height="38" alt="github logo" />
 <img src="https://cdn.simpleicons.org/linux/FCC624" width="38" height="38" alt="linux logo" />
 <img src="https://cdn.simpleicons.org/githubactions/2088FF" width="38" height="38" alt="githubactions logo" />
-<img src="https://cdn.simpleicons.org/visualstudiocode/24A9E6" width="38" height="38" alt="visualstudiocode logo" />
+<img src="assets/vscode-logo.svg" width="38" height="38" alt="visualstudiocode logo" />
 </p>
 
 <img src="assets/tech-signal.svg" alt="Neon cyber signal" width="550" />
