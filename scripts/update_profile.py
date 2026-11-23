@@ -7,7 +7,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
-from datetime import datetime, timezone
+from html import escape
 from pathlib import Path
 
 USERNAME = os.getenv("PROFILE_USERNAME", "krushnakaale")
@@ -31,7 +31,8 @@ def get_json(path):
 
 
 def esc(value):
-    return str(value or "").replace("|", "\\|").replace("\n", " ").replace("\r", " ").replace("`", "'").replace("<", "&lt;").replace(">", "&gt;")
+    value = escape(" ".join(str(value or "").split()), quote=False)
+    return re.sub(r"[\\`*_\[\]~|]", lambda match: f"&#{ord(match[0])};", value)
 
 
 def fetch_repos():
@@ -48,29 +49,30 @@ def generate(user, repos):
     stars = sum(int(r.get("stargazers_count") or 0) for r in repos)
     forks = sum(int(r.get("forks_count") or 0) for r in repos)
     languages = Counter(r.get("language") for r in repos if r.get("language"))
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
         f"**Public projects:** {len(repos)} &nbsp;·&nbsp; **Stars on projects:** {stars} &nbsp;·&nbsp; **Forks of projects:** {forks} &nbsp;·&nbsp; **Followers:** {user.get('followers', 0)}",
         "",
-        "#### `> repositories --recently-updated`",
+        "### Recent projects",
         "",
         "| Repository | Description | Language | Stars | Last push (UTC) |",
         "|:--|:--|:--|--:|:--|",
     ]
     for r in repos[:8]:
         name = esc(r.get("name"))
-        desc = esc(r.get("description") or "Project repository")[:100]
+        description = " ".join((r.get("description") or "").split())
+        if len(description) > 100:
+            description = description[:99].rstrip() + "…"
+        desc = esc(description or "—")
         lang = esc(r.get("language") or "—")
         pushed = (r.get("pushed_at") or "")[:10] or "—"
         lines.append(f"| [{name}]({r['html_url']}) | {desc} | {lang} | {r.get('stargazers_count', 0)} | {pushed} |")
     if not repos:
         lines.append("| No public project repositories yet | — | — | — | — |")
-    lines += ["", "#### `> languages --by-repository-count`", ""]
+    lines += ["", "### Primary languages by repository", ""]
     if languages:
         lines.append(" · ".join(f"**{esc(k)}**: {v}" for k, v in languages.most_common(7)))
     else:
         lines.append("No language data yet.")
-    lines += ["", f"<sub>Last dashboard refresh: {now} · Based on public GitHub API data; repository language counts are not code percentages.</sub>"]
     return "\n".join(lines)
 
 
