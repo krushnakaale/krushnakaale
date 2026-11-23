@@ -77,14 +77,16 @@ def update(root, api):
         "LANGUAGES": '<div align="center">\n\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
         "FOCUS": "\n".join(
-            ["```text", "┌─[ KRUSHNA@CYBER-LAB ]──[ MISSION STATUS: ACTIVE ]"]
+            ["**`[ SYSTEM ONLINE ]  //  CURRENT MISSION`**", ""]
             + [
-                f"│  {heading}"
-                for key, heading in (("currently_working_on", "BUILDING"), ("learning_interests", "EXPLORING"))
+                f"**{heading}**\n" + "\n".join(f"- `> ` {text(item)}" for item in config[key]) + "\n"
+                for key, heading in (
+                    ("currently_working_on", "⚡ BUILDING"),
+                    ("learning_interests", "◈ EXPLORING"),
+                )
                 if config[key]
-                for item in [", ".join(str(value) for value in config[key])]
             ]
-            + ["└─> learn • build • secure • repeat", "```"]
+            + ["`> learn • build • secure • repeat_`"]
         ),
     }
     refreshed = render_regions(original, sections)
