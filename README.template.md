@@ -1,69 +1,117 @@
-# Krushna Kale
+<div align="center">
 
-![Krushna Kale. Python developer, cybersecurity enthusiast and automation builder. Think like a hacker. Build like an engineer.](assets/profile-terminal.svg)
+<img src="assets/profile-terminal.svg" alt="Krushna Kale — Cyber Hacker developer banner" width="100%" />
 
-![Python development · Cybersecurity learning · Automation](assets/typing.svg)
+<img src="assets/typing.svg" alt="Python development, cybersecurity and automation" width="80%" />
 
-## About me
+**`> Think like a hacker. Build like an engineer.`**
 
-I build Python tools and automation scripts, develop practical web applications, and learn secure development and cybersecurity through hands-on projects. I use Linux and Git to build and document my work while learning how to contribute to open source.
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-050A08?style=for-the-badge&logo=vercel&logoColor=00FF41)](https://krushnakaale.vercel.app)
+[![GitHub](https://img.shields.io/badge/GITHUB-050A08?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/krushnakaale)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-050A08?style=for-the-badge&logo=linkedin&logoColor=00FF41)](https://www.linkedin.com/in/krushnakaale)
+[![Instagram](https://img.shields.io/badge/INSTAGRAM-050A08?style=for-the-badge&logo=instagram&logoColor=00FF41)](https://www.instagram.com/krushnakaale)
 
-[Explore my portfolio ↗](https://krushnakaale.vercel.app/)
+</div>
 
-## Current focus
+---
+
+<table>
+<tr>
+<td width="66%" valign="top">
+
+### 🚀 About Me
+
+I'm **Krushna Kale**, a developer exploring **Python, automation, cybersecurity and open source**.
+
+I build practical applications, security-focused learning projects and automation tools to turn ideas into useful software.
+
+`> building · securing · automating · learning`
+
+</td>
+<td width="34%" valign="top">
+
+### 🟢 Currently Working On
 
 <!-- FOCUS:START -->
 Available after the first profile refresh.
 <!-- FOCUS:END -->
 
-## Technology stack
+</td>
+</tr>
+</table>
 
-**Programming**
+### ⚡ Technology Stack
 
-![Python](https://img.shields.io/badge/Python-0D1712?style=flat-square&logo=python&logoColor=39FF88) ![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=flat-square&logo=javascript&logoColor=39FF88) ![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=flat-square&logo=typescript&logoColor=39FF88) ![HTML](https://img.shields.io/badge/HTML-0D1712?style=flat-square&logo=html5&logoColor=39FF88) ![CSS](https://img.shields.io/badge/CSS-0D1712?style=flat-square&logo=css&logoColor=39FF88)
+<div align="center">
 
-**Tools**
+![Python](https://img.shields.io/badge/Python-0D1712?style=for-the-badge&logo=python&logoColor=39FF88)
+![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=for-the-badge&logo=javascript&logoColor=39FF88)
+![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=for-the-badge&logo=typescript&logoColor=39FF88)
+![HTML5](https://img.shields.io/badge/HTML5-0D1712?style=for-the-badge&logo=html5&logoColor=39FF88)
+![CSS3](https://img.shields.io/badge/CSS3-0D1712?style=for-the-badge&logo=css&logoColor=39FF88)
+![Git](https://img.shields.io/badge/Git-0D1712?style=for-the-badge&logo=git&logoColor=39FF88)
+![Linux](https://img.shields.io/badge/Linux-0D1712?style=for-the-badge&logo=linux&logoColor=39FF88)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1712?style=for-the-badge&logo=githubactions&logoColor=39FF88)
 
-![Git](https://img.shields.io/badge/Git-0D1712?style=flat-square&logo=git&logoColor=39FF88) ![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88) ![Linux](https://img.shields.io/badge/Linux-0D1712?style=flat-square&logo=linux&logoColor=39FF88) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-0D1712?style=flat-square&logo=githubactions&logoColor=39FF88)
+</div>
 
-## GitHub dashboard
+---
+
+### 📊 GitHub Dashboard
 
 <!-- STATS:START -->
 ![GitHub repository and language statistics](assets/github-stats.svg)
 <!-- STATS:END -->
 
-## Featured projects
+> Stats are generated from public GitHub repository data. Counts may differ from GitHub's contribution totals.
+
+### 📌 Featured Projects
 
 <!-- FEATURED:START -->
 Available after the first profile refresh.
 <!-- FEATURED:END -->
 
-## Recent repositories
+### 🗂️ Latest Repositories
 
 <!-- REPOSITORIES:START -->
 Available after the first profile refresh.
 <!-- REPOSITORIES:END -->
 
-## Primary languages
+<details>
+<summary><b>🧠 Primary Languages — expand</b></summary>
 
 <!-- LANGUAGES:START -->
 Available after the first profile refresh.
 <!-- LANGUAGES:END -->
 
-Counts reflect each eligible repository’s primary language as reported by GitHub.
+<sub>Counts represent the primary language of eligible public repositories.</sub>
+</details>
 
-## Recent public activity
+<details>
+<summary><b>📡 Recent Public Activity — expand</b></summary>
 
 <!-- ACTIVITY:START -->
 Available after the first profile refresh.
 <!-- ACTIVITY:END -->
 
-## Contribution snake
+</details>
 
-[View contribution activity on GitHub ↗](https://github.com/krushnakaale#js-contribution-activity)
+---
 
-## Connect
+### 🐍 Contribution Snake
 
-[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=flat-square&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=flat-square)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=flat-square&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushnakaale)
+<div align="center">
 
-<sub>GitHub Actions refreshes the public dashboard automatically.</sub>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
+<source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake.svg">
+<img alt="GitHub contribution snake animation" src="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg" width="100%">
+</picture>
+
+[View my contribution activity](https://github.com/krushnakaale#js-contribution-activity)
+
+---
+
+<sub>⚡ Powered by Python · GitHub API · GitHub Actions | Public data refreshes on scheduled workflow runs.</sub>
+
+</div>
