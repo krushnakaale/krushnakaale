@@ -49,8 +49,8 @@ def render_projects(repositories, featured=False):
     return "\n".join(elements)
 
 
-def render_latest_png(repositories, background_path, output_path):
-    """Render live repository rows over one centered photographic hacker backdrop."""
+def render_latest_png(repositories, background_path, output_path, featured=False):
+    """Render live repository rows over one centered photographic backdrop."""
     from PIL import Image, ImageDraw, ImageFont, ImageOps
 
     repos = list(repositories)
@@ -80,7 +80,7 @@ def render_latest_png(repositories, background_path, output_path):
         language = str(repo.get("language") or "Other")
         name = str(repo.get("name") or "Repository")
         description = str(repo.get("description") or "Explore source code and project details.")
-        draw.text((x + 16, y + 12), "// RECENT  ·  " + fit_text(language, 245, font(13)), font=font(13), fill="#22D3EE")
+        draw.text((x + 16, y + 12), ("// FEATURED  ·  " if featured else "// RECENT  ·  ") + fit_text(language, 245, font(13)), font=font(13), fill="#22D3EE")
         draw.text((x + 16, y + 38), "> " + fit_text(name, 448, font(22, True)), font=font(22, True), fill="#39FF88")
         words = description.split()
         lines = [""]
