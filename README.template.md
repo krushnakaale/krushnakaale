@@ -6,8 +6,8 @@
 
 [![Portfolio](https://img.shields.io/badge/PORTFOLIO-00FF41?style=for-the-badge&logo=vercel&logoColor=050A08)](https://krushnakaale.vercel.app)
 [![GitHub](https://img.shields.io/badge/GITHUB-09120C?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/krushnakaale)
-[![LinkedIn](https://img.shields.io/badge/LINKEDIN-09120C?style=for-the-badge&logo=linkedin&logoColor=00FF41)](https://www.linkedin.com/in/krushnakaale)
-[![Instagram](https://img.shields.io/badge/INSTAGRAM-09120C?style=for-the-badge&logo=instagram&logoColor=00FF41)](https://www.instagram.com/krushnakaale)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-09120C?style=for-the-badge&logo=linkedin&logoColor=FFFFFF)](https://www.linkedin.com/in/krushnakaale)
+[![Instagram](https://img.shields.io/badge/INSTAGRAM-09120C?style=for-the-badge&logo=instagram&logoColor=00FF41)](https://www.instagram.com/krushna_kaale)
 
 </div>
 
@@ -90,7 +90,7 @@ Available after the first profile refresh.
 
 <div align="center">
 
-[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=for-the-badge&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=for-the-badge&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=for-the-badge&logo=linkedin&logoColor=39FF88)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=for-the-badge&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushnakaale)
+[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=for-the-badge&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=for-the-badge&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=for-the-badge&logo=linkedin&logoColor=FFFFFF)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=for-the-badge&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushna_kaale)
 
 **Turning curiosity into code. Building tools that make an impact.**
 
