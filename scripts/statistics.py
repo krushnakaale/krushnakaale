@@ -1,54 +1,72 @@
-"""Generate a responsive cyberpunk GitHub dashboard from real public API data."""
+"""Animated circular cyberpunk dashboard using verified public GitHub metrics."""
 from html import escape
+from math import pi
 
 
 def render_stats(metrics, languages):
-    """Build a GitHub-safe SVG. Metrics are supplied by the profile updater."""
     metrics = list(metrics)[:4]
-    colors = ("#22D3EE", "#A78BFA", "#39FF88", "#22D3EE")
-    cards = []
-    for index, (label, value) in enumerate(metrics):
-        x = 20 + index * 270
-        color = colors[index]
-        cards.append(
-            f'<rect x="{x}" y="75" width="250" height="112" rx="13" fill="#111A2D" stroke="{color}" stroke-opacity=".75"/>'
-            f'<rect x="{x+14}" y="91" width="4" height="17" rx="2" fill="{color}"/>'
-            f'<text x="{x+27}" y="105" font-size="16" fill="#C6D5E7">{escape(str(label))}</text>'
-            f'<text x="{x+17}" y="161" font-size="39" font-weight="800" fill="{color}">{max(0, int(value)):,}</text>'
+    colors = ("#22D3EE", "#A78BFA", "#39FF88", "#F472B6")
+    rings = []
+    for i, (label, value) in enumerate(metrics):
+        cx = 145 + i * 270
+        cy = 153
+        color = colors[i]
+        # Decorative orbit: not a percentage or a progress claim.
+        rings.append(
+            f'<circle cx="{cx}" cy="{cy}" r="74" fill="#101A2D" stroke="#253650" stroke-width="13"/>'
+            f'<circle class="orbit" cx="{cx}" cy="{cy}" r="74" fill="none" stroke="{color}" '
+            f'stroke-width="13" stroke-linecap="round" stroke-dasharray="330 465" '
+            f'transform="rotate(-90 {cx} {cy})"/>'
+            f'<circle cx="{cx}" cy="{cy}" r="53" fill="#0B1223"/>'
+            f'<text x="{cx}" y="{cy+11}" text-anchor="middle" fill="{color}" '
+            f'font-size="40" font-weight="800">{max(0, int(value)):,}</text>'
+            f'<text x="{cx}" y="264" text-anchor="middle" fill="#D8E5F4" font-size="17">{escape(str(label))}</text>'
         )
     items = languages.most_common(5) if languages else []
-    maximum = max((count for _, count in items), default=1)
-    bars = []
-    for index, (language, count) in enumerate(items):
-        y = 258 + index * 37
-        color = colors[index % len(colors)]
-        width = round(735 * count / maximum)
-        bars.append(
-            f'<text x="29" y="{y}" font-size="16" fill="#E6F0FF">{escape(str(language))}</text>'
-            f'<rect x="225" y="{y-13}" width="735" height="14" rx="7" fill="#243047"/>'
-            f'<rect class="bar" x="225" y="{y-13}" width="{width}" height="14" rx="7" fill="{color}"/>'
-            f'<text x="1040" y="{y}" text-anchor="end" font-size="15" fill="#B5C6DD">{int(count)}</text>'
+    total = sum(max(0, int(count)) for _, count in items)
+    segments = []
+    legend = []
+    circumference = 2 * pi * 91
+    offset = 0.0
+    for i, (language, count) in enumerate(items):
+        color = colors[i % len(colors)]
+        fraction = max(0, int(count)) / total if total else 0
+        dash = fraction * circumference
+        segments.append(
+            f'<circle cx="240" cy="420" r="91" fill="none" stroke="{color}" '
+            f'stroke-width="24" stroke-dasharray="{dash:.2f} {circumference:.2f}" '
+            f'stroke-dashoffset="{-offset:.2f}" transform="rotate(-90 240 420)"/>'
         )
-    if not bars:
-        bars.append('<text x="30" y="260" font-size="16" fill="#B5C6DD">No public language data available</text>')
-    height = 465
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="{height}" viewBox="0 0 1100 {height}" role="img" aria-labelledby="title desc">
-<title id="title">Live GitHub dashboard</title>
-<desc id="desc">Public repository counts, stars, forks, followers and repository primary languages</desc>
+        offset += dash
+        x = 455 + (i % 2) * 310
+        y = 365 + (i // 2) * 59
+        legend.append(
+            f'<circle cx="{x}" cy="{y}" r="7" fill="{color}"/>'
+            f'<text x="{x+17}" y="{y+6}" font-size="17" fill="#E8F0FA">{escape(str(language))}</text>'
+            f'<text x="{x+17}" y="{y+26}" font-size="13" fill="#A7BCD5">{int(count)} public repos</text>'
+        )
+    if not items:
+        legend.append('<text x="460" y="405" font-size="18" fill="#A7BCD5">No public language data available</text>')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="610" viewBox="0 0 1100 610" role="img" aria-labelledby="title desc">
+<title id="title">Circular live GitHub dashboard</title>
+<desc id="desc">Verified public repository statistics in decorative circular cards and a proportional language donut chart</desc>
 <defs>
-<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#090D1C"/><stop offset="1" stop-color="#101B2B"/></linearGradient>
-<style>.bar{{animation:grow 1.6s ease-out both;transform-box:fill-box;transform-origin:left center}}.signal{{animation:pulse 2.4s ease-in-out infinite alternate}}@keyframes grow{{from{{transform:scaleX(0)}}to{{transform:scaleX(1)}}}}@keyframes pulse{{to{{opacity:.25}}}}@media(prefers-reduced-motion:reduce){{.bar,.signal{{animation:none}}}}</style>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#080D1D"/><stop offset="1" stop-color="#101C2B"/></linearGradient>
+<style>.orbit{{animation:orbit 14s linear infinite;transform-box:fill-box;transform-origin:center}}.pulse{{animation:pulse 2.5s ease-in-out infinite alternate}}@keyframes orbit{{to{{stroke-dashoffset:-465}}}}@keyframes pulse{{to{{opacity:.3}}}}@media(prefers-reduced-motion:reduce){{.orbit,.pulse{{animation:none}}}}</style>
 </defs>
-<rect width="1100" height="{height}" rx="19" fill="url(#bg)"/>
-<rect x="1" y="1" width="1098" height="{height-2}" rx="18" stroke="#344765" fill="none"/>
-<circle class="signal" cx="27" cy="35" r="6" fill="#39FF88"/>
-<text x="43" y="42" font-family="monospace" font-size="23" font-weight="700" fill="#F0F5FF">GITHUB / LIVE METRICS</text>
-<text x="1072" y="40" text-anchor="end" font-family="monospace" font-size="13" fill="#22D3EE">GITHUB API · AUTO REFRESH</text>
-<g font-family="Arial,sans-serif">{''.join(cards)}</g>
-<path d="M21 211H1079" stroke="#33435F"/>
-<text x="27" y="237" font-family="monospace" font-size="19" font-weight="700" fill="#A78BFA">TOP LANGUAGES</text>
-<text x="1070" y="235" text-anchor="end" font-family="monospace" font-size="12" fill="#A0B0C8">PRIMARY LANGUAGE PER PUBLIC REPOSITORY</text>
-<g font-family="Arial,sans-serif">{''.join(bars)}</g>
-<text x="28" y="448" font-family="monospace" font-size="12" fill="#8B9DB8">VERIFIED PUBLIC REPOSITORY METRICS · COUNTS REFRESH WHEN THE WORKFLOW RUNS</text>
+<rect width="1100" height="610" rx="20" fill="url(#bg)"/>
+<rect x="1" y="1" width="1098" height="608" rx="19" stroke="#35486B" fill="none"/>
+<circle class="pulse" cx="27" cy="35" r="6" fill="#39FF88"/>
+<text x="43" y="42" font-family="monospace" font-size="22" font-weight="700" fill="#EFF6FF">GITHUB / LIVE ORBIT DASHBOARD</text>
+<text x="1072" y="40" text-anchor="end" font-family="monospace" font-size="13" fill="#22D3EE">API DATA · AUTO REFRESH</text>
+<g font-family="Arial,sans-serif">{''.join(rings)}</g>
+<path d="M24 300H1076" stroke="#30425F"/>
+<text x="28" y="334" font-family="monospace" font-size="20" font-weight="700" fill="#A78BFA">LANGUAGE DISTRIBUTION</text>
+<circle cx="240" cy="420" r="91" fill="none" stroke="#24324B" stroke-width="24"/>
+<g>{''.join(segments)}</g>
+<text x="240" y="417" text-anchor="middle" font-family="Arial,sans-serif" font-size="33" font-weight="800" fill="#F1F5FF">{total}</text>
+<text x="240" y="440" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#AFC2D9">REPOSITORIES</text>
+<g font-family="Arial,sans-serif">{''.join(legend)}</g>
+<text x="28" y="582" font-family="monospace" font-size="12" fill="#8DA3BE">METRICS ARE VERIFIED PUBLIC COUNTS · ORBIT RINGS ARE DECORATIVE · DONUT SHOWS PRIMARY REPO LANGUAGES</text>
 </svg>
 """
