@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="240" viewBox="0 0 820 240" role="img" aria-labelledby="title desc">
+<title id="title">Cyber serpent</title><desc id="desc">A stylized neon-green cobra with glowing eyes and circuit-like scales, centered on a dark background.</desc>
+<defs>
+<linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B442A"/><stop offset=".48" stop-color="#1DB86D"/><stop offset="1" stop-color="#052E21"/></linearGradient>
+<linearGradient id="hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B1C22"/><stop offset=".5" stop-color="#185B46"/><stop offset="1" stop-color="#08191C"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<path d="M38 190H244M576 190H782" stroke="#174334" stroke-width="1" stroke-dasharray="7 10"/>
+<path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#073A2A" stroke-width="35" stroke-linecap="round"/>
+<path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#24B777" stroke-width="25" stroke-linecap="round"/>
+<path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#72FFAC" stroke-width="2" stroke-dasharray="3 13" opacity=".75"/>
+<path d="M402 175C355 137 338 99 350 63C362 31 382 22 410 25C438 22 458 31 470 63C482 99 465 137 418 175Z" fill="url(#hood)" stroke="#39FF88" stroke-width="3"/>
+<path d="M410 157C383 128 378 93 389 66C397 51 423 51 431 66C442 93 437 128 410 157Z" fill="#0B3025" stroke="#1B7B51" stroke-width="2"/>
+<path d="M371 62L392 84M449 62L428 84M362 92L388 104M458 92L432 104M370 124L393 122M450 124L427 122" stroke="#39FF88" stroke-width="2" opacity=".6"/>
+<path d="M380 72Q410 48 440 72L446 110Q410 143 374 110Z" fill="url(#skin)" stroke="#72FFAC" stroke-width="2"/>
+<path d="M385 84L401 88L394 95L380 93Z" fill="#050E12"/><path d="M435 84L419 88L426 95L440 93Z" fill="#050E12"/>
+<path d="M390 89L395 90M430 89L425 90" stroke="#FF425E" stroke-width="3" filter="url(#glow)"/>
+<path d="M404 107L410 112L416 107M410 112V125" fill="none" stroke="#071711" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M410 125L401 141M410 125L419 141" stroke="#FF425E" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="410" cy="27" r="2" fill="#72FFAC" filter="url(#glow)"/>
+<path d="M180 160H242M578 160H640M205 176H251M569 176H615" stroke="#22D3EE" stroke-width="1.5" opacity=".6"/>
+</svg>
