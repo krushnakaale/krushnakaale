@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="820" height="220" viewBox="0 0 820 220" role="img" aria-labelledby="title desc">
 <title id="title">Cyber serpent</title><desc id="desc">A stylized neon-green cobra with glowing eyes and circuit-like scales, centered on a dark background.</desc>
-<defs>
+<defs><radialGradient id="aura"><stop stop-color="#12FF85" stop-opacity=".22"/><stop offset=".6" stop-color="#0BCB71" stop-opacity=".05"/><stop offset="1" stop-color="#0BCB71" stop-opacity="0"/></radialGradient><style>@keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}@keyframes scan{0%{transform:translateX(-120px);opacity:0}40%{opacity:.8}100%{transform:translateX(120px);opacity:0}}.pulse{animation:breathe 2.8s ease-in-out infinite}.scan{animation:scan 5s linear infinite}@media(prefers-reduced-motion:reduce){.pulse,.scan{animation:none}}</style>
 <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B442A"/><stop offset=".48" stop-color="#1DB86D"/><stop offset="1" stop-color="#052E21"/></linearGradient>
 <linearGradient id="hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B1C22"/><stop offset=".5" stop-color="#185B46"/><stop offset="1" stop-color="#08191C"/></linearGradient>
 <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
+</defs><ellipse cx="410" cy="115" rx="185" ry="115" fill="url(#aura)"/><g opacity=".75" fill="none" stroke="#1D8E62" stroke-width="1"><path d="M270 57H328M492 57H550M245 110H318M502 110H575M285 179H334M486 179H535"/><path d="M270 57l-12 12h-45M550 57l12 12h45M245 110l-13 13h-35M575 110l13 13h35"/></g><g class="pulse" fill="#39FF88"><circle cx="213" cy="69" r="3"/><circle cx="607" cy="69" r="3"/><circle cx="197" cy="123" r="2"/><circle cx="623" cy="123" r="2"/></g><g font-family="monospace" font-size="13" letter-spacing="2" fill="#3FDFA0"><text x="180" y="91" text-anchor="end">SYSTEM</text><text x="180" y="109" text-anchor="end" fill="#98A9A7">ONLINE</text><text x="640" y="91">CYBER</text><text x="640" y="109" fill="#98A9A7">MODE</text></g>
 <path d="M38 190H244M576 190H782" stroke="#174334" stroke-width="1" stroke-dasharray="7 10"/>
 <path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#073A2A" stroke-width="35" stroke-linecap="round"/>
 <path d="M280 205C233 186 244 145 286 134C332 121 344 168 394 183C459 204 523 180 510 148C501 123 465 128 444 142" fill="none" stroke="#24B777" stroke-width="25" stroke-linecap="round"/>
@@ -23,4 +23,4 @@
 <path d="M380 112L390 137L398 115M440 112L430 137L422 115" fill="#E9FFF2" stroke="#39FF88" stroke-width="1.5"/>
 <path d="M354 48L328 35M466 48L492 35M338 105L315 106M482 105L505 106" fill="none" stroke="#22D3EE" stroke-width="2" opacity=".8"/>
 <path d="M392 91L398 92M428 91L422 92" stroke="#FF274E" stroke-width="5" filter="url(#glow)"/>
-</svg>
+<path class="scan" d="M330 164H490" stroke="#39FF88" stroke-width="2" opacity=".7"/><g class="pulse" fill="#FF274E" filter="url(#glow)"><circle cx="394" cy="91" r="2.5"/><circle cx="426" cy="91" r="2.5"/></g></svg>
