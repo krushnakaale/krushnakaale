@@ -30,9 +30,10 @@
   <path class="signal" d="M22 58H146L184 96H245 M1078 199H984L953 168H860 M1078 116H1024L994 146H871" fill="none" stroke="#62ff39" stroke-width="2" stroke-dasharray="9 56"/>
   <g text-anchor="middle" font-family="system-ui, sans-serif">
     <text x="550" y="106" font-size="64" font-weight="800" letter-spacing="2" fill="#f4fff7">KRUSHNA <tspan fill="#62ff39">KALE</tspan></text>
-    <text x="550" y="148" font-size="22" fill="#d2e5d8">Python Developer · Cybersecurity · Automation</text>
+    <text x="550" y="136" font-size="19" fill="#d2e5d8">Python Developer · Cybersecurity Enthusiast · Automation Builder</text>
+    <text x="550" y="160" font-size="17" fill="#a7b8ae">Think like a hacker. Build like an engineer.</text>
   </g>
-  <rect x="285" y="170" width="530" height="42" rx="8" fill="#040806" stroke="#3bb941"/>
-  <text x="307" y="197" font-family="monospace" font-size="18" fill="#dcfbe1"><tspan fill="#62ff39">&gt;</tspan> Building · Learning · Automating</text>
-  <rect class="pulse" x="785" y="181" width="10" height="19" rx="1" fill="#62ff39"/>
+  <rect x="285" y="178" width="530" height="42" rx="8" fill="#040806" stroke="#3bb941"/>
+  <text x="307" y="205" font-family="monospace" font-size="18" fill="#dcfbe1"><tspan fill="#62ff39">&gt;</tspan> Building · Securing · Automating · Learning</text>
+  <rect class="pulse" x="785" y="189" width="10" height="19" rx="1" fill="#62ff39"/>
 </svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="44" viewBox="0 0 700 44" role="img" aria-labelledby="title">
+  <title id="title">Python development, cybersecurity learning, and automation</title>
+  <style>
+    .line { opacity: 0; animation: line 15s steps(1, end) infinite; }
+    .first { opacity: 1; }
+    .second { animation-delay: 5s; }
+    .third { animation-delay: 10s; }
+    .reveal { clip-path: inset(0); animation: reveal 5s steps(25, end) infinite; }
+    @keyframes line { 0% { opacity: 1; } 33.333% { opacity: 0; } }
+    @keyframes reveal { 0% { clip-path: inset(0 74% 0 0); } 25%,100% { clip-path: inset(0); } }
+    @media (prefers-reduced-motion: reduce) { .line,.reveal { animation: none; } }
+  </style>
+  <rect width="700" height="44" rx="8" fill="#050A08"/>
+  <g class="reveal" text-anchor="middle" font-family="monospace" font-size="22" fill="#39FF88">
+    <text class="line first" x="350" y="29">Python Developer</text>
+    <text class="line second" x="350" y="29">Cybersecurity Enthusiast</text>
+    <text class="line third" x="350" y="29">Automation Builder</text>
+  </g>
+</svg>

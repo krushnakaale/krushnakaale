@@ -1,26 +1,41 @@
-# GitHub profile setup
+# Set up the GitHub profile
 
-This repository powers the [Krushna Kale GitHub profile](https://github.com/krushnakaale). GitHub displays the root README from the public repository named `krushnakaale` on that profile.
+Create a public repository whose name matches your GitHub username. For this profile, use [krushnakaale/krushnakaale](https://github.com/krushnakaale/krushnakaale). Keep README.md and the assets, config, scripts, tests and .github directories at the repository root. Git includes the hidden .github directory when you clone or push.
 
-1. Add the profile files to the default branch of [krushnakaale/krushnakaale](https://github.com/krushnakaale/krushnakaale).
-2. In the repository's **Actions** tab, run **Refresh dynamic GitHub profile** and **Generate contribution snake** on the default branch.
-3. Confirm the project showcase appears in `README.md` and both contribution SVGs appear on the `output` branch.
+Install Git and Python 3.12 or newer. In an existing checkout, start with the environment commands. To create a new checkout, first run:
 
-The workflows request `contents: write` and use the built-in GitHub Actions token. If a push fails, check repository or organization Actions policies and branch rules.
+    git clone https://github.com/krushnakaale/krushnakaale.git
+    cd krushnakaale
 
-## Refresh schedule
+## Windows PowerShell
 
-- The dashboard runs at minutes 17 and 47 of each hour (UTC). It also runs when the README, updater, or dashboard workflow changes on the default branch.
-- Repository activity elsewhere appears on the next successful refresh. The dashboard lists up to eight recently pushed public repositories, excluding forks and this profile repository. Totals cover up to 1,000 public repositories before those exclusions.
-- The contribution workflow runs daily at 03:23 UTC and publishes a light and dark SVG to the `output` branch.
-- GitHub may delay scheduled runs. Both workflows also support manual runs.
+    py -3.12 -m venv .venv
+    .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+    .\.venv\Scripts\python.exe -m unittest discover -s tests -v
+    .\.venv\Scripts\python.exe -m scripts.validators
+    .\.venv\Scripts\python.exe -m scripts.update_profile
 
-## Run locally
+## Kali Linux and Ubuntu
 
-With Python 3.12 and network access, run:
+    sudo apt install git python3 python3-venv
+    python3 -m venv .venv
+    .venv/bin/python -m pip install -r requirements.txt
+    .venv/bin/python -m unittest discover -s tests -v
+    .venv/bin/python -m scripts.validators
+    .venv/bin/python -m scripts.update_profile
 
-```sh
-python scripts/update_profile.py
-```
+In Git Bash on Windows, invoke .venv/Scripts/python.exe instead. The updater can make unauthenticated public API requests locally. Set GH_TOKEN in your process environment if authenticated rate limits are needed.
 
-The script runs with the Python standard library and can use an optional `GH_TOKEN` environment variable for authenticated API requests. Keep both `DYNAMIC` comment markers in `README.md` so the updater can find the dashboard.
+## Deploy
+
+Review git status and git diff. Stage the profile files and commit:
+
+    git add README.md README.template.md SETUP.md requirements.txt .gitignore assets config scripts tests docs .github
+    git commit -m "Upgrade dynamic GitHub profile"
+    git push origin main
+
+In **Settings → Actions → General**, enable Actions and allow the workflow dependencies under the repository or organization policy. The refresh and snake workflows request write access for their own jobs. Default token permissions can stay restricted. The default branch and output branch must permit the applicable bot pushes.
+
+Open **Actions**, select **Validate profile**, **Refresh dynamic GitHub profile** and **Generate contribution snake**, and run each on the default branch. Verify the updated README and both snake SVGs on the output branch. On a new account, use README.template.md to start with the contribution activity link. Add the README picture block with that account's asset URLs after the first snake publish.
+
+See the [configuration](docs/CONFIGURATION.md), [architecture](docs/ARCHITECTURE.md), [customization](docs/CUSTOMIZATION.md), and [troubleshooting](docs/TROUBLESHOOTING.md) guides.

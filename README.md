@@ -1,27 +1,68 @@
 # Krushna Kale
 
-![Krushna Kale, Python developer, cybersecurity enthusiast, and automation builder. Neon circuit banner with a blinking terminal cursor.](assets/profile-terminal.svg)
+![Krushna Kale. Python developer, cybersecurity enthusiast and automation builder. Think like a hacker. Build like an engineer.](assets/profile-terminal.svg)
+
+![Python development · Cybersecurity learning · Automation](assets/typing.svg)
 
 ## About me
 
-I build Python tools and scripts to automate repetitive tasks. I also build web projects with JavaScript and TypeScript, and explore Linux and cybersecurity through hands-on practice.
+I build Python tools and automation scripts, develop practical web applications, and learn secure development and cybersecurity through hands-on projects. I use Linux and Git to build and document my work while learning how to contribute to open source.
 
-[Portfolio](https://krushnakaale.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/krushnakaale/) · [Instagram](https://www.instagram.com/krushnakaale/)
+[Explore my portfolio ↗](https://krushnakaale.vercel.app/)
 
-**Python** · **Cybersecurity** · **Automation** · **JavaScript & TypeScript** · **Linux** · **GitHub Actions**
+## Current focus
+
+<!-- FOCUS:START -->
+> **Learning interests**
+> - Python automation
+> - Cybersecurity fundamentals
+> - Open-source development
+<!-- FOCUS:END -->
+
+## Technology stack
+
+**Programming**
+
+![Python](https://img.shields.io/badge/Python-0D1712?style=flat-square&logo=python&logoColor=39FF88) ![JavaScript](https://img.shields.io/badge/JavaScript-0D1712?style=flat-square&logo=javascript&logoColor=39FF88) ![TypeScript](https://img.shields.io/badge/TypeScript-0D1712?style=flat-square&logo=typescript&logoColor=39FF88) ![HTML](https://img.shields.io/badge/HTML-0D1712?style=flat-square&logo=html5&logoColor=39FF88) ![CSS](https://img.shields.io/badge/CSS-0D1712?style=flat-square&logo=css&logoColor=39FF88)
+
+**Tools**
+
+![Git](https://img.shields.io/badge/Git-0D1712?style=flat-square&logo=git&logoColor=39FF88) ![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88) ![Linux](https://img.shields.io/badge/Linux-0D1712?style=flat-square&logo=linux&logoColor=39FF88) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-0D1712?style=flat-square&logo=githubactions&logoColor=39FF88)
 
 ## GitHub dashboard
 
-<!-- DYNAMIC:START -->
-![Public projects 11, Project stars 3, Project forks 1, Followers 2. Top languages by repository: JavaScript 5, Python 2, HTML 2, TypeScript 1.](assets/github-stats.svg)
+<!-- STATS:START -->
+![Public projects 11, Project stars 3, Project forks 1, Followers 2. Includes a chart of top primary languages.](assets/github-stats.svg)
+<!-- STATS:END -->
 
-### Project showcase
+## Featured projects
+
+<!-- FEATURED:START -->
+#### [Python-Basic-Projects ↗](https://github.com/krushnakaale/Python-Basic-Projects)
+
+> A collection of 30 beginner-friendly Python projects covering Python fundamentals, logic building, file handling, and basic GUI applications.
+
+<sub>Python · ★ 1 · Pushed 2026-11-23 UTC</sub>
+
+#### [Myraa-Voice-Assistant ↗](https://github.com/krushnakaale/Myraa-Voice-Assistant)
+
+<sub>TypeScript · ★ 1 · Pushed 2026-09-13 UTC</sub>
 
 #### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
 
 > Organized Python projects from beginner to advanced levels for hands-on learning and practice.
 
-<sub>Python · Pushed 2026-11-23 UTC</sub>
+<sub>Python · ★ 0 · Pushed 2026-11-23 UTC</sub>
+<!-- FEATURED:END -->
+
+## Recent repositories
+
+<!-- REPOSITORIES:START -->
+#### [Python-Projects ↗](https://github.com/krushnakaale/Python-Projects)
+
+> Organized Python projects from beginner to advanced levels for hands-on learning and practice.
+
+<sub>Python · ★ 0 · Pushed 2026-11-23 UTC</sub>
 
 #### [Python-Basic-Projects ↗](https://github.com/krushnakaale/Python-Basic-Projects)
 
@@ -33,7 +74,7 @@ I build Python tools and scripts to automate repetitive tasks. I also build web 
 
 > A desktop app for organizing YouTube videos and playlists, previewing saved videos, and managing authorized file downloads.
 
-<sub>JavaScript · Pushed 2026-11-22 UTC</sub>
+<sub>JavaScript · ★ 0 · Pushed 2026-11-22 UTC</sub>
 
 #### [Myraa-Voice-Assistant ↗](https://github.com/krushnakaale/Myraa-Voice-Assistant)
 
@@ -49,20 +90,38 @@ I build Python tools and scripts to automate repetitive tasks. I also build web 
 
 > Full-stack event management system for college fresher's parties — student registration, Razorpay payments, secure QR entry passes, and an admin dashboard with live QR scanning. Built with React, Node.js, Express, and MongoDB.
 
-<sub>JavaScript · Pushed 2026-08-03 UTC</sub>
+<sub>JavaScript · ★ 0 · Pushed 2026-08-03 UTC</sub>
 
 #### [TA0023 ↗](https://github.com/krushnakaale/TA0023)
 
 > During medical emergencies, patients struggle to find hospitals with available beds and active OPD services. This project provides a centralized digital platform to monitor hospital bed availability and OPD status in real time.
 
-<sub>JavaScript · Pushed 2026-02-21 UTC</sub>
+<sub>JavaScript · ★ 0 · Pushed 2026-02-21 UTC</sub>
 
 #### [SevaSetu ↗](https://github.com/krushnakaale/SevaSetu)
 
 > Full-stack healthcare platform with user authentication, doctor appointments, pharmacy services, and emergency support.
 
-<sub>JavaScript · Pushed 2026-02-20 UTC</sub>
-<!-- DYNAMIC:END -->
+<sub>JavaScript · ★ 0 · Pushed 2026-02-20 UTC</sub>
+
+[View all repositories ↗](https://github.com/krushnakaale?tab=repositories)
+<!-- REPOSITORIES:END -->
+
+## Primary languages
+
+<!-- LANGUAGES:START -->
+**JavaScript** 5 · **Python** 2 · **HTML** 2 · **TypeScript** 1
+<!-- LANGUAGES:END -->
+
+Counts reflect each eligible repository’s primary language as reported by GitHub.
+
+## Recent public activity
+
+<!-- ACTIVITY:START -->
+- **2026-11-23 UTC** · Pushed to [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
+- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects)
+- **2026-11-22 UTC** · Created a Git ref in [krushnakaale/yt-manager](https://github.com/krushnakaale/yt-manager)
+<!-- ACTIVITY:END -->
 
 ## Contribution snake
 
@@ -71,3 +130,11 @@ I build Python tools and scripts to automate repetitive tasks. I also build web 
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake.svg">
   <img alt="Animated GitHub contribution calendar" src="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
 </picture>
+
+[View contribution activity on GitHub ↗](https://github.com/krushnakaale#js-contribution-activity)
+
+## Connect
+
+[![GitHub](https://img.shields.io/badge/GitHub-0D1712?style=flat-square&logo=github&logoColor=39FF88)](https://github.com/krushnakaale) [![Portfolio](https://img.shields.io/badge/Portfolio-0D1712?style=flat-square&logo=vercel&logoColor=39FF88)](https://krushnakaale.vercel.app) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0D1712?style=flat-square)](https://www.linkedin.com/in/krushnakaale) [![Instagram](https://img.shields.io/badge/Instagram-0D1712?style=flat-square&logo=instagram&logoColor=39FF88)](https://www.instagram.com/krushnakaale)
+
+<sub>GitHub Actions refreshes the public dashboard automatically.</sub>

@@ -6,7 +6,9 @@ on:
   push:
     paths:
       - 'README.md'
-      - 'scripts/update_profile.py'
+      - 'scripts/**'
+      - 'config/**'
+      - 'requirements.txt'
       - '.github/workflows/update-profile.yml'
 permissions:
   contents: write
@@ -22,10 +24,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
       - name: Generate README dashboard
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PROFILE_USERNAME: krushnakaale
         run: python scripts/update_profile.py
       - name: Commit if changed
         run: |

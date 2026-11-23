@@ -1,145 +1,91 @@
 #!/usr/bin/env python3
-"""Refresh the dynamic section of a GitHub profile README using public GitHub REST data."""
-import json
+"""Refresh public data while preserving the manually maintained profile."""
 import os
-import re
-import urllib.error
-import urllib.parse
-import urllib.request
+import sys
 from collections import Counter
-from html import escape
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 
-USERNAME = os.getenv("PROFILE_USERNAME", "krushnakaale")
-TOKEN = os.getenv("GH_TOKEN", "")
-README = Path(__file__).resolve().parents[1] / "README.md"
-STATS = README.parent / "assets" / "github-stats.svg"
-START, END = "<!-- DYNAMIC:START -->", "<!-- DYNAMIC:END -->"
+import yaml
 
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-def get_json(path):
-    req = urllib.request.Request(
-        "https://api.github.com" + path,
-        headers={
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "dynamic-profile-readme",
-            "X-GitHub-Api-Version": "2022-11-28",
-            **({"Authorization": f"Bearer {TOKEN}"} if TOKEN else {}),
-        },
-    )
-    with urllib.request.urlopen(req, timeout=25) as response:
-        return json.load(response)
+from scripts.activity import public_activity
+from scripts.github_api import GitHubAPI, GitHubError
+from scripts.markdown_renderer import project_cards, render_regions, text
+from scripts.profile_config import load_config
+from scripts.repository_manager import fetch_repositories, select_featured, select_repositories
+from scripts.statistics import render_stats
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
-def esc(value):
-    value = escape(" ".join(str(value or "").split()), quote=False)
-    return re.sub(r"[\\`*_\[\]~|]", lambda match: f"&#{ord(match[0])};", value)
+def replace_if_changed(path, value):
+    if path.exists() and path.read_text(encoding="utf-8") == value:
+        return False
+    with NamedTemporaryFile(dir=path.parent, delete=False) as temporary:
+        replacement = Path(temporary.name)
+        temporary.write(value.encode("utf-8"))
+    try:
+        replacement.replace(path)
+    finally:
+        replacement.unlink(missing_ok=True)
+    return True
 
 
-def fetch_repos():
-    repos = []
-    for page in range(1, 11):
-        batch = get_json(f"/users/{urllib.parse.quote(USERNAME)}/repos?per_page=100&page={page}&type=owner&sort=pushed&direction=desc")
-        repos.extend(r for r in batch if not r.get("fork") and not r.get("private") and r.get("name", "").lower() != USERNAME.lower())
-        if len(batch) < 100:
-            break
-    return sorted(repos, key=lambda r: r.get("pushed_at") or "", reverse=True)
-
-
-def render_stats(metrics, languages):
-    labels = [
-        f'<text x="24" y="{y}">{escape(label)}</text>'
-        f'<text x="333" y="{y}" text-anchor="end" fill="#69ff45">{value}</text>'
-        for y, (label, value) in zip(range(74, 187, 35), metrics)
+def update(root, api):
+    config = load_config(root / "config/profile.yml")
+    username = config["username"]
+    readme = root / "README.md"
+    original = render_regions(readme.read_text(encoding="utf-8"))
+    user = api.get(f"/users/{username}", dict)
+    if type(user.get("followers")) is not int or user["followers"] < 0:
+        raise ValueError("GitHub returned an invalid follower count")
+    eligible = select_repositories(fetch_repositories(api, username), config)
+    featured = select_featured(eligible, config["featured_repositories"])
+    featured_names = {repo["name"].casefold() for repo in featured}
+    for name in config["featured_repositories"]:
+        if name.casefold() not in featured_names:
+            print(f"Featured repository unavailable: {name}", file=sys.stderr)
+    activity = public_activity(api, username)
+    metrics = [
+        ("Public projects", len(eligible)),
+        ("Project stars", sum(int(repo.get("stargazers_count") or 0) for repo in eligible)),
+        ("Project forks", sum(int(repo.get("forks_count") or 0) for repo in eligible)),
+        ("Followers", user["followers"]),
     ]
-    bars = []
-    if languages:
-        maximum = max(languages.values())
-        for index, (language, count) in enumerate(languages.most_common(4)):
-            y = 74 + index * 35
-            bars.append(
-                f'<text x="400" y="{y}">{escape(language)}</text>'
-                f'<rect x="530" y="{y - 10}" width="142" height="8" rx="4" fill="#24422d"/>'
-                f'<rect x="530" y="{y - 10}" width="{round(142 * count / maximum)}" height="8" rx="4" fill="#57ef38"/>'
-                f'<text x="704" y="{y}" text-anchor="end">{count}</text>'
-            )
-    else:
-        bars.append('<text x="400" y="74">No language data yet</text>')
-    rows = "\n    ".join(labels + bars)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="728" height="204" viewBox="0 0 728 204">
-  <rect x="1" y="1" width="355" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
-  <rect x="376" y="1" width="351" height="202" rx="14" fill="#07110c" stroke="#46a847"/>
-  <g font-family="system-ui, sans-serif" font-size="17" fill="#e6f8e9">
-    <text x="24" y="36" font-weight="700" fill="#69ff45">GitHub stats</text>
-    <text x="400" y="36" font-weight="700" fill="#69ff45">Top languages by repository</text>
-    {rows}
-  </g>
-</svg>
-"""
-
-
-def generate(metrics, languages, repos):
-    stats = ", ".join(f"{label} {value}" for label, value in metrics)
-    language_counts = ", ".join(
-        f"{esc(language)} {count}" for language, count in languages.most_common(4)
-    )
-    alt = f"{stats}. Top languages by repository: {language_counts or 'no data'}."
-    lines = [
-        f"![{alt}](assets/github-stats.svg)",
-        "",
-        "### Project showcase",
-        "",
-    ]
-    for r in repos[:8]:
-        name = esc(r.get("name"))
-        description = " ".join((r.get("description") or "").split())
-        pushed = (r.get("pushed_at") or "")[:10]
-        metadata = []
-        if r.get("language"):
-            metadata.append(esc(r["language"]))
-        if r.get("stargazers_count"):
-            metadata.append(f"★ {r['stargazers_count']}")
-        if pushed:
-            metadata.append(f"Pushed {pushed} UTC")
-        lines.extend([f"#### [{name} ↗]({r['html_url']})", ""])
-        if description:
-            lines.extend([f"> {esc(description)}", ""])
-        if metadata:
-            lines.extend([f"<sub>{' · '.join(metadata)}</sub>", ""])
-    if not repos:
-        lines.extend(["No public project repositories yet.", ""])
-    return "\n".join(lines).rstrip()
+    languages = Counter(repo["language"] for repo in eligible if repo.get("language"))
+    summary = ", ".join(f"{label} {value}" for label, value in metrics)
+    sections = {
+        "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
+        "FEATURED": project_cards(username, featured),
+        "REPOSITORIES": project_cards(username, eligible[:config["repository_limit"]])
+        + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
+        "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
+        or "No primary languages reported yet.",
+        "ACTIVITY": "\n".join(f"- **{date} UTC** · {label} [{text(name)}]({url})" for label, name, url, date in activity)
+        or "No recent development events in GitHub's public feed.",
+        "FOCUS": "\n\n".join(
+            f"> {heading}\n" + "\n".join(f"> - {text(item)}" for item in config[key])
+            for key, heading in (("currently_working_on", "**Currently working on**"), ("learning_interests", "**Learning interests**"))
+            if config[key]
+        ) or "Focus areas will appear here when configured.",
+    }
+    refreshed = render_regions(original, sections)
+    svg = render_stats(metrics, languages)
+    stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
+    readme_changed = replace_if_changed(readme, refreshed)
+    return stats_changed or readme_changed
 
 
 def main():
-    user = get_json(f"/users/{urllib.parse.quote(USERNAME)}")
-    repos = fetch_repos()
-    old = README.read_text(encoding="utf-8")
-    if old.count(START) != 1 or old.count(END) != 1 or old.index(START) >= old.index(END):
-        raise ValueError("README dynamic section markers are missing or duplicated")
-    metrics = [
-        ("Public projects", len(repos)),
-        ("Project stars", sum(int(r.get("stargazers_count") or 0) for r in repos)),
-        ("Project forks", sum(int(r.get("forks_count") or 0) for r in repos)),
-        ("Followers", user.get("followers", 0)),
-    ]
-    languages = Counter(r["language"] for r in repos if r.get("language"))
-    content = generate(metrics, languages, repos)
-    new = old.split(START)[0] + START + "\n" + content + "\n" + END + old.split(END, 1)[1]
-    svg = render_stats(metrics, languages)
-    stats_changed = not STATS.exists() or STATS.read_text(encoding="utf-8") != svg
-    if stats_changed:
-        STATS.write_text(svg, encoding="utf-8")
-    if new != old:
-        README.write_text(new, encoding="utf-8")
-    if new != old or stats_changed:
-        print(f"Updated dashboard: {len(repos)} repositories")
-    else:
-        print("No changes")
+    try:
+        changed = update(ROOT, GitHubAPI(os.environ.get("GH_TOKEN", "")))
+    except (GitHubError, ValueError, OSError, yaml.YAMLError) as error:
+        raise SystemExit(f"Profile update failed: {error}") from error
+    print("Updated profile dashboard" if changed else "No changes")
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except (urllib.error.URLError, ValueError, OSError) as exc:
-        raise SystemExit(f"Profile update failed: {exc}") from exc
+    main()

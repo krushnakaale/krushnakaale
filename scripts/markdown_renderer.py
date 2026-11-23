@@ -1,0 +1,56 @@
+"""Render safe Markdown and update only designated README regions."""
+import re
+from html import escape
+from urllib.parse import quote
+
+REGIONS = ("STATS", "FEATURED", "REPOSITORIES", "LANGUAGES", "ACTIVITY", "FOCUS")
+
+
+def text(value):
+    value = escape(" ".join(str(value or "").split()), quote=False)
+    return re.sub(r"[!\\*_#\[\]~|\x60]", lambda match: f"&#{ord(match[0])};", value)
+
+
+def project_cards(username, repositories):
+    cards = []
+    for repo in repositories:
+        name = repo["name"]
+        link = f"https://github.com/{username}/{quote(name, safe='')}"
+        metadata = [text(repo["language"])] if repo.get("language") else []
+        metadata.append(f"★ {int(repo.get('stargazers_count') or 0)}")
+        if repo.get("pushed_at"):
+            metadata.append(f"Pushed {text(repo['pushed_at'][:10])} UTC")
+        card = [f"#### [{text(name)} ↗]({link})"]
+        if repo.get("description"):
+            card.append(f"> {text(repo['description'])}")
+        card.append(f"<sub>{' · '.join(metadata)}</sub>")
+        cards.append("\n\n".join(card))
+    return "\n\n".join(cards) or "No public projects to display."
+
+
+def render_regions(original, sections=None):
+    positions = {}
+    for key in REGIONS:
+        start, end = f"<!-- {key}:START -->", f"<!-- {key}:END -->"
+        if original.count(start) != 1 or original.count(end) != 1:
+            raise ValueError(f"README must contain exactly one {key} marker pair")
+        start_at, finish = original.index(start), original.index(end)
+        begin = start_at + len(start)
+        after = finish + len(end)
+        if (
+            begin >= finish
+            or (start_at and original[start_at - 1] != "\n")
+            or original[begin:begin + 1] != "\n"
+            or original[finish - 1:finish] != "\n"
+            or original[after:after + 1] not in {"", "\n"}
+        ):
+            raise ValueError(f"Invalid {key} README marker placement")
+        positions[key] = (begin, finish)
+    ordered = sorted(positions, key=positions.get)
+    if any(positions[a][1] >= positions[b][0] for a, b in zip(ordered, ordered[1:])):
+        raise ValueError("README marker regions overlap")
+    if sections is not None:
+        for key in reversed(ordered):
+            begin, finish = positions[key]
+            original = original[:begin] + "\n" + sections[key] + "\n" + original[finish:]
+    return original
