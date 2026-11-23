@@ -70,7 +70,7 @@ def update(root, api):
 
     sections = {
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
-        "FEATURED": "![Featured projects, automatically updated from GitHub](assets/featured-projects.svg)\n\n" + repo_links(featured),
+        "FEATURED": "![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)\n\n" + repo_links(featured),
         "REPOSITORIES": "![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": " · ".join(f"**{text(name)}** {count}" for name, count in languages.most_common())
@@ -86,6 +86,7 @@ def update(root, api):
     svg = render_stats(metrics, languages)
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
     featured_changed = replace_if_changed(root / "assets/featured-projects.svg", render_projects(featured, featured=True))
+    render_latest_png(featured, root / "assets/developer-background.png", root / "assets/featured-projects-developer.png", featured=True)
     repositories_changed = replace_if_changed(root / "assets/latest-repositories-v2.svg", render_projects(eligible[:config["repository_limit"]]))
     render_latest_png(eligible[:config["repository_limit"]], root / "assets/hacker-background.png.png", root / "assets/latest-repositories-hacker.png")
     activity_changed = replace_if_changed(root / "assets/activity-feed.svg", render_activity(activity))
