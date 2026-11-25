@@ -7,7 +7,7 @@ from html import escape
 IST = timezone(timedelta(hours=5, minutes=30))
 
 def collect(api, username, previous, today):
-    days = set(previous)
+    events_by_id = dict(previous)
     for page in range(1, 4):
         events = api.get(f"/users/{username}/events/public?per_page=100&page={page}", list)
         for event in events:
@@ -17,10 +17,11 @@ def collect(api, username, previous, today):
                 continue
             day = datetime.fromisoformat(event["created_at"].replace("Z", "+00:00")).astimezone(IST).date()
             if day <= today:
-                days.add(day)
+                if event.get('id'):
+                    events_by_id[str(event['id'])] = day.isoformat()
         if len(events) < 100:
             break
-    return days
+    return events_by_id
 
 def scores(days, today):
     days = {d for d in days if d <= today}
@@ -37,15 +38,18 @@ def scores(days, today):
         last = day
     return current, longest, len(days)
 
-def render(days, today):
+def render(days, today, events_by_id):
     current, longest, total = scores(days, today)
+    end = today if today in days else today - timedelta(days=1)
+    start = end - timedelta(days=max(0, current-1))
+    push_count = sum(start <= date.fromisoformat(d) <= end for d in events_by_id.values()) if current else 0
     lines = ['<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="240" viewBox="0 0 1100 240" role="img">',
              '<title>Observed public push streak in IST</title>',
              '<rect width="1100" height="240" fill="#0D1117"/>',
              '<g font-family="monospace">',
              '<text x="30" y="32" font-size="18" fill="#39FF88">DAILY PUSH STREAK // IST</text>',
              '<text x="1070" y="32" text-anchor="end" font-size="13" fill="#C5D1DD">OBSERVED PUBLIC PUSHES</text>']
-    for x, label, value in zip((180, 550, 920), ("CURRENT STREAK", "LONGEST OBSERVED", "ACTIVE DAYS"), (current, longest, total)):
+    for x, label, value in zip((275, 825), ("CONTINUOUS PUSH COUNT", "CURRENT STREAK (DAYS)"), (push_count, current)):
         lines += [f'<text x="{x}" y="86" text-anchor="middle" font-size="38" fill="#39FF88">{value}</text>',
                   f'<text x="{x}" y="110" text-anchor="middle" font-size="15" fill="#C5D1DD">{label}</text>']
     for i in range(7):
@@ -54,13 +58,17 @@ def render(days, today):
         color = "#164D2C" if day in days else "#212B32"
         lines += [f'<rect x="{x}" y="132" width="140" height="44" rx="6" fill="{color}"/>',
                   f'<text x="{x+70}" y="159" text-anchor="middle" font-size="16" fill="#DCE8E4">{day.strftime("%a %d")}</text>']
-    lines += ['<text x="550" y="213" text-anchor="middle" font-size="13" fill="#A0B0BC">Recorded public activity only · Rest days are normal · History may be incomplete</text>', '</g></svg>']
+    lines += ['<text x="550" y="213" text-anchor="middle" font-size="13" fill="#A0B0BC">Observed unique push events only · Historical counts may be incomplete</text>', '</g></svg>']
     return "\n".join(lines)
 
 def refresh(root, api, username):
     history = root / "assets/push-days.json"
     previous = {date.fromisoformat(d) for d in json.loads(history.read_text())} if history.exists() else set()
     today = datetime.now(IST).date()
-    days = collect(api, username, previous, today)
+    ledger = root / 'assets/push-events.json'
+    recorded = json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else {}
+    events_by_id = collect(api, username, recorded, today)
+    days = previous | {date.fromisoformat(d) for d in events_by_id.values()}
+    ledger.write_text(json.dumps(events_by_id, sort_keys=True, indent=2) + '\n', encoding='utf-8')
     history.write_text(json.dumps(sorted(d.isoformat() for d in days), indent=2) + "\n", encoding="utf-8")
-    (root / "assets/push-streak.svg").write_text(render(days, today), encoding="utf-8")
+    (root / "assets/push-streak.svg").write_text(render(days, today, events_by_id), encoding="utf-8")
