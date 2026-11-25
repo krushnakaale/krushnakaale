@@ -27,51 +27,26 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
-      - name: Generate README dashboard
+      - name: Refresh and commit dashboard
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/update_profile.py
-      - name: Track public push streak
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python -c 'import os; from pathlib import Path; from scripts.github_api import GitHubAPI; from scripts.push_streak import refresh; refresh(Path.cwd(), GitHubAPI(os.environ["GH_TOKEN"]), "krushnakaale")'
-      - name: Generate animated tech stack
-        run: python scripts/tech_motion.py
-      - name: Commit refreshed public data
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md assets/github-stats.svg assets/language-breakdown.svg assets/featured-projects.svg assets/featured-projects-developer.png assets/latest-repositories-v2.svg assets/latest-repositories-hacker.png assets/activity-feed.svg assets/tech-motion.gif assets/push-days.json assets/push-streak.svg
-          if git diff --cached --quiet; then
-            echo 'Dashboard already matches the latest GitHub API data.'
-            exit 0
-          fi
-          # Save generated outputs separately so concurrent GitHub Actions runs
-          # cannot create an unmergeable binary GIF rebase conflict.
-          mkdir -p /tmp/profile-generated/assets
-          for asset in README.md assets/github-stats.svg assets/language-breakdown.svg assets/featured-projects.svg assets/featured-projects-developer.png assets/latest-repositories-v2.svg assets/latest-repositories-hacker.png assets/activity-feed.svg assets/tech-motion.gif assets/push-days.json assets/push-streak.svg; do
-            mkdir -p "/tmp/profile-generated/$(dirname "$asset")"
-            cp "$asset" "/tmp/profile-generated/$asset"
-          done
-          # Fetch the latest main before committing. This eliminates the
-          # binary rebase conflict caused by two simultaneous GIF refreshes.
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
-            for asset in README.md assets/github-stats.svg assets/language-breakdown.svg assets/featured-projects.svg assets/featured-projects-developer.png assets/latest-repositories-v2.svg assets/latest-repositories-hacker.png assets/activity-feed.svg assets/tech-motion.gif assets/push-days.json assets/push-streak.svg; do
-              cp "/tmp/profile-generated/$asset" "$asset"
-            done
+            python scripts/update_profile.py
+            python -c 'import os; from pathlib import Path; from scripts.github_api import GitHubAPI; from scripts.push_streak import refresh; refresh(Path.cwd(), GitHubAPI(os.environ["GH_TOKEN"]), "krushnakaale")'
+            python scripts/tech_motion.py
             git add README.md assets/github-stats.svg assets/language-breakdown.svg assets/featured-projects.svg assets/featured-projects-developer.png assets/latest-repositories-v2.svg assets/latest-repositories-hacker.png assets/activity-feed.svg assets/tech-motion.gif assets/push-days.json assets/push-streak.svg
             if git diff --cached --quiet; then
-              echo 'Dashboard already matches the latest GitHub API data.'
               exit 0
             fi
             git commit -m 'chore: refresh live GitHub dashboard [skip ci]'
             if git push origin HEAD:main; then
-              echo 'Live dashboard refreshed successfully.'
               exit 0
             fi
             sleep 3
           done
-          echo 'Could not push refreshed dashboard after three attempts.' >&2
           exit 1
