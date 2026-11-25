@@ -53,13 +53,13 @@ I build Python tools and automation scripts, develop practical web applications,
 ![GitHub repository and language statistics](assets/github-stats.svg)
 <!-- STATS:END -->
 
-### `DAILY PUSH STREAK`
+## `05 // DAILY PUSH STREAK`
 
 ![Automatically tracked public push streak in IST](assets/push-streak.svg)
 
 *Based on observed public push days; historical coverage may be incomplete.*
 
-## `05 // FEATURED PROJECTS`
+## `06 // FEATURED PROJECTS`
 
 *Selected builds worth exploring · Purple spotlight cards · Live stars, forks and project details.*
 
@@ -67,7 +67,7 @@ I build Python tools and automation scripts, develop practical web applications,
 Available after the first profile refresh.
 <!-- FEATURED:END -->
 
-## `06 // LATEST REPOSITORIES`
+## `07 // LATEST REPOSITORIES`
 
 *Freshest public builds first · Cyan repository cards · Automatically refreshed from GitHub.*
 
@@ -75,24 +75,24 @@ Available after the first profile refresh.
 Available after the first profile refresh.
 <!-- REPOSITORIES:END -->
 
-## `07 // LANGUAGE BREAKDOWN`
+## `08 // LANGUAGE BREAKDOWN`
 
 <!-- LANGUAGES:START -->
 Available after the first profile refresh.
 <!-- LANGUAGES:END -->
 
 
-## `08 // PUBLIC ACTIVITY FEED`
+## `09 // PUBLIC ACTIVITY FEED`
 
 <!-- ACTIVITY:START -->
 Available after the first profile refresh.
 <!-- ACTIVITY:END -->
 
-## `09 // CONTRIBUTION SNAKE`
+## `10 // CONTRIBUTION SNAKE`
 
 [View contribution activity on GitHub ↗](https://github.com/krushnakaale#js-contribution-activity)
 
-## `10 // CONNECT WITH ME`
+## `11 // CONNECT WITH ME`
 
 <div align="center">
 
