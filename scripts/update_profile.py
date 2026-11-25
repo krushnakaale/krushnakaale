@@ -70,7 +70,7 @@ def update(root, api):
         return " · ".join(f"[{text(repo['name'])}](https://github.com/{username}/{repo['name']})" for repo in repos)
 
     sections = {
-        "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg)",
+        "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg?v=2)",
         "FEATURED": "![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)\n\n" + repo_links(featured),
         "REPOSITORIES": "![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
