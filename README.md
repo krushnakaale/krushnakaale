@@ -50,14 +50,8 @@ I build Python tools and automation scripts, develop practical web applications,
 *Verified public metrics, refreshed automatically by GitHub Actions.*
 
 <!-- STATS:START -->
-![Public projects 11, Project stars 3, Project forks 1, Followers 2. Includes a chart of top primary languages.](assets/github-stats.svg)
+![Public projects 11, Project stars 3, Project forks 1, Followers 3. Includes a chart of top primary languages.](assets/github-stats.svg)
 <!-- STATS:END -->
-
-### `DAILY PUSH STREAK`
-
-![Automatically tracked public push streak in IST](assets/push-streak.svg)
-
-*Based on observed public push days; historical coverage may be incomplete.*
 
 ## `05 // FEATURED PROJECTS`
 
@@ -76,7 +70,7 @@ I build Python tools and automation scripts, develop practical web applications,
 <!-- REPOSITORIES:START -->
 ![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)
 
-[yt-manager](https://github.com/krushnakaale/yt-manager) · [Python-Projects](https://github.com/krushnakaale/Python-Projects) · [Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [resume](https://github.com/krushnakaale/resume) · [fresher-party-management-system](https://github.com/krushnakaale/fresher-party-management-system) · [TA0023](https://github.com/krushnakaale/TA0023) · [SevaSetu](https://github.com/krushnakaale/SevaSetu)
+[Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Python-Projects](https://github.com/krushnakaale/Python-Projects) · [yt-manager](https://github.com/krushnakaale/yt-manager) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [resume](https://github.com/krushnakaale/resume) · [fresher-party-management-system](https://github.com/krushnakaale/fresher-party-management-system) · [TA0023](https://github.com/krushnakaale/TA0023) · [SevaSetu](https://github.com/krushnakaale/SevaSetu)
 
 [View all repositories ↗](https://github.com/krushnakaale?tab=repositories)
 <!-- REPOSITORIES:END -->
