@@ -53,13 +53,13 @@ I build Python tools and automation scripts, develop practical web applications,
 ![Public projects 11, Project stars 3, Project forks 1, Followers 3. Includes a chart of top primary languages.](assets/github-stats.svg)
 <!-- STATS:END -->
 
-### `DAILY PUSH STREAK`
+## `05 // DAILY PUSH STREAK`
 
 ![Automatically tracked public push streak in IST](assets/push-streak.svg)
 
 *Based on observed public push days; historical coverage may be incomplete.*
 
-## `05 // FEATURED PROJECTS`
+## `06 // FEATURED PROJECTS`
 
 *Selected builds worth exploring · Purple spotlight cards · Live stars, forks and project details.*
 
@@ -69,7 +69,7 @@ I build Python tools and automation scripts, develop practical web applications,
 [Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [Python-Projects](https://github.com/krushnakaale/Python-Projects) · [yt-manager](https://github.com/krushnakaale/yt-manager)
 <!-- FEATURED:END -->
 
-## `06 // LATEST REPOSITORIES`
+## `07 // LATEST REPOSITORIES`
 
 *Freshest public builds first · Cyan repository cards · Automatically refreshed from GitHub.*
 
@@ -81,7 +81,7 @@ I build Python tools and automation scripts, develop practical web applications,
 [View all repositories ↗](https://github.com/krushnakaale?tab=repositories)
 <!-- REPOSITORIES:END -->
 
-## `07 // LANGUAGE BREAKDOWN`
+## `08 // LANGUAGE BREAKDOWN`
 
 <!-- LANGUAGES:START -->
 <div align="center">
@@ -91,13 +91,13 @@ I build Python tools and automation scripts, develop practical web applications,
 </div>
 <!-- LANGUAGES:END -->
 
-## `08 // PUBLIC ACTIVITY FEED`
+## `09 // PUBLIC ACTIVITY FEED`
 
 <!-- ACTIVITY:START -->
 ![Latest public GitHub activity — two events per row](assets/activity-feed.svg)
 <!-- ACTIVITY:END -->
 
-## `09 // CONTRIBUTION SNAKE`
+## `10 // CONTRIBUTION SNAKE`
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/krushnakaale/krushnakaale/output/github-contribution-grid-snake-dark.svg">
@@ -107,7 +107,7 @@ I build Python tools and automation scripts, develop practical web applications,
 
 [View contribution activity on GitHub ↗](https://github.com/krushnakaale#js-contribution-activity)
 
-## `10 // CONNECT WITH ME`
+## `11 // CONNECT WITH ME`
 
 <div align="center">
 
