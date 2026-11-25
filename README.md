@@ -53,6 +53,12 @@ I build Python tools and automation scripts, develop practical web applications,
 ![Public projects 11, Project stars 3, Project forks 1, Followers 3. Includes a chart of top primary languages.](assets/github-stats.svg)
 <!-- STATS:END -->
 
+### `DAILY PUSH STREAK`
+
+![Automatically tracked public push streak in IST](assets/push-streak.svg)
+
+*Based on observed public push days; historical coverage may be incomplete.*
+
 ## `05 // FEATURED PROJECTS`
 
 *Selected builds worth exploring · Purple spotlight cards · Live stars, forks and project details.*
