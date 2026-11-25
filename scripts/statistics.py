@@ -44,7 +44,7 @@ def render_stats(metrics, languages):
 <title id="title">Single orbit live GitHub dashboard</title>
 <desc id="desc">One proportional language distribution circle, surrounded by verified public GitHub metrics</desc>
 <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#020A08"/><stop offset="1" stop-color="#071B17"/></linearGradient><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#39FF88" stroke-opacity=".065" stroke-width=".7"/></pattern>
-<style>.halo{{animation:glow 3s ease-in-out infinite alternate}}@keyframes glow{{to{{opacity:.25}}}}.snake-orbit{{opacity:0;animation:ambush 8s linear infinite}}.snake-lunge{{animation:snakeBite 8s ease-in-out infinite}}.snake-jaw{{animation:jaw 8s ease-in-out infinite}}@keyframes ambush{{0%,60%,89%,100%{{opacity:0}}64%,82%{{opacity:1}}}}@keyframes snakeBite{{0%,65%,85%,100%{{transform:translateX(0)}}70%{{transform:translateX(-5px)}}73%,75%{{transform:translateX(23px)}}}}@keyframes jaw{{0%,65%,78%,100%{{opacity:0}}70%,74%{{opacity:1}}}}@media(prefers-reduced-motion:reduce){{.halo,.snake-orbit,.snake-lunge,.snake-jaw{{animation:none}}}}</style></defs>
+<style>.halo{{animation:glow 3s ease-in-out infinite alternate}}@keyframes glow{{to{{opacity:.25}}}}@media(prefers-reduced-motion:reduce){{.halo{{animation:none}}}}</style></defs>
 <rect width="1100" height="292" rx="18" fill="url(#bg)"/><rect width="1100" height="292" rx="18" fill="url(#grid)"/>
 <rect x="1" y="1" width="1098" height="290" rx="17" stroke="#227A50" fill="none"/>
 <text x="27" y="28" font-family="monospace" font-size="17" font-weight="700" fill="#EAF2FF">root@github:~# ./live-orbit</text>
@@ -53,17 +53,6 @@ def render_stats(metrics, languages):
 <circle cx="193" cy="145" r="100" fill="none" stroke="#194330" stroke-width="13"/>
 <g>{''.join(segments)}</g>
 <circle cx="193" cy="145" r="78" fill="#06140F"/>
-<g transform="translate(193 145)">
-<g class="snake-orbit" opacity="0">
-<path d="M-69 0 A69 69 0 0 1 0 -69 A69 69 0 0 1 63 -28" fill="none" stroke="#123F2A" stroke-width="12" stroke-linecap="round"/>
-<path d="M-69 0 A69 69 0 0 1 0 -69 A69 69 0 0 1 63 -28" fill="none" stroke="#38965A" stroke-width="8" stroke-linecap="round"/><path d="M-69 0 A69 69 0 0 1 0 -69 A69 69 0 0 1 63 -28" fill="none" stroke="#9DE8A1" stroke-width="3" stroke-dasharray="2 3"/>
-<g transform="translate(63 -28) rotate(155)">
-<g class="snake-lunge">
-<path d="M-10 -9 Q3 -13 15 -5 L18 0 L15 5 Q3 13 -10 9 Z" fill="#39FF88" stroke="#B6FFD4" stroke-width="1"/>
-<circle cx="5" cy="-5" r="2" fill="#071A15"/><circle cx="5" cy="5" r="2" fill="#071A15"/>
-<path class="snake-jaw" d="M8 0 L19 0 L13 5 Z" fill="#071A15"/>
-<path d="M15 -3 L11 0 L15 3" fill="#EAF2FF"/>
-</g></g></g></g>
 <text x="193" y="143" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="800" fill="#39FF88">{projects:,}</text>
 <text x="193" y="166" text-anchor="middle" font-family="monospace" font-size="13" fill="#8DC7A9">PUBLIC REPOS</text>
 <g font-family="Arial,sans-serif">{''.join(labels)}{''.join(legends)}</g>
