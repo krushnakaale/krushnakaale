@@ -50,7 +50,7 @@ I build Python tools and automation scripts, develop practical web applications,
 *Verified public metrics, refreshed automatically by GitHub Actions.*
 
 <!-- STATS:START -->
-![GitHub repository and language statistics](assets/github-stats.svg)
+![GitHub repository and language statistics](assets/github-stats.svg?v=2)
 <!-- STATS:END -->
 
 ## `05 // DAILY PUSH STREAK`
