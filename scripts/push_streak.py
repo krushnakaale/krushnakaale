@@ -76,8 +76,8 @@ def render(days, today, events_by_id):
              '<rect width="1100" height="240" fill="#0D1117"/>',
              '<g font-family="monospace">',
              '<text x="30" y="32" font-size="18" fill="#39FF88">DAILY PUSH STREAK // IST</text>',
-             '<text x="1070" y="32" text-anchor="end" font-size="13" fill="#C5D1DD">PUBLIC GIT COMMIT DAYS</text>']
-    for x, label, value in zip((275, 825), ("CONTINUOUS PUSH COUNT", "CURRENT STREAK (DAYS)"), (push_count, current)):
+             '<text x="1070" y="32" text-anchor="end" font-size="13" fill="#C5D1DD">PUBLIC ACTIVITY · IST</text>']
+    for x, label, value in zip((275, 825), ("RECORDED PUSH EVENTS", "CURRENT STREAK (DAYS)"), (push_count, current)):
         lines += [f'<text x="{x}" y="86" text-anchor="middle" font-size="38" fill="#39FF88">{value}</text>',
                   f'<text x="{x}" y="110" text-anchor="middle" font-size="15" fill="#C5D1DD">{label}</text>']
     for i in range(7):
@@ -86,7 +86,7 @@ def render(days, today, events_by_id):
         color = "#164D2C" if day in days else "#212B32"
         lines += [f'<rect x="{x}" y="132" width="140" height="44" rx="6" fill="{color}"/>',
                   f'<text x="{x+70}" y="159" text-anchor="middle" font-size="16" fill="#DCE8E4">{day.strftime("%a %d")}</text>']
-    lines += ['<text x="550" y="213" text-anchor="middle" font-size="13" fill="#A0B0BC">Streak days include authored commits · Push count uses observed events only</text>', '</g></svg>']
+    lines += ['<text x="550" y="213" text-anchor="middle" font-size="13" fill="#A0B0BC">Streak: authored commits + events · Push count: observed events only, incomplete</text>', '</g></svg>']
     return "\n".join(lines)
 
 def refresh(root, api, username):
