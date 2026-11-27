@@ -85,13 +85,35 @@ def update(root, api):
         "LANGUAGES": '<div align="center">\n\n![Live holographic language analytics](assets/language-breakdown.svg?v=4)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg?v=2)",
         "FOCUS": (
-            '<p align="center"><code>● SYSTEM ONLINE</code></p>\n'
-            + "\n".join(
-                f'<p align="center"><code>{i+1:02d} // {text(item)}</code></p>'
-                for i, item in enumerate([*config["currently_working_on"], *config["learning_interests"]])
-            )
+            '<div align="center">\n'
+            '<img src="assets/identity-ring.svg" width="48%" alt="Developer identity ring"/>'
+            '<img src="assets/mission-radar.svg" width="48%" alt="Mission radar"/>\n'
+            '</div>\n\n'
+            '<div align="center">\n'
+            '<img src="assets/identity-mission.svg" width="100%" alt="About me and current focus"/>\n'
+            '<br/><a href="https://krushnakaale.vercel.app/">Explore my portfolio ↗</a>\n'
+            '</div>'
         ),
     }
+    from html import escape
+    focus_items = [*config["currently_working_on"], *config["learning_interests"]]
+    focus_height = max(160, 65 + 25 * len(focus_items))
+    focus_lines = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="{focus_height}" viewBox="0 0 1100 {focus_height}">',
+        '<g font-family="monospace" font-size="18" fill="#39FF88">',
+        '<text x="275" y="25" text-anchor="middle" font-weight="bold">01 // ABOUT ME</text>',
+        '<text x="825" y="25" text-anchor="middle" font-weight="bold">02 // CURRENT FOCUS</text>',
+        '<text x="825" y="52" text-anchor="middle" font-size="14">● SYSTEM ONLINE</text>',
+        '</g><g font-family="sans-serif" font-size="17" fill="#9BAAB9" text-anchor="middle">',
+        '<text x="275" y="60">I build Python tools, automation scripts</text>',
+        '<text x="275" y="85">and practical web applications while learning</text>',
+        '<text x="275" y="110">secure development, cybersecurity and open source</text>',
+        '<text x="275" y="135">with Linux and Git.</text>',
+    ]
+    for i, item in enumerate(focus_items):
+        focus_lines.append(f'<text x="825" y="{78+i*25}">{i+1:02d} // {escape(str(item))}</text>')
+    focus_lines.append('</g></svg>')
+    replace_if_changed(root / "assets/identity-mission.svg", "\n".join(focus_lines))
     refreshed = render_regions(original, sections)
     svg = render_stats(metrics, languages)
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
