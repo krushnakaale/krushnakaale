@@ -42,6 +42,10 @@
 ![GitHub repository and language statistics](assets/github-stats.svg?v=2)
 <!-- STATS:END -->
 
+![Developer command center, latest workflow status and repository language network](assets/command-center.svg)
+
+*Workflow status reflects the latest available run; network groups tracked projects by primary language.*
+
 ## `05 // DAILY PUSH STREAK`
 
 ![Automatically tracked public push streak in IST](assets/push-streak.svg)
