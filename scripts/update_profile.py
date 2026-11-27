@@ -12,6 +12,7 @@ if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from scripts.activity import public_activity
+from scripts.command_center import render_command
 from scripts.activity_visuals import render_activity
 from scripts.github_api import GitHubAPI, GitHubError
 from scripts.markdown_renderer import featured_cards, project_cards, render_regions, text
@@ -114,6 +115,7 @@ def update(root, api):
         focus_lines.append(f'<text x="825" y="{78+i*25}">{i+1:02d} // {escape(str(item))}</text>')
     focus_lines.append('</g></svg>')
     replace_if_changed(root / "assets/identity-mission.svg", "\n".join(focus_lines))
+    command_changed = replace_if_changed(root / "assets/command-center.svg", render_command(api, username, eligible, activity))
     refreshed = render_regions(original, sections)
     svg = render_stats(metrics, languages)
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
@@ -124,7 +126,7 @@ def update(root, api):
     render_latest_png(latest, root / "assets/hacker-background.png.png", root / "assets/latest-repositories-hacker.png")
     activity_changed = replace_if_changed(root / "assets/activity-feed.svg", render_activity(activity))
     readme_changed = replace_if_changed(readme, refreshed)
-    return language_changed or stats_changed or featured_changed or repositories_changed or activity_changed or readme_changed
+    return command_changed or language_changed or stats_changed or featured_changed or repositories_changed or activity_changed or readme_changed
 
 
 def main():
