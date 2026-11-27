@@ -18,7 +18,7 @@
 
 <div align="center">
 <img src="assets/identity-mission.svg" width="100%" alt="About me and current focus"/>
-<br/><a href="https://krushnakaale.vercel.app/">Explore my portfolio ↗</a>
+<br/><a href="https://krushnakaale.vercel.app/"><img src="https://img.shields.io/badge/EXPLORE_MY_PORTFOLIO-0D1712?style=for-the-badge&amp;logo=vercel&amp;logoColor=39FF88&amp;color=0D1712&amp;labelColor=0D1712" alt="Explore my portfolio"/></a>
 </div>
 <!-- FOCUS:END -->
 
