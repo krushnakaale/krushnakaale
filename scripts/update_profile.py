@@ -83,7 +83,7 @@ def update(root, api):
         "REPOSITORIES": "![Latest repositories with transparent repository timeline strips, automatically updated from GitHub](assets/latest-repositories-hacker.png?v=timeline3)\n\n" + repo_links(latest)
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": '<div align="center">\n\n![Live holographic language analytics](assets/language-breakdown.svg?v=4)\n\n</div>',
-        "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
+        "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg?v=2)",
         "FOCUS": (
             "**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**\n\n"
             "| 01 // FOCUS | 02 // FOCUS | 03 // FOCUS |\n"
