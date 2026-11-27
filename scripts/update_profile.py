@@ -80,7 +80,7 @@ def update(root, api):
         "FEATURED": "![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)\n\n" + repo_links(featured),
         "REPOSITORIES": "![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
-        "LANGUAGES": '<div align="center">\n\n![Live code-byte language distribution donut chart](assets/language-breakdown.svg?v=2)\n\n</div>',
+        "LANGUAGES": '<div align="center">\n\n![Live holographic language analytics](assets/language-breakdown.svg?v=4)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
         "FOCUS": (
             "**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**\n\n"
