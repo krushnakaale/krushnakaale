@@ -42,7 +42,7 @@
 ![Public projects 11, Project stars 3, Project forks 1, Followers 4. Includes a chart of top primary languages.](assets/github-stats.svg?v=2)
 <!-- STATS:END -->
 
-![Developer command center, latest workflow status and repository language network](assets/command-center.svg)
+![Developer command center, latest workflow status and repository language network](assets/command-center.svg?v=2)
 
 *Workflow status reflects the latest available run; network groups tracked projects by primary language.*
 
