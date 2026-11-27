@@ -11,26 +11,16 @@
 
 </div>
 
-<table width="100%">
-<tr>
-<td width="50%" valign="top" align="center">
-<img src="assets/identity-ring.svg" width="200" alt="Developer identity ring"/>
-<h3>01 // ABOUT ME</h3>
-<p>I build Python tools, automation scripts and practical web applications while learning secure development, cybersecurity and open source with Linux and Git.</p>
-<a href="https://krushnakaale.vercel.app/">Explore my portfolio ↗</a>
-</td>
-<td width="50%" valign="top" align="center">
-<img src="assets/mission-radar.svg" width="200" alt="Mission radar"/>
-<h3>02 // CURRENT FOCUS</h3>
 <!-- FOCUS:START -->
-<p align="center"><code>● SYSTEM ONLINE</code></p>
-<p align="center"><code>01 // Python automation</code></p>
-<p align="center"><code>02 // Cybersecurity fundamentals</code></p>
-<p align="center"><code>03 // Open-source development</code></p>
+<div align="center">
+<img src="assets/identity-ring.svg" width="48%" alt="Developer identity ring"/><img src="assets/mission-radar.svg" width="48%" alt="Mission radar"/>
+</div>
+
+<div align="center">
+<img src="assets/identity-mission.svg" width="100%" alt="About me and current focus"/>
+<br/><a href="https://krushnakaale.vercel.app/">Explore my portfolio ↗</a>
+</div>
 <!-- FOCUS:END -->
-</td>
-</tr>
-</table>
 
 ## `03 // TECH STACK`
 
