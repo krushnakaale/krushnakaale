@@ -1,28 +1,30 @@
-"""Responsive honeycomb language matrix using GitHub language bytes."""
+"""Holographic language analytics from GitHub code bytes."""
 from html import escape
-from math import sin, cos, pi, ceil
 
 def render_language_pie(languages, repo_count=None):
     raw = [(str(n), int(v)) for n,v in languages.most_common() if int(v)>0]
     total = sum(v for _,v in raw)
-    items = raw[:14]
-    if len(raw)>14:
-        items.append(("Other",sum(v for _,v in raw[14:])))
-    rows = max(1,ceil(len(items)/5))
-    height = 110 + rows*154
-    cells = []
+    items = raw[:7]
+    if len(raw)>7:
+        items.append(("Other",sum(v for _,v in raw[7:])))
+    bars = []
+    step = min(155, 960/max(1,len(items)))
     for i,(name,amount) in enumerate(items):
-        row,col = divmod(i,5)
-        count = min(5,len(items)-row*5)
-        x = 550+(col-(count-1)/2)*188
-        y = 130+row*154
         share = amount/total
-        points = " ".join(f"{x+83*cos(pi*k/3):.2f},{y+83*sin(pi*k/3):.2f}" for k in range(6))
-        cells.append(f'<g><polygon points="{points}" fill="#091C15" stroke="#246B49" stroke-width="1.5"/><polygon class="glow" style="animation-delay:{i*.45:.2f}s" points="{points}" fill="none" stroke="#39FF88" stroke-width="2" opacity=".45"/><text x="{x}" y="{y-23}" text-anchor="middle" fill="#8FC5A7" font-size="11">0{i+1:02d} / LANG</text><text x="{x}" y="{y-3}" text-anchor="middle" fill="#E6FFF0" font-size="14" font-weight="600">{escape(name[:17])}</text><text x="{x}" y="{y+26}" text-anchor="middle" fill="#39FF88" font-size="24" font-weight="700">{share*100:.1f}%</text><rect x="{x-40}" y="{y+38}" width="80" height="3" rx="1.5" fill="#234438"/><rect x="{x-40}" y="{y+38}" width="{80*share:.2f}" height="3" rx="1.5" fill="#39FF88"/></g>')
-    if not cells:
-        cells.append('<text x="550" y="130" text-anchor="middle" fill="#8FC5A7">No language data available</text>')
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="{height}" viewBox="0 0 1100 {height}" role="img" aria-labelledby="title desc">
-<title id="title">Language hexagon matrix</title><desc id="desc">GitHub language byte distribution across selected public projects.</desc>
-<defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#39FF88" stroke-opacity=".045"/></pattern><style>.glow{{animation:pulse 5s ease-in-out infinite}}@keyframes pulse{{50%{{opacity:.95}}}}@media(prefers-reduced-motion:reduce){{.glow{{animation:none}}}}</style></defs>
-<rect width="1100" height="{height}" rx="16" fill="#050D0A"/><rect width="1100" height="{height}" rx="16" fill="url(#grid)"/>
-<g font-family="monospace"><text x="28" y="32" font-size="18" font-weight="700" fill="#39FF88">LANGUAGE // HEX MATRIX</text><text x="1072" y="32" text-anchor="end" font-size="12" fill="#8FC5A7">{len(raw)} LANGUAGES · {repo_count if repo_count is not None else 'PUBLIC'} REPOS</text><path d="M28 48H1072" stroke="#204B37"/>{''.join(cells)}<text x="28" y="{height-18}" font-size="11" fill="#8FC5A7">GITHUB API // {total:,} CODE BYTES</text><text x="1072" y="{height-18}" text-anchor="end" font-size="11" fill="#39FF88">AUTO-SYNC</text></g></svg>"""
+        x = 550+(i-(len(items)-1)/2)*step
+        h = 220*share
+        y = 310-h
+        w = min(64,step*.48)
+        a,b = x-w/2,x+w/2
+        bars.append(f'<g><ellipse cx="{x+7}" cy="318" rx="{w*.8}" ry="9" fill="#39FF88" opacity=".12"/><path d="M{b} {y} l14 -9 V301 L{b} 310Z" fill="#116B48"/><rect x="{a}" y="{y}" width="{w}" height="{h}" fill="url(#bar)" stroke="#39FF88" stroke-width=".8"/><path d="M{a} {y} l14 -9 h{w} l-14 9Z" fill="#8BFFD0" opacity=".85"/><text x="{x}" y="{y-19}" text-anchor="middle" font-size="18" font-weight="700" fill="#B5FFDA">{share*100:.1f}%</text><text x="{x}" y="345" text-anchor="middle" font-size="13" fill="#E1F8EC">{escape(name[:15])}</text></g>')
+    grid = []
+    for tick in range(0,101,25):
+        y=310-220*tick/100
+        grid.append(f'<path d="M65 {y}H1040" stroke="#28523F" stroke-dasharray="3 7"/><text x="52" y="{y+4}" text-anchor="end" fill="#719C88" font-size="11">{tick}%</text>')
+    if not bars:
+        bars.append('<text x="550" y="180" text-anchor="middle" fill="#B5FFDA">No language data available</text>')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="400" viewBox="0 0 1100 400" role="img" aria-labelledby="title desc">
+<title id="title">Holographic language analytics</title><desc id="desc">Actual GitHub language byte percentages across selected public repositories.</desc>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#040C0B"/><stop offset="1" stop-color="#0B2119"/></linearGradient><linearGradient id="bar" x2="0" y2="1"><stop stop-color="#39FF88"/><stop offset="1" stop-color="#075438"/></linearGradient><style>.scan{{animation:scan 8s ease-in-out infinite}}@keyframes scan{{0%,100%{{transform:translateY(0);opacity:.1}}50%{{transform:translateY(220px);opacity:.5}}}}@media(prefers-reduced-motion:reduce){{.scan{{animation:none}}}}</style></defs>
+<rect width="1100" height="400" rx="16" fill="url(#bg)"/>
+<g font-family="monospace"><text x="28" y="34" font-size="20" font-weight="700" fill="#39FF88">LANGUAGE // HOLOGRAPHIC ANALYTICS</text><text x="1072" y="34" text-anchor="end" font-size="12" fill="#9AC9B2">{len(raw)} LANGUAGES · {repo_count if repo_count is not None else 'PUBLIC'} REPOS</text><path d="M28 51H1072" stroke="#28523F"/>{''.join(grid)}<path d="M65 310H1040L1070 330H35Z" fill="#123B2A" opacity=".65"/>{''.join(bars)}<path class="scan" d="M65 90H1040" stroke="#39FF88" stroke-width="1" opacity=".2"/><text x="28" y="382" font-size="11" fill="#9AC9B2">GITHUB API // {total:,} CODE BYTES</text><text x="1072" y="382" text-anchor="end" font-size="11" fill="#39FF88">AUTO-SYNC</text></g></svg>"""
