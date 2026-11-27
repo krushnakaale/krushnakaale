@@ -90,6 +90,8 @@ class UpdateTests(unittest.TestCase):
         if "/events/" in path:
             return [{"type": "PushEvent", "repo": {"name": "krushnakaale/Python-Projects"},
                      "created_at": "2026-11-23T10:00:00Z", "public": True}]
+        if path.endswith("/languages"):
+            return {"Python": 1200, "HTML": 300} if "/Python-Projects/" in path else {}
         return {"followers": 3}
 
     def test_update_changes_and_idempotence(self):
@@ -103,6 +105,7 @@ class UpdateTests(unittest.TestCase):
         self.assertTrue((self.root / "assets/activity-feed.svg").is_file())
         self.assertIn(b"assets/activity-feed.svg", before)
         self.assertIn(b"Manual note.", before)
+        self.assertEqual(before.count(b"https://github.com/krushnakaale/Python-Projects"), 1)
         self.assertFalse(update(self.root, self.api))
         self.assertEqual(self.readme.read_bytes(), before)
         self.repos = [{"name": "renamed"}, {"name": "added"}]
