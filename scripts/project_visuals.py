@@ -138,7 +138,7 @@ def render_repository_timeline(repos, output_path):
     from PIL import Image, ImageDraw, ImageFont
     width = 1100
     step = 156
-    height = 108 + max(1, len(repos)) * step
+    height = 108 + max(1, (len(repos)+1)//2) * step
     image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(image)
     def font(size, bold=False):
@@ -157,21 +157,22 @@ def render_repository_timeline(repos, output_path):
     label(950,20,"AUTO-SYNC",14,"#A0A0A0")
     colors = {"Python":"#3572A5","HTML":"#E34C26","JavaScript":"#F1E05A","TypeScript":"#3178C6","CSS":"#563D7C","Java":"#B07219","C++":"#F34B7D"}
     for i, repo in enumerate(repos):
-        y = 55 + i*step
-        label(15,y+17,f"{i+1:02}",15,"#A0A0A0")
-        draw.rounded_rectangle((48,y,51,y+140),radius=1,fill=green)
-        draw.rectangle((92,y+31,118,y+48),outline=green,width=2)
-        draw.line((92,y+31,92,y+26,103,y+26,108,y+31),fill=green,width=2)
-        label(143,y+10,fit(repo.get("name") or "Repository",840,24,True),24,green,True)
-        label(143,y+40,"PUBLIC REPOSITORY",12,"#A0A0A0")
-        label(84,y+70,fit(repo.get("description") or "Explore source code and project details.",970,17),17)
-        draw.line((84,y+100,1060,y+100),fill="#292929",width=1)
+        y = 55 + (i//2)*step
+        x = (i%2)*550
+        label(x+15,y+17,f"{i+1:02}",15,"#A0A0A0")
+        draw.rounded_rectangle((x+48,y,x+51,y+140),radius=1,fill=green)
+        draw.rectangle((x+72,y+31,x+98,y+48),outline=green,width=2)
+        draw.line((x+72,y+31,x+72,y+26,x+83,y+26,x+88,y+31),fill=green,width=2)
+        label(x+113,y+10,fit(repo.get("name") or "Repository",420,19,True),19,green,True)
+        label(x+113,y+40,"PUBLIC REPOSITORY",12,"#A0A0A0")
+        label(x+65,y+70,fit(repo.get("description") or "Explore source code and project details.",465,14),14)
+        draw.line((x+65,y+100,x+530,y+100),fill="#292929",width=1)
         lang = str(repo.get("language") or "Other")
-        draw.ellipse((85,y+115,95,y+125),fill=colors.get(lang,"#A0A0A0"))
-        label(104,y+110,fit(lang,200,15),15)
-        label(330,y+110,f"STARS {int(repo.get('stargazers_count') or 0)}",15)
-        label(480,y+110,f"FORKS {int(repo.get('forks_count') or 0)}",15)
-        label(810,y+110,"UPDATED "+str(repo.get("updated_at") or repo.get("pushed_at") or "N/A")[:10],15)
+        draw.ellipse((x+65,y+115,x+75,y+125),fill=colors.get(lang,"#A0A0A0"))
+        label(x+82,y+110,fit(lang,95,12),12)
+        label(x+185,y+110,f"STARS {int(repo.get('stargazers_count') or 0)}",12)
+        label(x+260,y+110,f"FORKS {int(repo.get('forks_count') or 0)}",12)
+        label(x+335,y+110,"UPDATED "+str(repo.get("updated_at") or repo.get("pushed_at") or "N/A")[:10],12)
     if not repos:
         label(65,90,"No public repositories yet",20)
     label(24,height-32,"GITHUB API  //  LIVE REPOSITORY DATA",14,"#A0A0A0")
