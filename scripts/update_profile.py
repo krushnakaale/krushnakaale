@@ -65,6 +65,12 @@ def update(root, api):
         ("Followers", user["followers"]),
     ]
     languages = Counter(repo["language"] for repo in eligible if repo.get("language"))
+    code_languages = Counter()
+    for repo in eligible:
+        counts = api.get(f"/repos/{username}/{repo['name']}/languages", dict)
+        if any(type(value) is not int or value < 0 for value in counts.values()):
+            raise ValueError("Invalid GitHub language byte counts")
+        code_languages.update(counts)
     summary = ", ".join(f"{label} {value}" for label, value in metrics)
     def repo_links(repos):
         return " · ".join(f"[{text(repo['name'])}](https://github.com/{username}/{repo['name']})" for repo in repos)
@@ -74,7 +80,7 @@ def update(root, api):
         "FEATURED": "![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)\n\n" + repo_links(featured),
         "REPOSITORIES": "![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)\n\n" + repo_links(eligible[:config["repository_limit"]])
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
-        "LANGUAGES": '<div align="center">\n\n![Live primary language distribution pie chart](assets/language-breakdown.svg)\n\n</div>',
+        "LANGUAGES": '<div align="center">\n\n![Live code-byte language distribution donut chart](assets/language-breakdown.svg?v=2)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
         "FOCUS": (
             "**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**\n\n"
@@ -97,7 +103,7 @@ def update(root, api):
     refreshed = render_regions(original, sections)
     svg = render_stats(metrics, languages)
     stats_changed = replace_if_changed(root / "assets/github-stats.svg", svg)
-    language_changed = replace_if_changed(root / "assets/language-breakdown.svg", render_language_pie(languages))
+    language_changed = replace_if_changed(root / "assets/language-breakdown.svg", render_language_pie(code_languages, len(eligible)))
     featured_changed = replace_if_changed(root / "assets/featured-projects.svg", render_projects(featured, featured=True))
     render_latest_png(featured, root / "assets/developer-background.png", root / "assets/featured-projects-developer.png", featured=True)
     repositories_changed = replace_if_changed(root / "assets/latest-repositories-v2.svg", render_projects(eligible[:config["repository_limit"]]))
