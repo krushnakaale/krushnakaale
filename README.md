@@ -4,7 +4,7 @@
 
 ![Python, Cybersecurity and Automation](assets/typing.svg)
 
-[![Portfolio](https://img.shields.io/badge/PORTFOLIO-00FF41?style=for-the-badge&logo=vercel&logoColor=050A08)](https://krushnakaale.vercel.app)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-39FF88?style=for-the-badge&logo=vercel&logoColor=0D1712&labelColor=0D1712)](https://krushnakaale.vercel.app)
 [![GitHub](https://img.shields.io/badge/GITHUB-09120C?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/krushnakaale)
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-09120C?style=for-the-badge&logo=linkedin&logoColor=FFFFFF)](https://www.linkedin.com/in/krushnakaale)
 [![Instagram](https://img.shields.io/badge/INSTAGRAM-09120C?style=for-the-badge&logo=instagram&logoColor=00FF41)](https://www.instagram.com/krushna_kaale)
