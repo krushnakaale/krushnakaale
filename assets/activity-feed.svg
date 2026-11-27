@@ -1,21 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="360" viewBox="0 0 1100 360" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="396" viewBox="0 0 1100 396" role="img">
 <title>Live public GitHub activity feed</title>
-<rect width="1100" height="360" fill="#0D1117"/>
-<text x="30" y="35" font-family="monospace" font-size="19" fill="#39FF88">● ACTIVITY STREAM</text>
-<text x="1070" y="35" text-anchor="end" font-family="monospace" font-size="15" fill="#22D3EE">GITHUB API // PUBLIC EVENTS</text>
-<text x="32" y="88" font-family="monospace" font-size="16" fill="#A78BFA">2026-11-26 UTC</text>
-<text x="32" y="111" font-family="monospace" font-size="18" fill="#39FF88">▸ Pushed to</text>
-<text x="32" y="134" font-family="monospace" font-size="17" fill="#C5D1DD">krushnakaale/Python-Basic-Projects</text>
-<text x="582" y="88" font-family="monospace" font-size="16" fill="#A78BFA">2026-11-25 UTC</text>
-<text x="582" y="111" font-family="monospace" font-size="18" fill="#39FF88">▸ Pushed to</text>
-<text x="582" y="134" font-family="monospace" font-size="17" fill="#C5D1DD">krushnakaale/Python-Basic-Projects</text>
-<text x="32" y="180" font-family="monospace" font-size="16" fill="#A78BFA">2026-11-25 UTC</text>
-<text x="32" y="203" font-family="monospace" font-size="18" fill="#39FF88">▸ Pushed to</text>
-<text x="32" y="226" font-family="monospace" font-size="17" fill="#C5D1DD">krushnakaale/python-projects</text>
-<text x="582" y="180" font-family="monospace" font-size="16" fill="#A78BFA">2026-11-25 UTC</text>
-<text x="582" y="203" font-family="monospace" font-size="18" fill="#39FF88">▸ Pushed to</text>
-<text x="582" y="226" font-family="monospace" font-size="17" fill="#C5D1DD">krushnakaale/yt-manager</text>
-<text x="32" y="272" font-family="monospace" font-size="16" fill="#A78BFA">2026-11-24 UTC</text>
-<text x="32" y="295" font-family="monospace" font-size="18" fill="#39FF88">▸ Pushed to</text>
-<text x="32" y="318" font-family="monospace" font-size="17" fill="#C5D1DD">krushnakaale/Python-Basic-Projects</text>
+<rect width="1100" height="396" fill="#0D1117"/>
+<text x="30" y="35" font-family="monospace" font-size="21" fill="#39FF88">● ACTIVITY STREAM</text>
+<text x="1070" y="35" text-anchor="end" font-family="monospace" font-size="17" fill="#22D3EE">GITHUB API // PUBLIC EVENTS</text>
+<text x="32" y="88" font-family="monospace" font-size="18" fill="#A78BFA">2026-11-26 UTC</text>
+<text x="32" y="115" font-family="monospace" font-size="20" fill="#39FF88">▸ Pushed to</text>
+<text x="32" y="142" font-family="monospace" font-size="19" fill="#C5D1DD">krushnakaale/Python-Basic-Projects</text>
+<text x="582" y="88" font-family="monospace" font-size="18" fill="#A78BFA">2026-11-25 UTC</text>
+<text x="582" y="115" font-family="monospace" font-size="20" fill="#39FF88">▸ Pushed to</text>
+<text x="582" y="142" font-family="monospace" font-size="19" fill="#C5D1DD">krushnakaale/Python-Basic-Projects</text>
+<text x="32" y="192" font-family="monospace" font-size="18" fill="#A78BFA">2026-11-25 UTC</text>
+<text x="32" y="219" font-family="monospace" font-size="20" fill="#39FF88">▸ Pushed to</text>
+<text x="32" y="246" font-family="monospace" font-size="19" fill="#C5D1DD">krushnakaale/python-projects</text>
+<text x="582" y="192" font-family="monospace" font-size="18" fill="#A78BFA">2026-11-25 UTC</text>
+<text x="582" y="219" font-family="monospace" font-size="20" fill="#39FF88">▸ Pushed to</text>
+<text x="582" y="246" font-family="monospace" font-size="19" fill="#C5D1DD">krushnakaale/yt-manager</text>
+<text x="32" y="296" font-family="monospace" font-size="18" fill="#A78BFA">2026-11-24 UTC</text>
+<text x="32" y="323" font-family="monospace" font-size="20" fill="#39FF88">▸ Pushed to</text>
+<text x="32" y="350" font-family="monospace" font-size="19" fill="#C5D1DD">krushnakaale/Python-Basic-Projects</text>
 </svg>

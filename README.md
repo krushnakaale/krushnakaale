@@ -94,7 +94,7 @@ I build Python tools and automation scripts, develop practical web applications,
 ## `09 // PUBLIC ACTIVITY FEED`
 
 <!-- ACTIVITY:START -->
-![Latest public GitHub activity — two events per row](assets/activity-feed.svg)
+![Latest public GitHub activity — two events per row](assets/activity-feed.svg?v=2)
 <!-- ACTIVITY:END -->
 
 ## `10 // CONTRIBUTION SNAKE`
