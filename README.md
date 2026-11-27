@@ -86,7 +86,7 @@ I build Python tools and automation scripts, develop practical web applications,
 <!-- LANGUAGES:START -->
 <div align="center">
 
-![Live primary language distribution pie chart](assets/language-breakdown.svg)
+![Live code-byte language distribution donut chart](assets/language-breakdown.svg?v=2)
 
 </div>
 <!-- LANGUAGES:END -->
