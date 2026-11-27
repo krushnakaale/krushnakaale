@@ -183,7 +183,7 @@ def render_repository_timeline(repos, output_path):
 def render_featured_spotlight(repos, output_path):
     from PIL import Image, ImageDraw, ImageFont
     width = 1100
-    step = 230
+    step = 205
     height = 65 + max(1, (len(repos)+1)//2)*step
     image = Image.new("RGBA",(width,height),(0,0,0,0))
     draw = ImageDraw.Draw(image)
@@ -198,22 +198,22 @@ def render_featured_spotlight(repos, output_path):
             value=value[:-1]
         return value+("…" if value!=original else "")
     green="#39FF88"
-    label(24,12,"PROJECT SPOTLIGHT",21,green,True)
-    label(870,17,"FEATURED COLLECTION",15,"#A0A0A0")
+    label(24,12,"PROJECT SPOTLIGHT",18,green,True)
+    label(870,17,"FEATURED COLLECTION",13,"#A0A0A0")
     for i,repo in enumerate(repos):
         x=24+(i%2)*550
         y=55+(i//2)*step
-        label(x,y,f"{i+1:02}",34,green,True)
-        label(x+440,y+8,">_",25,green,True)
+        label(x,y,f"{i+1:02}",28,green,True)
+        label(x+440,y+8,">_",21,green,True)
         draw.line((x,y+48,x+500,y+48),fill=green,width=2)
         label(x,y+58,"FEATURED PROJECT",12,"#A0A0A0")
-        label(x,y+80,fit(repo.get("name") or "Repository",500,22,True),22,green,True)
+        label(x,y+80,fit(repo.get("name") or "Repository",500,19,True),19,green,True)
         desc=str(repo.get("description") or "Explore source code and project details.")
-        label(x,y+115,fit(desc,500,15),15)
-        label(x,y+150,fit(repo.get("language") or "Other",200,14),14)
-        label(x+250,y+150,f"STARS {int(repo.get('stargazers_count') or 0)}  |  FORKS {int(repo.get('forks_count') or 0)}",14)
-        draw.line((x,y+178,x+500,y+178),fill="#303030",width=1)
-        label(x,y+188,"EXPLORE PROJECT",14,green)
+        label(x,y+108,fit(desc,500,13),13)
+        label(x,y+137,fit(repo.get("language") or "Other",200,12),12)
+        label(x+250,y+137,f"STARS {int(repo.get('stargazers_count') or 0)}  |  FORKS {int(repo.get('forks_count') or 0)}",12)
+        draw.line((x,y+160,x+500,y+160),fill="#303030",width=1)
+        label(x,y+170,"EXPLORE PROJECT",12,green)
     if not repos:
         label(24,70,"No featured projects available")
     image.save(output_path,format="PNG",optimize=True)
