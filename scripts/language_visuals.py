@@ -1,36 +1,28 @@
-"""Minimal language analytics using GitHub-reported code bytes."""
+"""Responsive honeycomb language matrix using GitHub language bytes."""
 from html import escape
-
-COLORS = {"Python":"#3776AB","JavaScript":"#F1E05A","TypeScript":"#3178C6","HTML":"#E34C26","CSS":"#A78BFA","Java":"#B07219","C":"#A8B9CC","C++":"#F34B7D","Shell":"#89E051","Go":"#00ADD8","Rust":"#DEA584"}
+from math import sin, cos, pi, ceil
 
 def render_language_pie(languages, repo_count=None):
     raw = [(str(n), int(v)) for n,v in languages.most_common() if int(v)>0]
     total = sum(v for _,v in raw)
-    items = raw[:9]
-    if len(raw)>9:
-        items.append(("Other",sum(v for _,v in raw[9:])))
-    height = 158 + 42*max(1,len(items))
-    rows, segments = [], []
-    offset = 32
+    items = raw[:14]
+    if len(raw)>14:
+        items.append(("Other",sum(v for _,v in raw[14:])))
+    rows = max(1,ceil(len(items)/5))
+    height = 110 + rows*154
+    cells = []
     for i,(name,amount) in enumerate(items):
+        row,col = divmod(i,5)
+        count = min(5,len(items)-row*5)
+        x = 550+(col-(count-1)/2)*188
+        y = 130+row*154
         share = amount/total
-        color = COLORS.get(name,"#94A3B8")
-        width = 1036*share
-        segments.append(f'<rect x="{offset:.3f}" y="87" width="{width:.3f}" height="12" fill="{color}"/>')
-        offset += width
-        y = 137+i*42
-        rows.append(f'<circle cx="40" cy="{y}" r="5" fill="{color}"/><text x="55" y="{y+5}" fill="#E6E8EC" font-size="16">{escape(name[:30])}</text><rect x="310" y="{y-4}" width="570" height="8" rx="4" fill="#292D34"/><rect x="310" y="{y-4}" width="{570*share:.3f}" height="8" rx="4" fill="{color}"/><text x="1068" y="{y+5}" text-anchor="end" fill="#E6E8EC" font-size="16">{share*100:.1f}%</text>')
-    if not rows:
-        rows.append('<text x="32" y="142" fill="#A0A6B0">No language data available</text>')
+        points = " ".join(f"{x+83*cos(pi*k/3):.2f},{y+83*sin(pi*k/3):.2f}" for k in range(6))
+        cells.append(f'<g><polygon points="{points}" fill="#091C15" stroke="#246B49" stroke-width="1.5"/><polygon class="glow" style="animation-delay:{i*.45:.2f}s" points="{points}" fill="none" stroke="#39FF88" stroke-width="2" opacity=".45"/><text x="{x}" y="{y-23}" text-anchor="middle" fill="#8FC5A7" font-size="11">0{i+1:02d} / LANG</text><text x="{x}" y="{y-3}" text-anchor="middle" fill="#E6FFF0" font-size="14" font-weight="600">{escape(name[:17])}</text><text x="{x}" y="{y+26}" text-anchor="middle" fill="#39FF88" font-size="24" font-weight="700">{share*100:.1f}%</text><rect x="{x-40}" y="{y+38}" width="80" height="3" rx="1.5" fill="#234438"/><rect x="{x-40}" y="{y+38}" width="{80*share:.2f}" height="3" rx="1.5" fill="#39FF88"/></g>')
+    if not cells:
+        cells.append('<text x="550" y="130" text-anchor="middle" fill="#8FC5A7">No language data available</text>')
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="{height}" viewBox="0 0 1100 {height}" role="img" aria-labelledby="title desc">
-<title id="title">Language analytics</title><desc id="desc">GitHub language byte distribution across selected public projects.</desc>
-<defs><clipPath id="bar"><rect x="32" y="87" width="1036" height="12" rx="6"/></clipPath><style>.status{{animation:breathe 4s ease-in-out infinite}}@keyframes breathe{{50%{{opacity:.4}}}}@media(prefers-reduced-motion:reduce){{.status{{animation:none}}}}</style></defs>
-<rect width="1100" height="{height}" rx="14" fill="#14161A"/>
-<g font-family="Arial,sans-serif">
-<text x="32" y="36" font-size="24" font-weight="700" fill="#F1F2F4">Language analytics</text>
-<text x="32" y="62" font-size="14" fill="#A0A6B0">{len(raw)} languages · {repo_count if repo_count is not None else 'Public'} repositories</text>
-<circle class="status" cx="972" cy="32" r="4" fill="#89E051"/><text x="1068" y="37" text-anchor="end" font-size="12" fill="#A0A6B0">AUTO-SYNC</text>
-<rect x="32" y="87" width="1036" height="12" rx="6" fill="#292D34"/><g clip-path="url(#bar)">{''.join(segments)}</g>
-{''.join(rows)}
-<text x="32" y="{height-15}" font-size="12" fill="#A0A6B0">GitHub API · {total:,} language bytes</text>
-</g></svg>"""
+<title id="title">Language hexagon matrix</title><desc id="desc">GitHub language byte distribution across selected public projects.</desc>
+<defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#39FF88" stroke-opacity=".045"/></pattern><style>.glow{{animation:pulse 5s ease-in-out infinite}}@keyframes pulse{{50%{{opacity:.95}}}}@media(prefers-reduced-motion:reduce){{.glow{{animation:none}}}}</style></defs>
+<rect width="1100" height="{height}" rx="16" fill="#050D0A"/><rect width="1100" height="{height}" rx="16" fill="url(#grid)"/>
+<g font-family="monospace"><text x="28" y="32" font-size="18" font-weight="700" fill="#39FF88">LANGUAGE // HEX MATRIX</text><text x="1072" y="32" text-anchor="end" font-size="12" fill="#8FC5A7">{len(raw)} LANGUAGES · {repo_count if repo_count is not None else 'PUBLIC'} REPOS</text><path d="M28 48H1072" stroke="#204B37"/>{''.join(cells)}<text x="28" y="{height-18}" font-size="11" fill="#8FC5A7">GITHUB API // {total:,} CODE BYTES</text><text x="1072" y="{height-18}" text-anchor="end" font-size="11" fill="#39FF88">AUTO-SYNC</text></g></svg>"""
