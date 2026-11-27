@@ -54,6 +54,8 @@ def render_latest_png(repositories, background_path, output_path, featured=False
     from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 
     repos = list(repositories)
+    if not featured:
+        return render_repository_timeline(repos, output_path)
     width = 1100
     row_height = 166
     height = 16 + max(1, (len(repos) + 1) // 2) * row_height
@@ -130,3 +132,49 @@ def render_latest_png(repositories, background_path, output_path, featured=False
         pushed = str(repo.get("pushed_at") or "")[:10] or "N/A"
         draw.text((x + 16, y + 131), f"STARS {stars}  |  FORKS {forks}  |  {pushed}", font=font(12), fill="#A8C9BB")
     (background.convert("RGB") if featured else background).save(output_path, format="PNG", optimize=True)
+
+
+def render_repository_timeline(repos, output_path):
+    from PIL import Image, ImageDraw, ImageFont
+    width = 1100
+    step = 156
+    height = 108 + max(1, len(repos)) * step
+    image = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(image)
+    def font(size, bold=False):
+        return ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans" + ("-Bold" if bold else "") + ".ttf", size)
+    def fit(value, limit, size, bold=False):
+        value = str(value or "")
+        original = value
+        while value and draw.textlength(value + ("…" if value != original else ""), font=font(size, bold)) > limit:
+            value = value[:-1]
+        return value + ("…" if value != original else "")
+    def label(x, y, value, size=16, color="#BDBDBD", bold=False):
+        draw.text((x,y), value, font=font(size,bold), fill=color)
+    green = "#39FF88"
+    draw.ellipse((24,22,34,32), fill=green)
+    label(46,15,"REPOSITORY STREAM",20,green,True)
+    label(950,20,"AUTO-SYNC",14,"#A0A0A0")
+    colors = {"Python":"#3572A5","HTML":"#E34C26","JavaScript":"#F1E05A","TypeScript":"#3178C6","CSS":"#563D7C","Java":"#B07219","C++":"#F34B7D"}
+    for i, repo in enumerate(repos):
+        y = 55 + i*step
+        label(15,y+17,f"{i+1:02}",15,"#A0A0A0")
+        draw.rounded_rectangle((48,y,51,y+140),radius=1,fill=green)
+        draw.rounded_rectangle((65,y,1080,y+140),radius=9,fill="#101010")
+        draw.rounded_rectangle((83,y+15,127,y+59),radius=7,fill="#080808")
+        draw.rectangle((92,y+31,118,y+48),outline=green,width=2)
+        draw.line((92,y+31,92,y+26,103,y+26,108,y+31),fill=green,width=2)
+        label(143,y+10,fit(repo.get("name") or "Repository",840,24,True),24,green,True)
+        label(143,y+40,"PUBLIC REPOSITORY",12,"#A0A0A0")
+        label(84,y+70,fit(repo.get("description") or "Explore source code and project details.",970,17),17)
+        draw.line((84,y+100,1060,y+100),fill="#292929",width=1)
+        lang = str(repo.get("language") or "Other")
+        draw.ellipse((85,y+115,95,y+125),fill=colors.get(lang,"#A0A0A0"))
+        label(104,y+110,fit(lang,200,15),15)
+        label(330,y+110,f"STARS {int(repo.get('stargazers_count') or 0)}",15)
+        label(480,y+110,f"FORKS {int(repo.get('forks_count') or 0)}",15)
+        label(810,y+110,"UPDATED "+str(repo.get("updated_at") or repo.get("pushed_at") or "N/A")[:10],15)
+    if not repos:
+        label(65,90,"No public repositories yet",20)
+    label(24,height-32,"GITHUB API  //  LIVE REPOSITORY DATA",14,"#A0A0A0")
+    image.save(output_path,format="PNG",optimize=True)
