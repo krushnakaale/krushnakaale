@@ -39,7 +39,7 @@ jobs:
             python scripts/update_profile.py
             python -c 'import os; from pathlib import Path; from scripts.github_api import GitHubAPI; from scripts.push_streak import refresh; refresh(Path.cwd(), GitHubAPI(os.environ["GH_TOKEN"]), "krushnakaale")'
             python scripts/tech_motion.py
-            git add README.md assets/github-stats.svg assets/language-breakdown.svg assets/featured-projects.svg assets/featured-projects-developer.png assets/latest-repositories-v2.svg assets/latest-repositories-hacker.png assets/activity-feed.svg assets/tech-motion.gif assets/push-days.json assets/push-events.json assets/push-streak.svg
+            git add README.md assets/command-center.svg assets/identity-mission.svg assets/github-stats.svg assets/language-breakdown.svg assets/featured-projects.svg assets/featured-projects-developer.png assets/latest-repositories-v2.svg assets/latest-repositories-hacker.png assets/activity-feed.svg assets/tech-motion.gif assets/push-days.json assets/push-events.json assets/push-streak.svg
             if git diff --cached --quiet; then
               exit 0
             fi
