@@ -18,7 +18,9 @@ def main():
             raise ValueError(f"Invalid workflow structure in {path.name}")
     for name in ("README.md", "README.template.md"):
         readme = render_regions((root / name).read_text(encoding="utf-8"))
-        for target in re.findall(r"\]\((assets/[^)]+)\)", readme):
+        for reference in re.findall(r"\]\((assets/[^)]+)\)", readme):
+            # README image cache-busting query parameters are not filesystem paths.
+            target = reference.split("?", 1)[0].split("#", 1)[0]
             if not (root / target).is_file():
                 raise ValueError(f"{name} references missing {target}")
     for path in (root / "assets").glob("*.svg"):
