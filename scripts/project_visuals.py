@@ -160,8 +160,6 @@ def render_repository_timeline(repos, output_path):
         y = 55 + i*step
         label(15,y+17,f"{i+1:02}",15,"#A0A0A0")
         draw.rounded_rectangle((48,y,51,y+140),radius=1,fill=green)
-        draw.rounded_rectangle((65,y,1080,y+140),radius=9,fill="#101010")
-        draw.rounded_rectangle((83,y+15,127,y+59),radius=7,fill="#080808")
         draw.rectangle((92,y+31,118,y+48),outline=green,width=2)
         draw.line((92,y+31,92,y+26,103,y+26,108,y+31),fill=green,width=2)
         label(143,y+10,fit(repo.get("name") or "Repository",840,24,True),24,green,True)
