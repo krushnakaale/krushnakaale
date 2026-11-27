@@ -66,7 +66,7 @@ I build Python tools and automation scripts, develop practical web applications,
 <!-- FEATURED:START -->
 ![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)
 
-[Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [Python-Projects](https://github.com/krushnakaale/Python-Projects) · [yt-manager](https://github.com/krushnakaale/yt-manager)
+[Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [python-projects](https://github.com/krushnakaale/python-projects) · [yt-manager](https://github.com/krushnakaale/yt-manager)
 <!-- FEATURED:END -->
 
 ## `07 // LATEST REPOSITORIES`
@@ -76,7 +76,7 @@ I build Python tools and automation scripts, develop practical web applications,
 <!-- REPOSITORIES:START -->
 ![Latest repositories with centered hacker background, automatically updated from GitHub](assets/latest-repositories-hacker.png)
 
-[Python-Projects](https://github.com/krushnakaale/Python-Projects) · [Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [yt-manager](https://github.com/krushnakaale/yt-manager) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [resume](https://github.com/krushnakaale/resume) · [fresher-party-management-system](https://github.com/krushnakaale/fresher-party-management-system) · [TA0023](https://github.com/krushnakaale/TA0023) · [SevaSetu](https://github.com/krushnakaale/SevaSetu)
+[python-projects](https://github.com/krushnakaale/python-projects) · [Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [yt-manager](https://github.com/krushnakaale/yt-manager) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [resume](https://github.com/krushnakaale/resume) · [fresher-party-management-system](https://github.com/krushnakaale/fresher-party-management-system) · [TA0023](https://github.com/krushnakaale/TA0023) · [SevaSetu](https://github.com/krushnakaale/SevaSetu)
 
 [View all repositories ↗](https://github.com/krushnakaale?tab=repositories)
 <!-- REPOSITORIES:END -->
@@ -86,7 +86,7 @@ I build Python tools and automation scripts, develop practical web applications,
 <!-- LANGUAGES:START -->
 <div align="center">
 
-![Live code-byte language distribution donut chart](assets/language-breakdown.svg?v=2)
+![Live holographic language analytics](assets/language-breakdown.svg?v=4)
 
 </div>
 <!-- LANGUAGES:END -->
