@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="160" viewBox="0 0 1100 160"><g font-family="monospace" font-size="18" fill="#39FF88" text-anchor="middle"><text x="275" y="25">01 // ABOUT ME</text><text x="825" y="25">02 // CURRENT FOCUS</text><text x="825" y="52" font-size="14">● SYSTEM ONLINE</text></g><g font-family="sans-serif" font-size="17" fill="#9BAAB9" text-anchor="middle"><text x="275" y="60">I build Python tools, automation scripts</text><text x="275" y="85">and practical web applications while learning</text><text x="275" y="110">secure development, cybersecurity and open source</text><text x="275" y="135">with Linux and Git.</text><text x="825" y="78">01 // Python automation</text><text x="825" y="103">02 // Cybersecurity fundamentals</text><text x="825" y="128">03 // Open-source development</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="160" viewBox="0 0 1100 160">
+<g font-family="monospace" font-size="18" fill="#39FF88">
+<text x="275" y="25" text-anchor="middle" font-weight="bold">01 // ABOUT ME</text>
+<text x="825" y="25" text-anchor="middle" font-weight="bold">02 // CURRENT FOCUS</text>
+<text x="825" y="52" text-anchor="middle" font-size="14">● SYSTEM ONLINE</text>
+</g><g font-family="sans-serif" font-size="17" fill="#9BAAB9" text-anchor="middle">
+<text x="275" y="60">I build Python tools, automation scripts</text>
+<text x="275" y="85">and practical web applications while learning</text>
+<text x="275" y="110">secure development, cybersecurity and open source</text>
+<text x="275" y="135">with Linux and Git.</text>
+<text x="825" y="78">01 // Python automation</text>
+<text x="825" y="103">02 // Cybersecurity fundamentals</text>
+<text x="825" y="128">03 // Open-source development</text>
+</g></svg>
