@@ -42,7 +42,7 @@
 ![GitHub repository and language statistics](assets/github-stats.svg?v=2)
 <!-- STATS:END -->
 
-![Developer command center, latest workflow status and repository language network](assets/command-center.svg)
+![Developer command center, latest workflow status and repository language network](assets/command-center.svg?v=2)
 
 *Workflow status reflects the latest available run; network groups tracked projects by primary language.*
 
