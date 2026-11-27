@@ -76,7 +76,7 @@ def render_latest_png(repositories, background_path, output_path, featured=False
         for i in range(len(repos)):
             x = 26 + (i % 2) * 550
             y = 17 + (i // 2) * row_height
-            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, fill=(0,0,0,225), outline=(100,180,145,125), width=1)
+            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, fill=(35,42,40,155), outline=(100,180,145,125), width=1)
             surface.line((x+16,y+1,x+504,y+1), fill=(180,255,225,105), width=1)
         background.alpha_composite(glass)
         reflections = Image.new("RGBA", background.size)
