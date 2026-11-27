@@ -85,21 +85,11 @@ def update(root, api):
         "LANGUAGES": '<div align="center">\n\n![Live holographic language analytics](assets/language-breakdown.svg?v=4)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg?v=2)",
         "FOCUS": (
-            "**`[ SYSTEM ONLINE ]  //  MISSION CONTROL`**\n\n"
-            "| 01 // FOCUS | 02 // FOCUS | 03 // FOCUS |\n"
-            "|:---:|:---:|:---:|\n"
+            '<p align="center"><code>● SYSTEM ONLINE</code></p>\n'
             + "\n".join(
-                "| " + " | ".join(
-                    f"**`{text(item)}`**" if item else "—"
-                    for item in (items[i:i + 3] + [""] * 3)[:3]
-                ) + " |"
-                for items in [[
-                    *config["currently_working_on"],
-                    *config["learning_interests"],
-                ]]
-                for i in range(0, len(items), 3)
+                f'<p align="center"><code>{i+1:02d} // {text(item)}</code></p>'
+                for i, item in enumerate([*config["currently_working_on"], *config["learning_interests"]])
             )
-            + "\n\n`> learn • build • secure • repeat_`"
         ),
     }
     refreshed = render_regions(original, sections)
