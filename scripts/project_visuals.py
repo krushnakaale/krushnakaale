@@ -51,7 +51,7 @@ def render_projects(repositories, featured=False):
 
 def render_latest_png(repositories, background_path, output_path, featured=False):
     """Render live repository rows over one centered photographic backdrop."""
-    from PIL import Image, ImageDraw, ImageFont, ImageOps
+    from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 
     repos = list(repositories)
     width = 1100
@@ -61,6 +61,22 @@ def render_latest_png(repositories, background_path, output_path, featured=False
     # One image across the entire section, never repeated per repository.
     background = ImageOps.fit(source, (width, height), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5)).convert("RGBA")
     background.alpha_composite(Image.new("RGBA", (width, height), (3, 10, 13, 173)))
+    if not featured:
+        glass = Image.new("RGBA", background.size)
+        surface = ImageDraw.Draw(glass)
+        for i in range(len(repos)):
+            x = 26 + (i % 2) * 550
+            y = 17 + (i // 2) * row_height
+            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, outline=(39,255,150,95), width=3)
+        background.alpha_composite(glass.filter(ImageFilter.GaussianBlur(7)))
+        glass = Image.new("RGBA", background.size)
+        surface = ImageDraw.Draw(glass)
+        for i in range(len(repos)):
+            x = 26 + (i % 2) * 550
+            y = 17 + (i // 2) * row_height
+            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, fill=(8,35,27,85), outline=(100,240,181,130), width=1)
+            surface.line((x+16,y+1,x+504,y+1), fill=(180,255,225,105), width=1)
+        background.alpha_composite(glass)
     draw = ImageDraw.Draw(background)
     font_dir = "/usr/share/fonts/truetype/dejavu/"
     def font(size, bold=False):
@@ -76,7 +92,8 @@ def render_latest_png(repositories, background_path, output_path, featured=False
         x = 26 + (i % 2) * 550
         y = 17 + (i // 2) * row_height
         # Semi-transparent local reading surface retains the cinematic photo.
-        draw.rounded_rectangle((x, y, x + 520, y + 154), radius=14, fill=(4, 16, 19, 172), outline=(23, 116, 88, 170), width=1)
+        if featured:
+            draw.rounded_rectangle((x, y, x + 520, y + 154), radius=14, fill=(4, 16, 19, 172), outline=(23, 116, 88, 170), width=1)
         language = str(repo.get("language") or "Other")
         name = str(repo.get("name") or "Repository")
         description = str(repo.get("description") or "Explore source code and project details.")
