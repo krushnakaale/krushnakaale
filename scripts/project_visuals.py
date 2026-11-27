@@ -62,6 +62,13 @@ def render_latest_png(repositories, background_path, output_path, featured=False
     background = ImageOps.fit(source, (width, height), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5)).convert("RGBA")
     background.alpha_composite(Image.new("RGBA", (width, height), (3, 10, 13, 173 if featured else 65)))
     if not featured:
+        # A dedicated emerald glass environment, not the old hacker photograph.
+        background = Image.new("RGBA", (width, height), (5, 13, 18, 255))
+        lights = Image.new("RGBA", background.size)
+        lighting = ImageDraw.Draw(lights)
+        lighting.ellipse((-180, -100, 650, 420), fill=(0, 180, 119, 160))
+        lighting.ellipse((520, height//3, 1300, height+220), fill=(0, 110, 125, 150))
+        background.alpha_composite(lights.filter(ImageFilter.GaussianBlur(125)))
         glass = Image.new("RGBA", background.size)
         surface = ImageDraw.Draw(glass)
         for i in range(len(repos)):
@@ -74,9 +81,16 @@ def render_latest_png(repositories, background_path, output_path, featured=False
         for i in range(len(repos)):
             x = 26 + (i % 2) * 550
             y = 17 + (i // 2) * row_height
-            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, fill=(5,30,23,145), outline=(110,255,192,210), width=2)
+            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, fill=(180,255,230,24), outline=(155,255,218,145), width=2)
             surface.line((x+16,y+1,x+504,y+1), fill=(180,255,225,105), width=1)
         background.alpha_composite(glass)
+        reflections = Image.new("RGBA", background.size)
+        shine = ImageDraw.Draw(reflections)
+        for i in range(len(repos)):
+            x = 26 + (i % 2) * 550
+            y = 17 + (i // 2) * row_height
+            shine.polygon([(x+280,y+3),(x+505,y+3),(x+505,y+110),(x+410,y+110)], fill=(210,255,242,13))
+        background.alpha_composite(reflections)
     draw = ImageDraw.Draw(background)
     if not featured:
         for i in range(len(repos)):
