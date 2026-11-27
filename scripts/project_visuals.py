@@ -60,7 +60,7 @@ def render_latest_png(repositories, background_path, output_path, featured=False
     source = Image.open(background_path).convert("RGB")
     # One image across the entire section, never repeated per repository.
     background = ImageOps.fit(source, (width, height), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5)).convert("RGBA")
-    background.alpha_composite(Image.new("RGBA", (width, height), (3, 10, 13, 173)))
+    background.alpha_composite(Image.new("RGBA", (width, height), (3, 10, 13, 173 if featured else 65)))
     if not featured:
         glass = Image.new("RGBA", background.size)
         surface = ImageDraw.Draw(glass)
@@ -74,10 +74,15 @@ def render_latest_png(repositories, background_path, output_path, featured=False
         for i in range(len(repos)):
             x = 26 + (i % 2) * 550
             y = 17 + (i // 2) * row_height
-            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, fill=(8,35,27,85), outline=(100,240,181,130), width=1)
+            surface.rounded_rectangle((x,y,x+520,y+154), radius=14, fill=(5,30,23,145), outline=(110,255,192,210), width=2)
             surface.line((x+16,y+1,x+504,y+1), fill=(180,255,225,105), width=1)
         background.alpha_composite(glass)
     draw = ImageDraw.Draw(background)
+    if not featured:
+        for i in range(len(repos)):
+            x = 26 + (i % 2) * 550
+            y = 17 + (i // 2) * row_height
+            draw.line((x+18,y+5,x+155,y+5), fill="#7DEFC0", width=2)
     font_dir = "/usr/share/fonts/truetype/dejavu/"
     def font(size, bold=False):
         return ImageFont.truetype(font_dir + ("DejaVuSansMono-Bold.ttf" if bold else "DejaVuSansMono.ttf"), size)
