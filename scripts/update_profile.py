@@ -80,7 +80,7 @@ def update(root, api):
     sections = {
         "STATS": f"![{summary}. Includes a chart of top primary languages.](assets/github-stats.svg?v=2)",
         "FEATURED": "![Featured projects with centered developer background, automatically updated from GitHub](assets/featured-projects-developer.png)\n\n" + repo_links(featured),
-        "REPOSITORIES": "![Latest repositories with translucent cyber glass cards, automatically updated from GitHub](assets/latest-repositories-hacker.png?v=glass1)\n\n" + repo_links(latest)
+        "REPOSITORIES": "![Latest repositories with translucent cyber glass cards, automatically updated from GitHub](assets/latest-repositories-hacker.png?v=glass2)\n\n" + repo_links(latest)
         + f"\n\n[View all repositories ↗](https://github.com/{username}?tab=repositories)",
         "LANGUAGES": '<div align="center">\n\n![Live holographic language analytics](assets/language-breakdown.svg?v=4)\n\n</div>',
         "ACTIVITY": "![Latest public GitHub activity — two events per row](assets/activity-feed.svg)",
