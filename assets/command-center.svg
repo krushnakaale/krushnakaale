@@ -2,13 +2,13 @@
 <text x="24" y="25" font-family="monospace" font-size="20" fill="#39FF88" text-anchor="start">DEVELOPER COMMAND CENTER</text>
 <text x="24" y="55" font-family="monospace" font-size="16" fill="#9BAAB9" text-anchor="start">11 tracked projects  //  5 displayed public events</text>
 <text x="24" y="85" font-family="monospace" font-size="17" fill="#39FF88" text-anchor="start">REPOSITORY HEALTH / LATEST WORKFLOW</text>
-<text x="24" y="115" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">python-projects</text>
+<text x="24" y="115" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">Airbnb</text>
 <text x="515" y="115" font-family="monospace" font-size="14" fill="#9BAAB9" text-anchor="end">NO RUN</text>
-<text x="24" y="145" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">Python-Basic-Projects</text>
+<text x="24" y="145" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">Myraa-Voice-Assistant</text>
 <text x="515" y="145" font-family="monospace" font-size="14" fill="#9BAAB9" text-anchor="end">NO RUN</text>
-<text x="24" y="175" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">yt-manager</text>
+<text x="24" y="175" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">resume</text>
 <text x="515" y="175" font-family="monospace" font-size="14" fill="#9BAAB9" text-anchor="end">NO RUN</text>
-<text x="24" y="205" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">Myraa-Voice-Assistant</text>
+<text x="24" y="205" font-family="monospace" font-size="15" fill="#9BAAB9" text-anchor="start">yt-manager</text>
 <text x="515" y="205" font-family="monospace" font-size="14" fill="#9BAAB9" text-anchor="end">NO RUN</text>
 <text x="24" y="255" font-family="monospace" font-size="13" fill="#9BAAB9" text-anchor="start">Latest run only; not a security or test audit.</text>
 <text x="24" y="280" font-family="monospace" font-size="13" fill="#9BAAB9" text-anchor="start">Public activity is limited to available events.</text>

@@ -63,7 +63,7 @@ Explore Python programming projects, automation tools, web applications and AI v
 <!-- FEATURED:START -->
 ![Featured project spotlight, automatically updated from GitHub](assets/featured-projects-developer.png?v=spotlight2)
 
-[Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [python-projects](https://github.com/krushnakaale/python-projects) · [yt-manager](https://github.com/krushnakaale/yt-manager)
+[Python-Basic-Projects](https://github.com/krushnakaale/Python-Basic-Projects) · [Myraa-Voice-Assistant](https://github.com/krushnakaale/Myraa-Voice-Assistant) · [python-projects](https://github.com/krushnakaale/python-projects) · [Airbnb](https://github.com/krushnakaale/Airbnb)
 <!-- FEATURED:END -->
 
 ## `07 // LATEST REPOSITORIES`
@@ -73,7 +73,7 @@ Explore Python programming projects, automation tools, web applications and AI v
 <!-- REPOSITORIES:START -->
 ![Latest repositories with transparent repository timeline strips, automatically updated from GitHub](assets/latest-repositories-hacker.png?v=timeline3)
 
-[resume](https://github.com/krushnakaale/resume) · [fresher-party-management-system](https://github.com/krushnakaale/fresher-party-management-system) · [TA0023](https://github.com/krushnakaale/TA0023) · [SevaSetu](https://github.com/krushnakaale/SevaSetu) · [Airbnb](https://github.com/krushnakaale/Airbnb) · [MSBTE-Marksheet-Analyzer](https://github.com/krushnakaale/MSBTE-Marksheet-Analyzer) · [AnimateNav-html-css](https://github.com/krushnakaale/AnimateNav-html-css)
+[resume](https://github.com/krushnakaale/resume) · [yt-manager](https://github.com/krushnakaale/yt-manager) · [fresher-party-management-system](https://github.com/krushnakaale/fresher-party-management-system) · [SevaSetu](https://github.com/krushnakaale/SevaSetu) · [TA0023](https://github.com/krushnakaale/TA0023) · [MSBTE-Marksheet-Analyzer](https://github.com/krushnakaale/MSBTE-Marksheet-Analyzer) · [AnimateNav-html-css](https://github.com/krushnakaale/AnimateNav-html-css)
 
 [View all repositories ↗](https://github.com/krushnakaale?tab=repositories)
 <!-- REPOSITORIES:END -->
