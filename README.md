@@ -4,6 +4,10 @@
 
 ![Python, Cybersecurity and Automation](assets/typing.svg)
 
+# Krushna Kale — Python Developer & Software Projects
+
+Explore Python programming projects, automation tools, web applications and AI voice assistant development. This profile showcases hands-on software development and cybersecurity learning.
+
 [![Portfolio](https://img.shields.io/badge/PORTFOLIO-39FF88?style=for-the-badge&logo=vercel&logoColor=0D1712&labelColor=0D1712)](https://krushnakaale.vercel.app)
 [![GitHub](https://img.shields.io/badge/GITHUB-09120C?style=for-the-badge&logo=github&logoColor=00FF41)](https://github.com/krushnakaale)
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-09120C?style=for-the-badge&logo=linkedin&logoColor=FFFFFF)](https://www.linkedin.com/in/krushnakaale)
